@@ -19,3 +19,5 @@ so that **VALUE**
 
 ## Acceptance criteria
 * [ ] CRITERIA
+
+Please note that [wiki](https://github.com/maxbischof/data-hub-nord/wiki) provides further information (e.g., glossary).
