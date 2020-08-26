@@ -16,6 +16,8 @@ so that **VALUE**
 
 ## Tasks
 * [ ] TASK
+* [ ] Add component and integration test
+* [ ] Add new components to storybook
 
 ## Acceptance criteria
 * [ ] CRITERIA
