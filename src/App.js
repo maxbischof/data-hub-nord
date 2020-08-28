@@ -1,10 +1,12 @@
 import React from "react"
-import logo from "./logo.svg"
 import "./App.css"
-import { datasets } from "./datasets.js"
+import { datasets } from "./settings.js"
+import { fetchCSV } from "./utils.js"
 
 function App() {
-  console.log(datasets)
+  fetchCSV({targetURL: datasets[0].url})
+  .then(responds => console.log(responds))
+
   return <div className="App"></div>
 }
 

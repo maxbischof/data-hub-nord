@@ -1,3 +1,5 @@
+export const proxyURL = 'http://0.0.0.0:8080/'
+
 export const datasets = [
   {
     name: "Arbeitslosigkeit Kiel",
