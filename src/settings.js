@@ -8,7 +8,7 @@ export const datasets = [
       "https://www.kiel.de/opendata/kiel_wirtschaft_arbeit_unterbeschaeftigung.csv",
     imageUrl:
       "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-    keys: "",
+    keys: [],
     license: "Datenlizenz Deutschland – Zero – Version 2.0",
     publisher: "Landeshauptstadt Kiel",
     displayedAs: "",

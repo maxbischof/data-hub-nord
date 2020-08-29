@@ -1,4 +1,4 @@
-const { fetchCSV, csvToObjects } = require("./utils")
+const { fetchCSV, csvToObjectsArray } = require("./utils")
 const { datasets } = require("./settings.js")
 
 const response = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbsch�ftigte;Unterbsch�ftigtenquote
@@ -15,8 +15,8 @@ de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2018;16608;11,5
 de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2019;15453;10,8
 `
 
-test("returns CSV from ODSH as string", () => {
-  return fetchCSV({ targetURL: datasets[0].url }).then((data) => {
+test("fetch CSV from ODSH as string", () => {
+  return fetchCSV({ path: datasets[0].url }).then((data) => {
     expect(data).toEqual(
       expect.stringContaining(`Land;Stadt;Kategorie;Merkmal;Jahr;Unterbsch�ftigte;Unterbsch�ftigtenquote`)
     )
@@ -25,10 +25,10 @@ test("returns CSV from ODSH as string", () => {
 
 test("returns array of objects from csv text", () => {
   return expect(
-    csvToObjects({
+    csvToObjectsArray({
       csv: response,
-      keys: datasets[0].keys,
-      seperator: datasets[0].seperator,
+      columnNames: datasets[0].keys,
+      seperator: ";",
     })
   ).toEqual(
     expect.arrayContaining([

@@ -1,25 +1,26 @@
 import { proxyURL } from "./settings"
 
-export function fetchCSV({ targetURL }) {
-  return fetch(proxyURL + targetURL)
+export function fetchCSV({ path }) {
+  return fetch(proxyURL + path)
     .then((response) => response.text())
     .catch((error) => console.log("error", error))
 }
 
-export function csvToObjects({ csv, keys, seperator }) {
-  let csvRows = csv.split('\n')
+export function csvToObjectsArray({ csv, columnNames, seperator }) {
+  let rows = csv.split('\n')
 
-  const attributeKeys = keys === '' ? csvRows[0].split(seperator) : keys
-  csvRows = keys === '' ? csvRows.slice(1, csvRows.length-1) : csvRows
+  const hasColumnNames = columnNames.length === 0
+  const objectKeys = hasColumnNames ? rows[0].split(seperator) : columnNames
+  rows = hasColumnNames ? rows.slice(1, rows.length-1) : rows
 
-  const objects = csvRows.map((row) => {
-    const attributeValues = row.split(seperator)
+  const objectsArray = rows.map((row) => {
+    const objectValues = row.split(seperator)
     
     const object = {}
-    attributeKeys.forEach((key, index) => object[key] = attributeValues[index])
-
+    objectKeys.forEach((key, index) => object[key] = objectValues[index])
+    
     return object
   })
 
-  return objects
-}
+  return objectsArray
+} 
