@@ -53,7 +53,7 @@ const StyledTable = styled.table`
   }
 
   tr > td:first-child::after{
-    box-shadow: 5px 0 5px -5px inset;
+    box-shadow: 5px 0 5px -5px inset rgba(0, 0, 0, 0.20);
     right: -5px;
     content: " ";
     height: 100%;
