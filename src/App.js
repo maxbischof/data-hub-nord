@@ -6,7 +6,6 @@ import Table from './components/Table'
 
 function App() {
   const [dataset1, setDataset1] = useState([{}])
-  const [dataset2, setDataset2] = useState([{}])
 
   useEffect(() => {
     fetchCSV({ path: datasets[0].url }).then((response) => {
@@ -16,16 +15,6 @@ function App() {
         seperator: datasets[0].seperator,
       })
       setDataset1(array)
-    })
-  
-    fetchCSV({ path: datasets[1].url }).then((response) => {
-      const array = csvToObjectsArray({
-        csv: response,
-        columnNames: datasets[1].keys,
-        seperator: datasets[1].seperator,
-      })
-  
-      setDataset2(array)
     })
   }, [])
 
