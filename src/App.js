@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { datasets } from "./settings.js"
 import { fetchCSV, csvToObjectsArray } from "./utils.js"
-import Table from './components/Table'
+import Table from "./components/Table"
+import Header from "./components/Header"
+import BackButton from "./components/ui/BackButton.js"
+import styled from "styled-components"
 
 function App() {
   const [dataset1, setDataset1] = useState([{}])
@@ -17,9 +20,19 @@ function App() {
     })
   }, [])
 
-  return <div className="App">
-    <Table array={dataset1}></Table>
-  </div>
+  return (
+    <>
+      <Header/>
+      <Main>
+        <BackButton/>
+        <Table array={dataset1}></Table>
+      </Main>
+    </>
+  )
 }
 
 export default App
+
+const Main = styled.main`
+  margin: 0 37px 0 37px;
+`
