@@ -16,7 +16,7 @@ export default function BackButton() {
 const Button = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 30px 0;
+  margin: 0 0 30px 37px;
 
   svg {
     margin: 0 12px 0 0;
