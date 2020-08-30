@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import "./App.css"
 import { datasets } from "./settings.js"
 import { fetchCSV, csvToObjectsArray } from "./utils.js"
 import Table from './components/Table'
