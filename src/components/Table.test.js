@@ -20,7 +20,7 @@ const exampleArray = csvToObjectsArray({ csv: exampleCSV, columnNames: [], seper
 
 it('renders table component', () => {
   const renderedTable = renderer
-    .create(<Table array={exampleArray}></Table>)
+    .create(<Table tableData={exampleArray}></Table>)
     .toJSON();
   expect(renderedTable).toMatchSnapshot();
 });

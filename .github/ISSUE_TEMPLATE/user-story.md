@@ -16,6 +16,10 @@ so that **VALUE**
 
 ## Tasks
 * [ ] TASK
+* [ ] Add component and integration test
+* [ ] Add new components to storybook
 
 ## Acceptance criteria
 * [ ] CRITERIA
+
+Please note that [wiki](https://github.com/maxbischof/data-hub-nord/wiki) provides further information (e.g., glossary).

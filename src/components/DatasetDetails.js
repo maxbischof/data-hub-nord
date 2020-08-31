@@ -44,7 +44,7 @@ export default function DatasetDetails({ datasetDescription }) {
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>
-      <Table array={tableData}></Table>
+      <Table tableData={tableData}></Table>
     </main>
   )
 }
