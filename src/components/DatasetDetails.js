@@ -16,7 +16,7 @@ export default function DatasetDetails({ datasetDescription }) {
     seperator,
   } = datasetDescription
 
-  const [dataArray, setDataArray] = useState([{}])
+  const [tableData, setTableData] = useState([{}])
 
   useEffect(() => {
     fetchCSV({ path: url }).then((response) => {
@@ -25,7 +25,7 @@ export default function DatasetDetails({ datasetDescription }) {
         columnNames: keys,
         seperator: seperator,
       })
-      setDataArray(array)
+      setTableData(array)
     })
   }, [keys, seperator, url])
 
@@ -44,14 +44,13 @@ export default function DatasetDetails({ datasetDescription }) {
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>
-      <Table array={dataArray}></Table>
+      <Table array={tableData}></Table>
     </main>
   )
 }
 
 DatasetDetails.propTypes = {
   datasetDescription: PropTypes.object,
-  datasetArray: PropTypes.array,
 }
 
 const DetailsDescription = styled.div`
