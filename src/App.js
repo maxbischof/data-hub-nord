@@ -18,7 +18,7 @@ function App() {
   }, [])
 
   return <div className="App">
-    <Table array={dataset1}></Table>
+    <Table tableData={dataset1}></Table>
   </div>
 }
 

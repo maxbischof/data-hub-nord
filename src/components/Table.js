@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { uid } from "react-uid"
 import styled from 'styled-components'
 
-export default function Table({ array }) {
-  const columnNames = Object.keys(array[0])
+export default function Table({ tableData }) {
+  const columnNames = Object.keys(tableData[0])
 
   return (
         <OverflowContainer>
@@ -19,7 +19,7 @@ export default function Table({ array }) {
             </TableHeader>
 
             <TableBody>
-              {array.map((object) => (
+              {tableData.map((object) => (
                 <tr key={uid(object)}>
                   {columnNames.map((name) => (
                     <td key={uid(name)}>{object[name]}</td>
@@ -33,7 +33,7 @@ export default function Table({ array }) {
 }
 
 Table.propTypes = {
-  array: PropTypes.array,
+  tableData: PropTypes.array,
 }
 
 const OverflowContainer = styled.div`
