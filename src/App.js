@@ -4,7 +4,7 @@ import { fetchCSV, csvToObjectsArray } from "./utils.js"
 import Table from './components/Table'
 
 function App() {
-  const [dataset1, setDataset1] = useState([{}])
+  const [dataset1, setDataset1] = useState([])
 
   useEffect(() => {
     fetchCSV({ path: datasets[0].url }).then((response) => {
