@@ -2,53 +2,13 @@
 
 exports[`renders header component 1`] = `
 <header
-  className="sc-AxjAm iGpmzY"
+  className="sc-AxjAm WsNFQ"
 >
   <a
     href="/"
   >
-    <svg
-      height="33"
-      viewBox="0 0 30 33"
-      width="30"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        data-name="Icon feather-database"
-        id="Icon_feather-database"
-        transform="translate(-3 -1.5)"
-      >
-        <path
-          d="M31.5,7.5C31.5,9.985,25.456,12,18,12S4.5,9.985,4.5,7.5,10.544,3,18,3,31.5,5.015,31.5,7.5Z"
-          data-name="Pfad 4"
-          fill="none"
-          id="Pfad_4"
-          stroke="#333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3"
-        />
-        <path
-          d="M31.5,18c0,2.49-6,4.5-13.5,4.5S4.5,20.49,4.5,18"
-          data-name="Pfad 5"
-          fill="none"
-          id="Pfad_5"
-          stroke="#333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3"
-        />
-        <path
-          d="M4.5,7.5v21c0,2.49,6,4.5,13.5,4.5s13.5-2.01,13.5-4.5V7.5"
-          data-name="Pfad 6"
-          fill="none"
-          id="Pfad_6"
-          stroke="#333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3"
-        />
-      </g>
+    <svg>
+      datahubnord_logo.svg
     </svg>
     DataHubNord
   </a>
