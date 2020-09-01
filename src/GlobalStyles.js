@@ -4,6 +4,7 @@ export default createGlobalStyle`
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {

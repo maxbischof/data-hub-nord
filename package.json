@@ -9,6 +9,7 @@
     "iconv-lite": "^0.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-uid": "^2.3.0",
     "styled-components": "^5.1.1"
   },
