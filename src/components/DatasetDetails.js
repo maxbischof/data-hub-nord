@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Table from "./Table"
 import PropTypes from "prop-types"
-import { fetchCSV, csvToObjectsArray } from "../utils.js"
+import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
 
 export default function DatasetDetails({ datasetDescription }) {
   const {
@@ -50,7 +50,7 @@ export default function DatasetDetails({ datasetDescription }) {
 }
 
 DatasetDetails.propTypes = {
-  datasetDescription: PropTypes.object,
+  datasetDescription: PropTypes.object.isRequired,
 }
 
 const DetailsDescription = styled.div`
@@ -59,7 +59,7 @@ const DetailsDescription = styled.div`
 
 const DetailsPicture = styled.img`
   border-radius: 5px;
-  border: 1px solid #333;
+  border: 1px solid var(--grey);
   width: 100%;
   margin: 0 0 30px 0;
 `
@@ -72,9 +72,8 @@ const Headline = styled.h1`
 
 const Headline2 = styled.h2`
   font-size: 22px;
-  margin: 30px 0 0 0;
   padding: 0;
-  margin: 0 37px 0 37px;
+  margin: 30px 37px 0 37px;
 `
 
 const Headline3 = styled.h3`

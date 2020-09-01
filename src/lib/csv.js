@@ -1,4 +1,4 @@
-import { proxyURL } from "./settings"
+import { proxyURL } from "../settings"
 import iconv from 'iconv-lite'
 
 export function fetchCSV({ path }) {

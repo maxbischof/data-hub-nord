@@ -23,7 +23,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   height: 60px;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--grey);
   margin-top: 30px;
   flex-shrink: 0;
 
@@ -38,9 +38,5 @@ const StyledFooter = styled.footer`
     flex-direction: column;
     padding: 0 15px 0 15px;
     text-decoration: none;
-  }
-
-  a:visited {
-    color: #333;
   }
 `

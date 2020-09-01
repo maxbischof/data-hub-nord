@@ -2,7 +2,7 @@
 
 exports[`renders header component 1`] = `
 <header
-  className="sc-AxjAm WsNFQ"
+  className="sc-AxjAm gpDeAs"
 >
   <a
     href="/"

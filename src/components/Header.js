@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom'
 
 export default function Header() {
   const pathname = useLocation().pathname
-  const color = pathname === "/" ? "white" : "#333"
+  const color = pathname === "/" ? "white" : "var(--grey)"
 
   return (
     <StyledHeader color={color}>
