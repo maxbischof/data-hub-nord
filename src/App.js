@@ -13,12 +13,17 @@ function App() {
         <SubHeadline>Visualisierung und Zugang zu den wichtigsten Daten</SubHeadline>
         <Button>Daten anzeigen</Button>
       </WelcomeSection>
+      <DatasetList></DatasetList>
       <Footer/>
     </>
   )
 }
 
 export default App
+
+const DatasetList = styled.div`
+flex: 1 0 auto;
+`
 
 const WelcomeSection = styled.section`
   height: 500px;

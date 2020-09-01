@@ -15,4 +15,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 `

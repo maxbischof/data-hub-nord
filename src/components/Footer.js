@@ -25,6 +25,7 @@ const StyledFooter = styled.footer`
   height: 60px;
   border-top: 1px solid #333;
   margin-top: 30px;
+  flex-shrink: 0;
 
   span {
     font-size: 12px;
