@@ -72,9 +72,8 @@ const Headline = styled.h1`
 
 const Headline2 = styled.h2`
   font-size: 22px;
-  margin: 30px 0 0 0;
   padding: 0;
-  margin: 0 37px 0 37px;
+  margin: 30px 37px 0 37px;
 `
 
 const Headline3 = styled.h3`
