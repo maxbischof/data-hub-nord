@@ -6,8 +6,8 @@ export default function Header() {
   return (
     <StyledHeader>
       <a href="/">
-      <Logo />
-      DataHubNord
+        <Logo />
+        DataHubNord
       </a>
     </StyledHeader>
   )
@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
     color: #333;
     font-weight: 700;
     margin: 26px 0 30px 22px;
-    text-decoration:none;
+    text-decoration: none;
     display: flex;
     align-items: center;
   }
