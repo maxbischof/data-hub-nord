@@ -26,5 +26,5 @@ const Template = (args) => <Table {...args}></Table>;
 
 export const Basic = Template.bind({});
 Basic.args = {
-  array: exampleArray
+  tableData: exampleArray
 };

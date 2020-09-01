@@ -7,7 +7,7 @@ export default function Table({ tableData }) {
   let headerRow = null
   let bodyRows = null
 
-  if(tableData.length > 0) {
+  if(tableData.length) {
     const columnNames = Object.keys(tableData[0])
 
     headerRow = (
@@ -51,6 +51,7 @@ Table.propTypes = {
 
 const OverflowContainer = styled.div`
   overflow-x: scroll;
+  margin: 10px 0 0 37px;
 `
 
 const StyledTable = styled.table`

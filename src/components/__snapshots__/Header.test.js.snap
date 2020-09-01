@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders header component 1`] = `
+<header
+  className="sc-AxjAm gpDeAs"
+>
+  <a
+    href="/"
+  >
+    <svg>
+      datahubnord_logo.svg
+    </svg>
+    DataHubNord
+  </a>
+</header>
+`;
