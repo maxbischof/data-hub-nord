@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Table from "./Table"
 import PropTypes from "prop-types"
 import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
+import DatasetImage from "./DatasetImage"
 
 export default function DatasetDetails({ datasetDescription }) {
   const {
@@ -32,7 +33,7 @@ export default function DatasetDetails({ datasetDescription }) {
   return (
     <main>
       <DetailsDescription>
-        <DetailsPicture src={imageUrl} />
+        <DatasetImage src={imageUrl} />
         <Headline>{name}</Headline>
         <Paragraph>{description}</Paragraph>
         <br />
@@ -55,13 +56,6 @@ DatasetDetails.propTypes = {
 
 const DetailsDescription = styled.div`
   margin: 0 37px 30px 37px;
-`
-
-const DetailsPicture = styled.img`
-  border-radius: 5px;
-  border: 1px solid var(--grey);
-  width: 100%;
-  margin: 0 0 30px 0;
 `
 
 const Headline = styled.h1`
