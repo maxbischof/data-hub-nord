@@ -16,7 +16,7 @@ export default function DatasetDetails({ datasetDescription }) {
     seperator,
   } = datasetDescription
 
-  const [tableData, setTableData] = useState([{}])
+  const [tableData, setTableData] = useState([])
 
   useEffect(() => {
     fetchCSV({ path: url }).then((response) => {

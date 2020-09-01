@@ -7,7 +7,7 @@ export default function Table({ tableData }) {
   let headerRow = null
   let bodyRows = null
 
-  if(tableData.length > 0) {
+  if(tableData.length) {
     const columnNames = Object.keys(tableData[0])
 
     headerRow = (

@@ -63,9 +63,7 @@ exports[`renders datasetdetails component 1`] = `
       </thead>
       <tbody
         className="sc-AxhUy bLwAyT"
-      >
-        <tr />
-      </tbody>
+      />
     </table>
   </div>
 </main>
