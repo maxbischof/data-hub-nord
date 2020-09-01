@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   }
 
   a {
-    color: #333;
+    color: var(--grey);
     font-weight: 700;
     margin: 26px 0 30px 22px;
     text-decoration: none;
@@ -28,7 +28,7 @@ const StyledHeader = styled.header`
   }
 
   a:visited {
-    color: #333;
+    color: var(--grey);
   }
 `
 

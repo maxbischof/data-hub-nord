@@ -23,7 +23,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   height: 60px;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--grey);
   margin-top: 30px;
 
   span {
@@ -40,6 +40,6 @@ const StyledFooter = styled.footer`
   }
 
   a:visited {
-    color: #333;
+    color: var(--grey);
   }
 `

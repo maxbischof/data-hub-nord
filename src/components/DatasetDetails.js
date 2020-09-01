@@ -59,7 +59,7 @@ const DetailsDescription = styled.div`
 
 const DetailsPicture = styled.img`
   border-radius: 5px;
-  border: 1px solid #333;
+  border: 1px solid var(--grey);
   width: 100%;
   margin: 0 0 30px 0;
 `
