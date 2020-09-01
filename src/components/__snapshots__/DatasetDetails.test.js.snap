@@ -6,7 +6,7 @@ exports[`renders datasetdetails component 1`] = `
     className="sc-AxgMl jzbxKt"
   >
     <img
-      className="sc-AxheI fKDPmu"
+      className="sc-AxheI cYjbAX"
       src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
     />
     <h1
@@ -43,7 +43,7 @@ exports[`renders datasetdetails component 1`] = `
     </p>
   </div>
   <h2
-    className="sc-AxmLO eCGjlW"
+    className="sc-AxmLO cenbAr"
   >
     Tabelle
   </h2>

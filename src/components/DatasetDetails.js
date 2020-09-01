@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Table from "./Table"
 import PropTypes from "prop-types"
-import { fetchCSV, csvToObjectsArray } from "../utils.js"
+import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
 
 export default function DatasetDetails({ datasetDescription }) {
   const {

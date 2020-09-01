@@ -38,8 +38,4 @@ const StyledFooter = styled.footer`
     padding: 0 15px 0 15px;
     text-decoration: none;
   }
-
-  a:visited {
-    color: var(--grey);
-  }
 `

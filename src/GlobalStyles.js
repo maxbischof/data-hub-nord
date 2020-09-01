@@ -15,4 +15,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
+
+a:visited {
+    color: var(--grey);
+}
 `
