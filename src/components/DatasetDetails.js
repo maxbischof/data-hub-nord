@@ -50,7 +50,7 @@ export default function DatasetDetails({ datasetDescription }) {
 }
 
 DatasetDetails.propTypes = {
-  datasetDescription: PropTypes.object,
+  datasetDescription: PropTypes.object.isRequired,
 }
 
 const DetailsDescription = styled.div`
