@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
-export default function Button({ color, linkPath, children }) {
-  return <Link to={linkPath}><StyledButton color={color}>{children}</StyledButton></Link>
+export default function Button({ color, children, onClick, reference }) {
+  return <StyledButton onClick={() => onClick(reference)} color={color}>{children}</StyledButton>
 }
 
 const StyledButton = styled.button`

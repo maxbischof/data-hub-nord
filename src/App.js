@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useRef } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer.js"
 import welcomeImage from "./images/sea.jpg"
@@ -8,9 +8,14 @@ import DatasetTeaser from "./components/DatasetTeaser"
 import { Link, Route } from "react-router-dom"
 import BackButton from "./components/ui/BackButton"
 import DatasetDetails from "./components/DatasetDetails"
-import Button from "./components/ui/Button"
+import WelcomeButton from "./components/ui/WelcomeButton"
 
 function App() {
+  const datasetSectionRef = useRef(null)
+  const scrollToRef = (ref) => {
+    console.log("scroll")
+    window.scrollTo(0, ref.current.offsetTop)}
+
   return (
     <>
       <Header />
@@ -24,10 +29,10 @@ function App() {
               <SubHeadline>
                 Visualisierung und Zugang zu den wichtigsten Daten
               </SubHeadline>
-              <Button color="#e63946" linkPath="#datensaetze">Daten anzeigen</Button>
+              <WelcomeButton color="#e63946" onClick={scrollToRef} reference={datasetSectionRef}>Daten anzeigen</WelcomeButton>
             </WelcomeSection>
             <DatasetList>
-              <h2>Datensätze</h2>
+              <h2 ref={datasetSectionRef}>Datensätze</h2>
               {datasets.map((dataset) => (
                 <Link
                   to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
