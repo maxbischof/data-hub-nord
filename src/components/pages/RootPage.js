@@ -1,0 +1,83 @@
+import React, { useRef } from 'react'
+import WelcomeButton from "../ui/WelcomeButton"
+import DatasetTeaser from "../DatasetTeaser"
+import { Link } from "react-router-dom"
+import welcomeImage from "../../images/sea.jpg"
+import styled from "styled-components"
+
+export default function RootPage({datasets}) {
+  const datasetSectionRef = useRef(null)
+  const scrollToRef = (ref) => {
+    console.log("scroll")
+    window.scrollTo(0, ref.current.offsetTop)
+  }
+  
+  return (
+    <>
+      <WelcomeSection>
+        <Headline>Entdecke Open Data in Norddeutschland</Headline>
+        <SubHeadline>
+          Visualisierung und Zugang zu den wichtigsten Daten
+        </SubHeadline>
+        <WelcomeButton color="#e63946" onClick={scrollToRef} reference={datasetSectionRef}>Daten anzeigen</WelcomeButton>
+      </WelcomeSection>
+      <DatasetList>
+        <h2 ref={datasetSectionRef}>Datensätze</h2>
+        {datasets.map((dataset) => (
+          <Link
+            to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
+            key={dataset.id}
+          >
+            <DatasetTeaser
+              imagePath={dataset.imageUrl}
+              titel={dataset.name}
+              description={dataset.description}
+            />
+          </Link>
+        ))}
+      </DatasetList>
+    </>
+  )
+}
+
+const DatasetList = styled.section`
+  flex: 1 0 auto;
+  padding: 50px 37px 30px 37px;
+
+  h2 {
+    font-size: 25px;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid var(--grey);
+    display: inline-block;
+    margin: 0 0 30px 0;
+  }
+`
+
+const WelcomeSection = styled.section`
+  height: 500px;
+  background: url("${welcomeImage}");
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+`
+
+const Headline = styled.h1`
+  color: white;
+  font-size: 35px;
+  font-weight: 100;
+  text-align: center;
+  padding: 0 10px 0 10px;
+  margin: 120px 0 10px 0;
+`
+
+const SubHeadline = styled.h2`
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+  margin: 0 0 50px 0;
+  padding: 0 10px 0 10px;
+`

@@ -50,7 +50,14 @@ export default function DatasetDetails({
 }
 
 DatasetDetails.propTypes = {
-  datasetDescription: PropTypes.object.isRequired,
+  imageUrl: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  license: PropTypes.string.isRequired,
+  publisher: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  keys: PropTypes.array,
+  seperator: PropTypes.string,
 }
 
 const DetailsDescription = styled.div`
