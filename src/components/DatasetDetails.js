@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import Table from "./Table"
 import PropTypes from "prop-types"
-import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
 import DatasetImage from "./DatasetImage"
+import { useCSV } from "../hooks/useCSV"
 
 export default function DatasetDetails({
   imageUrl,
@@ -16,18 +16,7 @@ export default function DatasetDetails({
   seperator,
 }) {
 
-  const [tableData, setTableData] = useState([])
-
-  useEffect(() => {
-    fetchCSV({ path: url }).then((response) => {
-      const array = csvToObjectsArray({
-        csv: response,
-        columnNames: keys,
-        seperator
-      })
-      setTableData(array)
-    })
-  }, [keys, seperator, url])
+  const tableData = useCSV(url, keys, seperator)
 
   return (
     <main>
