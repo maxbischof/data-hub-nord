@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import { uid } from "react-uid"
 import styled from 'styled-components'
 
-export default function Table({ tableData }) {
+export default function Table({ data }) {
   let headerRow = null
   let bodyRows = null
 
-  if(tableData.length) {
-    const columnNames = Object.keys(tableData[0])
+  if(data.length) {
+    const columnNames = Object.keys(data[0])
 
     headerRow = (
       columnNames.map((name) => (
@@ -17,7 +17,7 @@ export default function Table({ tableData }) {
     )
 
     bodyRows = (
-      tableData.map((object) => (
+      data.map((object) => (
         <tr key={uid(object)}>
           {columnNames.map((name) => (
             <td key={uid(name)}>{object[name]}</td>

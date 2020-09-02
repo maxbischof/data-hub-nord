@@ -33,7 +33,7 @@ export default function DatasetDetails({
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>
-      <Table tableData={tableData}></Table>
+      <Table data={tableData}></Table>
     </main>
   )
 }
