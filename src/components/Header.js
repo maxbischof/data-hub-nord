@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../icons/datahubnord_logo.js'
+import {ReactComponent as LogoSVG} from '../icons/datahubnord_logo.svg'
 import { useLocation } from 'react-router-dom'
 
 export default function Header() {
@@ -17,6 +17,10 @@ export default function Header() {
     </StyledHeader>
   )
 }
+
+const Logo = styled(LogoSVG)`
+  stroke: ${props => props.color};
+`
 
 const StyledHeader = styled.header`
   position: ${props => props.position};

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer.js"
 import welcomeImage from "./images/sea.jpg"
@@ -8,44 +8,9 @@ import DatasetTeaser from "./components/DatasetTeaser"
 import { Link, Route } from "react-router-dom"
 import BackButton from "./components/ui/BackButton"
 import DatasetDetails from "./components/DatasetDetails"
+import Button from "./components/ui/Button"
 
 function App() {
-  const [teaser, setTeaser] = useState()
-  const [datasetRoutes, setDatasetRoutes] = useState()
-
-  useEffect(() => {
-    setTeaser(
-      datasets.map((dataset) => (
-        <Link
-          to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
-          key={dataset.id}
-        >
-          <DatasetTeaser
-            imagePath={dataset.imageUrl}
-            titel={dataset.name}
-            description={dataset.description}
-          />
-        </Link>
-      ))
-    )
-
-    setDatasetRoutes(
-      datasets.map((dataset) => (
-        <Route
-          exact
-          key={dataset.id}
-          path={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
-          render={() => (
-            <>
-              <BackButton />
-              <DatasetDetails datasetDescription={dataset} />
-            </>
-          )}
-        />
-      ))
-    )
-  }, [])
-
   return (
     <>
       <Header />
@@ -59,16 +24,39 @@ function App() {
               <SubHeadline>
                 Visualisierung und Zugang zu den wichtigsten Daten
               </SubHeadline>
-              <Button>Daten anzeigen</Button>
+              <Button color="#e63946" linkPath="#datensaetze">Daten anzeigen</Button>
             </WelcomeSection>
             <DatasetList>
               <h2>Datensätze</h2>
-              {teaser}
+              {datasets.map((dataset) => (
+                <Link
+                  to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
+                  key={dataset.id}
+                >
+                  <DatasetTeaser
+                    imagePath={dataset.imageUrl}
+                    titel={dataset.name}
+                    description={dataset.description}
+                  />
+                </Link>
+              ))}
             </DatasetList>
           </>
         )}
       />
-      {datasetRoutes}
+      {datasets.map((dataset) => (
+        <Route
+          exact
+          key={dataset.id}
+          path={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
+          render={() => (
+            <>
+              <BackButton />
+              <DatasetDetails {...dataset} />
+            </>
+          )}
+        />
+      ))}
       <Footer />
     </>
   )
@@ -116,20 +104,4 @@ const SubHeadline = styled.h2`
   font-weight: 400;
   margin: 0 0 50px 0;
   padding: 0 10px 0 10px;
-`
-
-const Button = styled.button`
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #fff;
-  background-color: #e63946;
-  text-align: center;
-  border: none;
-  border-radius: 2px;
-  height: 36px;
-  width: 146px;
-  padding: 0 16px;
-  text-align: center;
-  cursor: pointer;
 `

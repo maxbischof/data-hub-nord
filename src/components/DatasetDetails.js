@@ -5,17 +5,16 @@ import PropTypes from "prop-types"
 import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
 import DatasetImage from "./DatasetImage"
 
-export default function DatasetDetails({ datasetDescription }) {
-  const {
-    imageUrl,
-    name,
-    description,
-    license,
-    publisher,
-    url,
-    keys,
-    seperator,
-  } = datasetDescription
+export default function DatasetDetails({
+  imageUrl,
+  name,
+  description,
+  license,
+  publisher,
+  url,
+  keys,
+  seperator,
+}) {
 
   const [tableData, setTableData] = useState([])
 
@@ -24,7 +23,7 @@ export default function DatasetDetails({ datasetDescription }) {
       const array = csvToObjectsArray({
         csv: response,
         columnNames: keys,
-        seperator: seperator,
+        seperator
       })
       setTableData(array)
     })
