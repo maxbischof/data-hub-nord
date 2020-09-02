@@ -1,32 +1,74 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer.js"
 import welcomeImage from "./images/sea.jpg"
 import styled from "styled-components"
 import { datasets } from "./settings"
 import DatasetTeaser from "./components/DatasetTeaser"
+import { Link, Route } from "react-router-dom"
+import BackButton from "./components/ui/BackButton"
+import DatasetDetails from "./components/DatasetDetails"
 
 function App() {
+  const [teaser, setTeaser] = useState()
+  const [datasetRoutes, setDatasetRoutes] = useState()
+
+  useEffect(() => {
+    setTeaser(
+      datasets.map((dataset) => (
+        <Link
+          to={`datensaetze/${dataset.id}`}
+          key={dataset.id}
+        >
+          <DatasetTeaser
+            imagePath={dataset.imageUrl}
+            titel={dataset.name}
+            description={dataset.description}
+          />
+        </Link>
+      ))
+    )
+
+    setDatasetRoutes(
+      datasets.map((dataset) => (
+        <Route
+          exact
+          key={dataset.id}
+          path={`/datensaetze/${dataset.id}`}
+          render={() => (
+            <>
+              <BackButton />
+              <DatasetDetails datasetDescription={dataset} />
+            </>
+          )}
+        />
+      ))
+    )
+  }, [])
+
   return (
     <>
       <Header />
-      <WelcomeSection>
-        <Headline>Entdecke Open Data in Norddeutschland</Headline>
-        <SubHeadline>
-          Visualisierung und Zugang zu den wichtigsten Daten
-        </SubHeadline>
-        <Button>Daten anzeigen</Button>
-      </WelcomeSection>
-      <DatasetList>
-        <h2>Datensätze</h2>
-        {datasets.map(dataset => (
-          <DatasetTeaser
-          imagePath={dataset.imageUrl}
-          titel={dataset.name}
-          description={dataset.description}
-        />
-        ))}
-      </DatasetList>
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <>
+            <WelcomeSection>
+              <Headline>Entdecke Open Data in Norddeutschland</Headline>
+              <SubHeadline>
+                Visualisierung und Zugang zu den wichtigsten Daten
+              </SubHeadline>
+              <Button>Daten anzeigen</Button>
+            </WelcomeSection>
+            <DatasetList>
+              <h2>Datensätze</h2>
+              {teaser}
+            </DatasetList>
+          </>
+        )}
+      />
+      {datasetRoutes}
       <Footer />
     </>
   )

@@ -4,31 +4,31 @@ import Logo from '../icons/datahubnord_logo.js'
 import { useLocation } from 'react-router-dom'
 
 export default function Header() {
-  const pathname = useLocation().pathname
-  const color = pathname === "/" ? "white" : "var(--grey)"
+  const isRootPath = useLocation().pathname === "/"
+  const color = isRootPath ? "white" : "var(--grey)"
+  const position = isRootPath ? "absolute" : "static"
 
   return (
-    <StyledHeader color={color}>
+    <StyledHeader color={color} position={position}>
       <a href="/">
         <Logo color={color}/>
-        DataHubNord
+        <span>DataHubNord</span>
       </a>
     </StyledHeader>
   )
 }
 
 const StyledHeader = styled.header`
-  position: absolute;
+  position: ${props => props.position};
   
-  svg {
-    margin: 0 12px 0 0;
+  span {
+    margin: 0 0 0 12px;
   }
 
   a {
     color: ${props => props.color};
     font-weight: 700;
     padding: 26px 0 30px 22px;
-    text-decoration: none;
     display: flex;
     align-items: center;
   }

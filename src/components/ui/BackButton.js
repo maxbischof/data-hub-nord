@@ -1,13 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import {ReactComponent as BackArrow} from '../../icons/backarrow.svg'
+import { Link } from 'react-router-dom'
 
 export default function BackButton() {
 
   return (
     <Button>
-      <BackArrow />
-      Zurück
+      <Link to="/">
+        <BackArrow />
+        Zurück
+      </Link>
     </Button>
   )
 }

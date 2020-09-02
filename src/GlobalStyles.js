@@ -22,6 +22,11 @@ export default createGlobalStyle`
     height: 100%;
   }
 
+  a {
+      color: var(--grey);
+      text-decoration: none;
+  }
+
   a:visited {
       color: var(--grey);
   }

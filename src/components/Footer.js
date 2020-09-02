@@ -37,6 +37,5 @@ const StyledFooter = styled.footer`
     align-items: center;
     flex-direction: column;
     padding: 0 15px 0 15px;
-    text-decoration: none;
   }
 `

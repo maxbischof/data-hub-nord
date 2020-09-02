@@ -2,6 +2,7 @@ export const proxyURL = 'http://0.0.0.0:8080/'
 
 export const datasets = [
   {
+    id: 1,
     name: "Arbeitslosigkeit Kiel",
     description: "Arbeitslosigkeit in Kiel absolut und relativ seit 2009",
     url:
@@ -15,6 +16,7 @@ export const datasets = [
     seperator: ";"
   },
   {
+    id: 2,
     name: "Badegewässer Messungen ",
     description: "Messungen der Badegewässerqualität in Schleswig Holstein.",
     url:

@@ -10,7 +10,7 @@ export function fetchCSV({ path }) {
 
 export function csvToObjectsArray({ csv, columnNames, seperator }) {
   let rows = csv.split('\n')
-
+  
   const hasColumnNames = columnNames.length === 0
   const objectKeys = hasColumnNames ? rows[0].split(seperator) : columnNames
   rows = hasColumnNames ? rows.slice(1, rows.length-1) : rows

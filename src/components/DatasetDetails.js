@@ -33,7 +33,7 @@ export default function DatasetDetails({ datasetDescription }) {
   return (
     <main>
       <DetailsDescription>
-        <DatasetImage src={imageUrl} />
+        <DatasetImage path={imageUrl} />
         <Headline>{name}</Headline>
         <Paragraph>{description}</Paragraph>
         <br />
@@ -60,7 +60,7 @@ const DetailsDescription = styled.div`
 
 const Headline = styled.h1`
   font-size: 25px;
-  margin: 0 0 10px 0;
+  margin: 30px 0 10px 0;
   padding: 0;
 `
 
