@@ -17,7 +17,7 @@ function App() {
     setTeaser(
       datasets.map((dataset) => (
         <Link
-          to={`datensaetze/${dataset.id}`}
+          to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
           key={dataset.id}
         >
           <DatasetTeaser
@@ -34,7 +34,7 @@ function App() {
         <Route
           exact
           key={dataset.id}
-          path={`/datensaetze/${dataset.id}`}
+          path={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
           render={() => (
             <>
               <BackButton />
@@ -85,6 +85,7 @@ const DatasetList = styled.section`
     padding: 0 0 5px 0;
     border-bottom: 1px solid var(--grey);
     display: inline-block;
+    margin: 0 0 30px 0;
   }
 `
 

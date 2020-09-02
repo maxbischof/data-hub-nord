@@ -8,13 +8,13 @@ export default function DatasetTeaser ({ imagePath, titel, description }) {
     <StyledDatasetTeaser>
       <DatasetImage path={imagePath} />
       <Titel>{titel}</Titel>
-      <Description>{description}</Description>
+      <Description>{description.length > 70 ? description.substring(0, 70) + "..." : description}</Description>
     </StyledDatasetTeaser>
   )
 }
 
 const StyledDatasetTeaser = styled.article`
-  margin: 50px 0 0 0;
+  margin: 0 0 50px 0;
 `
 
 const Titel = styled.h3`
@@ -27,4 +27,5 @@ const Description = styled.p`
   font-size: 17px;
   font-weight: 400;
   margin: 10px 0 0 0;
+  word-wrap: break-word;
 `
