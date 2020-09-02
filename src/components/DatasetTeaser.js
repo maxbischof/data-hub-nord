@@ -2,12 +2,12 @@ import React from 'react'
 import DatasetImage from './DatasetImage'
 import styled from 'styled-components'
 
-export default function DatasetTeaser ({ imagePath, titel, description }) {
+export default function DatasetTeaser ({ imagePath, title, description }) {
 
   return (
     <StyledDatasetTeaser>
       <DatasetImage path={imagePath} />
-      <Titel>{titel}</Titel>
+      <Title>{title}</Title>
       <Description>{description.length > 70 ? description.substring(0, 70) + "..." : description}</Description>
     </StyledDatasetTeaser>
   )
@@ -17,7 +17,7 @@ const StyledDatasetTeaser = styled.article`
   margin: 0 0 50px 0;
 `
 
-const Titel = styled.h3`
+const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
   margin: 10px 0 0 0;

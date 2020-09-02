@@ -30,7 +30,7 @@ export default function RootPage({datasets}) {
           >
             <DatasetTeaser
               imagePath={dataset.imageUrl}
-              titel={dataset.name}
+              title={dataset.name}
               description={dataset.description}
             />
           </Link>
