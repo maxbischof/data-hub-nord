@@ -1,7 +1,8 @@
 import React from "react"
 import DatasetDetailsComponent from "../components/DatasetDetails"
 import { datasets } from "../settings.js"
-import BackButtonComponent from "../components/ui/BackButton"
+import {ReactComponent as BackArrow} from '../icons/backarrow.svg'
+import styled from "styled-components"
 
 export default {
   title: "DatasetDetails",
@@ -11,8 +12,19 @@ export default {
 const Template = (args) => <DatasetDetailsComponent {...args} />
 
 export const DatasetDetailsTable = Template.bind({})
-DatasetDetailsTable.args = {
-  datasetDescription: datasets[0],
-}
+DatasetDetailsTable.args = {...datasets[0]}
 
-export const BackButton = () => <BackButtonComponent />
+export const BackButton = () => <StyledLink to="/">
+<BackArrow />
+Zurück
+</StyledLink>
+
+const StyledLink = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 0 30px 37px;
+
+  svg {
+    margin: 0 12px 0 0;
+  }
+`
