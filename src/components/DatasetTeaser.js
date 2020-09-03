@@ -8,7 +8,7 @@ export default function DatasetTeaser ({ imagePath, title, description }) {
     <StyledDatasetTeaser>
       <DatasetImage path={imagePath} />
       <Title>{title}</Title>
-      <Description>{description.length > 70 ? description.substring(0, 70) + "..." : description}</Description>
+      <Description>{description.length > 70 ? description.substring(0, 67) + "..." : description}</Description>
     </StyledDatasetTeaser>
   )
 }
