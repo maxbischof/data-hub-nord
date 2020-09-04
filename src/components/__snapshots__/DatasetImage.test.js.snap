@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders datasetimage component 1`] = `
+<img
+  className="sc-AxjAm jmONMO"
+  src="../images/sea.jpg"
+/>
+`;
