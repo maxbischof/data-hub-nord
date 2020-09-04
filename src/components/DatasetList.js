@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
+import PropTypes from 'prop-types'
 
 export default function DataList({ datasets, setRef }) {
   const headlineRef = useRef(null)
@@ -24,6 +25,11 @@ export default function DataList({ datasets, setRef }) {
       ))}
     </StyledDatasetList>
   )
+}
+
+DataList.propTypes = {
+  datasets: PropTypes.array.isRequired,
+  setRef: PropTypes.func
 }
 
 const StyledDatasetList = styled.section`

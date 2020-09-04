@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import welcomeImage from "../images/sea.jpg"
 import WelcomeButton from "./ui/WelcomeButton"
+import PropTypes from 'prop-types'
 
 export default function WelcomeSection({ onClickButton, scrollTo }) {
   return (
@@ -13,6 +14,11 @@ export default function WelcomeSection({ onClickButton, scrollTo }) {
       <WelcomeButton color="#e63946" onClick={onClickButton} reference={scrollTo}>Daten anzeigen</WelcomeButton>
     </StyledWelcomeSection>
   )
+}
+
+WelcomeSection.propTypes = {
+  onClickButton: PropTypes.func,
+  scrollTo: PropTypes.object
 }
 
 const StyledWelcomeSection = styled.section`
