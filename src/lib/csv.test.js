@@ -1,5 +1,5 @@
 const { fetchCSV, csvToObjectsArray } = require("./csv")
-const { datasets } = require("../settings.js")
+const { datasets } = require("../components/testDatasets")
 
 const response = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote
 de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2009;18918;15,1
