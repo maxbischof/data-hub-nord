@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="sc-AxirZ dwIUgl"
+>
+  <h1
+    className="sc-AxiKw fUiplq"
+  >
+    Entdecke Open Data in Norddeutschland
+  </h1>
+  <h2
+    className="sc-AxhCb gVbjCo"
+  >
+    Visualisierung und Zugang zu den wichtigsten Daten
+  </h2>
+  <button
+    className="sc-AxjAm eHROsV"
+    color="var(--red)"
+    onClick={[Function]}
+  >
+    Daten anzeigen
+  </button>
+</section>
+`;

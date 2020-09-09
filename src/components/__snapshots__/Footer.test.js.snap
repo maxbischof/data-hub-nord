@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders footer component 1`] = `
+<footer
+  className="sc-AxjAm hZHEwo"
+>
+  <a
+    href="https://twitter.com/datahubnord"
+  >
+    <svg>
+      twitter.svg
+    </svg>
+    <span>
+      Twitter
+    </span>
+  </a>
+  <a
+    href="https://www.linkedin.com/in/maxbischof/"
+  >
+    <svg>
+      linkedin.svg
+    </svg>
+    <span>
+      LinkedIn
+    </span>
+  </a>
+</footer>
+`;

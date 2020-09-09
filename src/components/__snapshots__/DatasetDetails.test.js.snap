@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders datasetdetails component 1`] = `
+<main>
+  <div
+    className="sc-AxheI hCWNyb"
+  >
+    <img
+      className="sc-AxgMl CyVOW"
+      src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+    />
+    <h1
+      className="sc-Axmtr gtBWno"
+    >
+      Arbeitslosigkeit Kiel
+    </h1>
+    <p
+      className="sc-fzoLsD kLkXrb"
+    >
+      Arbeitslosigkeit in Kiel absolut und relativ seit 2009.
+    </p>
+    <br />
+    <h3
+      className="sc-fzozJi keEFn"
+    >
+      Lizenz
+    </h3>
+    <p
+      className="sc-fzoLsD kLkXrb"
+    >
+      Datenlizenz Deutschland – Zero – Version 2.0
+    </p>
+    <br />
+    <h3
+      className="sc-fzozJi keEFn"
+    >
+      Herausgeber
+    </h3>
+    <p
+      className="sc-fzoLsD kLkXrb"
+    >
+      Landeshauptstadt Kiel
+    </p>
+  </div>
+  <h2
+    className="sc-AxmLO cenbAr"
+  >
+    Tabelle
+  </h2>
+  <div
+    className="sc-AxjAm bSmOPU"
+  >
+    <div
+      className="sc-AxhCb eHOKVW"
+    />
+    <table
+      className="sc-AxirZ bvuuZq"
+    >
+      <thead
+        className="sc-AxiKw ggcBiV"
+      >
+        <tr />
+      </thead>
+      <tbody
+        className="sc-AxhUy eQtfwf"
+      />
+    </table>
+  </div>
+</main>
+`;
