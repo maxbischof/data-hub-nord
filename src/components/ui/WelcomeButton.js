@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export default function Button({ color, children, onClick, reference }) {
   return (
@@ -24,3 +25,10 @@ const StyledButton = styled.button`
   text-align: center;
   cursor: pointer;
 `
+
+Button.propTypes = {
+  color: PropTypes.string,
+  children: PropTypes.string,
+  onClick: PropTypes.func,
+  reference: PropTypes.object,
+}
