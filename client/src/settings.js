@@ -1,4 +1,4 @@
-export const proxyURL = 'http://0.0.0.0:8080/'
+export const proxyURL = 'http://localhost:3000/proxy/'
 
 export const datasets = [
   {
