@@ -1,30 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ReactComponent as Logo} from '../icons/datahubnord_logo.svg'
+import { ReactComponent as LogoSVG } from '../icons/datahubnord_logo.svg'
+import { useLocation } from 'react-router-dom'
 
 export default function Header() {
+  const isRootPath = useLocation().pathname === '/'
+  const color = isRootPath ? 'white' : 'var(--grey)'
+  const position = isRootPath ? 'absolute' : 'static'
+
   return (
-    <StyledHeader>
+    <StyledHeader color={color} position={position}>
       <a href="/">
-        <Logo />
-        DataHubNord
+        <Logo color={color} />
+        <span>DataHubNord</span>
       </a>
     </StyledHeader>
   )
 }
 
+const Logo = styled(LogoSVG)`
+  stroke: ${(props) => props.color};
+`
+
 const StyledHeader = styled.header`
-  svg {
-    margin: 0 12px 0 0;
+  position: ${(props) => props.position};
+
+  span {
+    margin: 0 0 0 12px;
   }
 
   a {
-    color: var(--grey);
+    color: ${(props) => props.color};
     font-weight: 700;
-    margin: 26px 0 30px 22px;
-    text-decoration: none;
+    padding: 26px 0 30px 22px;
     display: flex;
     align-items: center;
   }
-`
 
+  a:visited {
+    color: ${(props) => props.color};
+  }
+`

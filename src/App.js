@@ -1,17 +1,26 @@
-import React from "react"
-import { datasets } from "./settings.js"
-import Header from "./components/Header"
-import BackButton from "./components/ui/BackButton.js"
-import DatasetDetails from "./components/DatasetDetails.js"
-import Footer from "./components/Footer.js"
+import React from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer.js'
+import { datasets } from './settings'
+import { Route } from 'react-router-dom'
+import RootPage from './components/pages/RootPage'
+import DatasetDetailsPage from './components/pages/DatasetDetailsPage'
 
 function App() {
   return (
     <>
-      <Header/>
-      <BackButton/>
-      <DatasetDetails datasetDescription={datasets[0]} />
-      <Footer/>
+      <Header />
+      <Route exact path="/" render={() => <RootPage datasets={datasets} />} />
+
+      {datasets.map((dataset) => (
+        <Route
+          key={dataset.id}
+          path={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
+          render={() => <DatasetDetailsPage dataset={dataset} />}
+        />
+      ))}
+
+      <Footer />
     </>
   )
 }

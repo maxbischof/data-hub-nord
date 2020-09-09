@@ -1,30 +1,34 @@
-import React from 'react';
+import React from 'react'
 import Table from '../components/Table'
-import { csvToObjectsArray } from '../utils'
+import { csvToObjectsArray } from '../lib/csv'
 
-const exampleCSV = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbsch�ftigte;Unterbsch�ftigtenquote
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2009;18918;15,1
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2010;18414;14,4
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2011;18469;14,6
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2012;17565;13,5
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2013;17457;13,2
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2014;17468;13
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2015;17278;12,7
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2016;18633;13,5
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2017;17496;12,3
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2018;16608;11,5
-  de-sh;Kiel;wirtschaft_arbeit;Unterbesch�ftigung;2019;15453;10,8
+const exampleCSV = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2009;18918;15,1
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2010;18414;14,4
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2011;18469;14,6
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2012;17565;13,5
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2013;17457;13,2
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2014;17468;13
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2015;17278;12,7
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2016;18633;13,5
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2017;17496;12,3
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2018;16608;11,5
+  de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2019;15453;10,8
   `
-  const exampleArray = csvToObjectsArray({ csv: exampleCSV, columnNames: [], seperator: ";" })
+const exampleArray = csvToObjectsArray({
+  csv: exampleCSV,
+  columnNames: [],
+  seperator: ';',
+})
 
 export default {
   title: 'Table',
   component: Table,
-};
+}
 
-const Template = (args) => <Table {...args}></Table>;
+const Template = (args) => <Table {...args}></Table>
 
-export const Basic = Template.bind({});
+export const Basic = Template.bind({})
 Basic.args = {
-  tableData: exampleArray
-};
+  data: exampleArray,
+}

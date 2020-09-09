@@ -1,38 +1,26 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import Table from "./Table"
-import PropTypes from "prop-types"
-import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
+import React from 'react'
+import styled from 'styled-components'
+import Table from './Table'
+import PropTypes from 'prop-types'
+import DatasetImage from './DatasetImage'
+import { useCSV } from '../hooks/useCSV'
 
-export default function DatasetDetails({ datasetDescription }) {
-  const {
-    imageUrl,
-    name,
-    description,
-    license,
-    publisher,
-    url,
-    keys,
-    seperator,
-  } = datasetDescription
-
-  const [tableData, setTableData] = useState([])
-
-  useEffect(() => {
-    fetchCSV({ path: url }).then((response) => {
-      const array = csvToObjectsArray({
-        csv: response,
-        columnNames: keys,
-        seperator: seperator,
-      })
-      setTableData(array)
-    })
-  }, [keys, seperator, url])
+export default function DatasetDetails({
+  imageUrl,
+  name,
+  description,
+  license,
+  publisher,
+  url,
+  keys,
+  seperator,
+}) {
+  const tableData = useCSV(url, keys, seperator)
 
   return (
     <main>
       <DetailsDescription>
-        <DetailsPicture src={imageUrl} />
+        <DatasetImage path={imageUrl} />
         <Headline>{name}</Headline>
         <Paragraph>{description}</Paragraph>
         <br />
@@ -44,29 +32,29 @@ export default function DatasetDetails({ datasetDescription }) {
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>
-      <Table tableData={tableData}></Table>
+      <Table data={tableData}></Table>
     </main>
   )
 }
 
 DatasetDetails.propTypes = {
-  datasetDescription: PropTypes.object.isRequired,
+  imageUrl: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  license: PropTypes.string.isRequired,
+  publisher: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  keys: PropTypes.array,
+  seperator: PropTypes.string,
 }
 
 const DetailsDescription = styled.div`
   margin: 0 37px 30px 37px;
 `
 
-const DetailsPicture = styled.img`
-  border-radius: 5px;
-  border: 1px solid var(--grey);
-  width: 100%;
-  margin: 0 0 30px 0;
-`
-
 const Headline = styled.h1`
   font-size: 25px;
-  margin: 0 0 10px 0;
+  margin: 30px 0 10px 0;
   padding: 0;
 `
 

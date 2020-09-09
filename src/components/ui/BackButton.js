@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ReactComponent as BackArrow} from '../../icons/backarrow.svg'
+import { ReactComponent as BackArrow } from '../../icons/backarrow.svg'
+import { Link } from 'react-router-dom'
 
 export default function BackButton() {
-
   return (
-    <Button>
+    <StyledLink to="/">
       <BackArrow />
       Zurück
-    </Button>
+    </StyledLink>
   )
 }
 
-const Button = styled.div`
+const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   margin: 0 0 30px 37px;
