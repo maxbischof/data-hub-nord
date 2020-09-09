@@ -36,7 +36,7 @@ export default function Table({ data }) {
 }
 
 Table.propTypes = {
-  tableData: PropTypes.array,
+  data: PropTypes.array,
 }
 
 const OverflowContainer = styled.div`
