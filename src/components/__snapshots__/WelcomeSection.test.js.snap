@@ -5,18 +5,18 @@ exports[`renders correctly 1`] = `
   className="sc-AxirZ dwIUgl"
 >
   <h1
-    className="sc-AxiKw gshFvr"
+    className="sc-AxiKw fUiplq"
   >
     Entdecke Open Data in Norddeutschland
   </h1>
   <h2
-    className="sc-AxhCb iupUPJ"
+    className="sc-AxhCb gVbjCo"
   >
     Visualisierung und Zugang zu den wichtigsten Daten
   </h2>
   <button
-    className="sc-AxjAm faIUmi"
-    color="#e63946"
+    className="sc-AxjAm eHROsV"
+    color="var(--red)"
     onClick={[Function]}
   >
     Daten anzeigen

@@ -3,13 +3,16 @@ import DatasetImage from './DatasetImage'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export default function DatasetTeaser ({ imagePath, title, description }) {
-
+export default function DatasetTeaser({ imagePath, title, description }) {
   return (
     <StyledDatasetTeaser>
       <DatasetImage path={imagePath} />
       <Title>{title}</Title>
-      <Description>{description.length > 70 ? description.substring(0, 67) + "..." : description}</Description>
+      <Description>
+        {description.length > 70
+          ? description.substring(0, 67) + '...'
+          : description}
+      </Description>
     </StyledDatasetTeaser>
   )
 }
@@ -17,7 +20,7 @@ export default function DatasetTeaser ({ imagePath, title, description }) {
 DatasetTeaser.propTypes = {
   imagePath: PropTypes.string,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string
+  description: PropTypes.string,
 }
 
 const StyledDatasetTeaser = styled.article`

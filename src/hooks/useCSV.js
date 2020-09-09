@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { fetchCSV, csvToObjectsArray } from "../lib/csv.js"
+import { useState, useEffect } from 'react'
+import { fetchCSV, csvToObjectsArray } from '../lib/csv.js'
 
 export function useCSV(url, keys, seperator) {
   const [tableData, setTableData] = useState([])
@@ -9,7 +9,7 @@ export function useCSV(url, keys, seperator) {
       const array = csvToObjectsArray({
         csv: response,
         columnNames: keys,
-        seperator
+        seperator,
       })
       setTableData(array)
     })

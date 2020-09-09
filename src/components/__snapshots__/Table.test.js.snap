@@ -8,10 +8,10 @@ exports[`renders table component 1`] = `
     className="sc-AxhCb eHOKVW"
   />
   <table
-    className="sc-AxirZ ijqXlW"
+    className="sc-AxirZ bvuuZq"
   >
     <thead
-      className="sc-AxiKw cObrap"
+      className="sc-AxiKw ggcBiV"
     >
       <tr>
         <td>
@@ -38,7 +38,7 @@ exports[`renders table component 1`] = `
       </tr>
     </thead>
     <tbody
-      className="sc-AxhUy bLwAyT"
+      className="sc-AxhUy eQtfwf"
     >
       <tr>
         <td>

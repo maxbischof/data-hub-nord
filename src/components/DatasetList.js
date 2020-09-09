@@ -13,7 +13,7 @@ export default function DataList({ datasets, setRef }) {
       <h2 ref={headlineRef}>Datensätze</h2>
       {datasets.map((dataset) => (
         <Link
-          to={`/datensaetze/${dataset.name.replace(" ", "-")}-${dataset.id}`}
+          to={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
           key={dataset.id}
         >
           <DatasetTeaser
@@ -29,7 +29,7 @@ export default function DataList({ datasets, setRef }) {
 
 DataList.propTypes = {
   datasets: PropTypes.array.isRequired,
-  setRef: PropTypes.func
+  setRef: PropTypes.func,
 }
 
 const StyledDatasetList = styled.section`

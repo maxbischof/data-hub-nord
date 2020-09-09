@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function Button({ color, children, onClick, reference }) {
-  return <StyledButton onClick={() => onClick(reference)} color={color}>{children}</StyledButton>
+  return (
+    <StyledButton onClick={() => onClick(reference)} color={color}>
+      {children}
+    </StyledButton>
+  )
 }
 
 const StyledButton = styled.button`
@@ -10,7 +14,7 @@ const StyledButton = styled.button`
   font-weight: 700;
   text-decoration: none;
   color: #fff;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   text-align: center;
   border: none;
   border-radius: 2px;

@@ -2,7 +2,7 @@
 
 exports[`renders datasetimage component 1`] = `
 <img
-  className="sc-AxjAm jmONMO"
+  className="sc-AxjAm dqGSZK"
   src="../images/sea.jpg"
 />
 `;

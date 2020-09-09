@@ -1,5 +1,5 @@
-const { fetchCSV, csvToObjectsArray } = require("./csv")
-const { datasets } = require("../components/testDatasets")
+const { fetchCSV, csvToObjectsArray } = require('./csv')
+const { datasets } = require('../components/testDatasets')
 
 const response = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote
 de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2009;18918;15,1
@@ -15,31 +15,33 @@ de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2018;16608;11,5
 de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2019;15453;10,8
 `
 
-test("fetch CSV from ODSH as string", () => {
+test('fetch CSV from ODSH as string', () => {
   return fetchCSV({ path: datasets[0].url }).then((data) => {
     expect(data).toEqual(
-      expect.stringContaining(`Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote`)
+      expect.stringContaining(
+        `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote`
+      )
     )
   })
 })
 
-test("returns array of objects from csv text", () => {
+test('returns array of objects from csv text', () => {
   return expect(
     csvToObjectsArray({
       csv: response,
       columnNames: datasets[0].keys,
-      seperator: ";",
+      seperator: ';',
     })
   ).toEqual(
     expect.arrayContaining([
       {
-        Jahr: "2009",
-        Kategorie: "wirtschaft_arbeit",
-        Land: "de-sh",
-        Merkmal: "Unterbeschäftigung",
-        Stadt: "Kiel",
-        "Unterbschäftigte": "18918",
-        "Unterbschäftigtenquote": "15,1"
+        Jahr: '2009',
+        Kategorie: 'wirtschaft_arbeit',
+        Land: 'de-sh',
+        Merkmal: 'Unterbeschäftigung',
+        Stadt: 'Kiel',
+        Unterbschäftigte: '18918',
+        Unterbschäftigtenquote: '15,1',
       },
     ])
   )

@@ -1,9 +1,9 @@
-import React from "react"
-import { render } from "@testing-library/react"
+import React from 'react'
+import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import DatasetTeaser from "./DatasetTeaser"
+import DatasetTeaser from './DatasetTeaser'
 
-it("has title and description < 70 characters", () => {
+it('has title and description < 70 characters', () => {
   const { getByText } = render(
     <DatasetTeaser
       imagePath="/Users/student/neuefische/data-hub-nord/src/images/sea.jpg"
@@ -12,10 +12,12 @@ it("has title and description < 70 characters", () => {
     />
   )
 
-  const title = getByText("Seehundbänke an der Nordsee")
+  const title = getByText('Seehundbänke an der Nordsee')
   expect(title).toBeInTheDocument()
 
-  const description = getByText("Lage der Seehundbänke in der westlichen Deutschen Bucht erfasst dur...")
+  const description = getByText(
+    'Lage der Seehundbänke in der westlichen Deutschen Bucht erfasst dur...'
+  )
   expect(description).toBeInTheDocument()
 })
 

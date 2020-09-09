@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Table from '../components/Table'
 import { csvToObjectsArray } from '../lib/csv'
 
@@ -15,16 +15,20 @@ const exampleCSV = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbsc
   de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2018;16608;11,5
   de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2019;15453;10,8
   `
-  const exampleArray = csvToObjectsArray({ csv: exampleCSV, columnNames: [], seperator: ";" })
+const exampleArray = csvToObjectsArray({
+  csv: exampleCSV,
+  columnNames: [],
+  seperator: ';',
+})
 
 export default {
   title: 'Table',
   component: Table,
-};
+}
 
-const Template = (args) => <Table {...args}></Table>;
+const Template = (args) => <Table {...args}></Table>
 
-export const Basic = Template.bind({});
+export const Basic = Template.bind({})
 Basic.args = {
-  data: exampleArray
-};
+  data: exampleArray,
+}
