@@ -1,5 +1,3 @@
-export const proxyURL = 'http://localhost:3000/proxy/'
-
 export const datasets = [
   {
     id: 1,
