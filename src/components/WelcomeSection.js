@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import welcomeImage from "../images/sea.jpg"
-import WelcomeButton from "./ui/WelcomeButton"
+import welcomeImage from '../images/sea.jpg'
+import WelcomeButton from './ui/WelcomeButton'
 import PropTypes from 'prop-types'
 
 export default function WelcomeSection({ onClickButton, scrollTo }) {
@@ -11,14 +11,20 @@ export default function WelcomeSection({ onClickButton, scrollTo }) {
       <SubHeadline>
         Visualisierung und Zugang zu den wichtigsten Daten
       </SubHeadline>
-      <WelcomeButton color="#e63946" onClick={onClickButton} reference={scrollTo}>Daten anzeigen</WelcomeButton>
+      <WelcomeButton
+        color="var(--red)"
+        onClick={onClickButton}
+        reference={scrollTo}
+      >
+        Daten anzeigen
+      </WelcomeButton>
     </StyledWelcomeSection>
   )
 }
 
 WelcomeSection.propTypes = {
   onClickButton: PropTypes.func,
-  scrollTo: PropTypes.object
+  scrollTo: PropTypes.object,
 }
 
 const StyledWelcomeSection = styled.section`
@@ -37,7 +43,7 @@ const Headline = styled.h1`
   font-size: 35px;
   font-weight: 100;
   text-align: center;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   margin: 120px 0 10px 0;
 `
 
@@ -47,5 +53,5 @@ const SubHeadline = styled.h2`
   text-align: center;
   font-weight: 400;
   margin: 0 0 50px 0;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
 `
