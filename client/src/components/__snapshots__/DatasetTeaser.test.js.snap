@@ -2,19 +2,19 @@
 
 exports[`renders correctly 1`] = `
 <article
-  className="sc-AxirZ bMOfdg"
+  className="sc-gtssRu bgZNOz"
 >
   <img
-    className="sc-AxjAm dqGSZK"
+    className="sc-bdnylx bcvmRr"
     src="/Users/student/neuefische/data-hub-nord/src/images/sea.jpg"
   />
   <h3
-    className="sc-AxiKw kaYFBU"
+    className="sc-dlnjPT kWuYff"
   >
     Seehundbänke an der Nordsee
   </h3>
   <p
-    className="sc-AxhCb gIDQGb"
+    className="sc-hKFyIo dpTMVq"
   >
     Lage der Seehundbänke in der westlichen Deutschen Bucht erfasst dur...
   </p>

@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <section
-  className="sc-AxhUy bENDPn"
+  className="sc-eCApGN iJyqlP"
 >
   <h2>
     Datensätze
@@ -12,19 +12,19 @@ exports[`renders correctly 1`] = `
     onClick={[Function]}
   >
     <article
-      className="sc-AxirZ bMOfdg"
+      className="sc-gtssRu bgZNOz"
     >
       <img
-        className="sc-AxjAm dqGSZK"
+        className="sc-bdnylx bcvmRr"
         src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
       />
       <h3
-        className="sc-AxiKw kaYFBU"
+        className="sc-dlnjPT kWuYff"
       >
         Arbeitslosigkeit Kiel
       </h3>
       <p
-        className="sc-AxhCb gIDQGb"
+        className="sc-hKFyIo dpTMVq"
       >
         Arbeitslosigkeit in Kiel absolut und relativ seit 2009.
       </p>
@@ -35,19 +35,19 @@ exports[`renders correctly 1`] = `
     onClick={[Function]}
   >
     <article
-      className="sc-AxirZ bMOfdg"
+      className="sc-gtssRu bgZNOz"
     >
       <img
-        className="sc-AxjAm dqGSZK"
+        className="sc-bdnylx bcvmRr"
         src="https://images.unsplash.com/photo-1527694545342-6176693ca513?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
       />
       <h3
-        className="sc-AxiKw kaYFBU"
+        className="sc-dlnjPT kWuYff"
       >
         Badegewässer Messungen
       </h3>
       <p
-        className="sc-AxhCb gIDQGb"
+        className="sc-hKFyIo dpTMVq"
       >
         Messungen der Badegewässerqualität in Schleswig Holstein.
       </p>

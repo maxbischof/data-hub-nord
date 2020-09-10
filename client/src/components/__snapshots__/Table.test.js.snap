@@ -2,16 +2,16 @@
 
 exports[`renders table component 1`] = `
 <div
-  className="sc-AxjAm bSmOPU"
+  className="sc-bdnylx gjZBxZ"
 >
   <div
-    className="sc-AxhCb eHOKVW"
+    className="sc-hKFyIo gakfMz"
   />
   <table
-    className="sc-AxirZ bvuuZq"
+    className="sc-gtssRu fqCqnt"
   >
     <thead
-      className="sc-AxiKw ggcBiV"
+      className="sc-dlnjPT koJOjy"
     >
       <tr>
         <td>
@@ -38,7 +38,7 @@ exports[`renders table component 1`] = `
       </tr>
     </thead>
     <tbody
-      className="sc-AxhUy eQtfwf"
+      className="sc-eCApGN cShEZD"
     >
       <tr>
         <td>

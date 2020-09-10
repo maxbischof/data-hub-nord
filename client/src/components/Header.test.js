@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import renderer from 'react-test-renderer'
 
 it('renders datahubnord text', () => {
   const { getByText } = render(
@@ -13,33 +14,25 @@ it('renders datahubnord text', () => {
 })
 
 it('renders header with rootpage style ', () => {
-  const { container, getByRole } = render(
-    <MemoryRouter initialEntries={['/']}>
-      <Header />
-    </MemoryRouter>
-  )
-  const link = getByRole('link')
-  expect(link).toHaveStyle('color: white')
+  const renderedHeader = renderer
+    .create(
+      <MemoryRouter initialEntries={['/']}>
+        <Header />
+      </MemoryRouter>
+    )
+    .toJSON()
 
-  const svg = container.querySelector('svg')
-  expect(svg).toHaveStyle('stroke: white')
-
-  const header = container.querySelector('header')
-  expect(header).toHaveStyle('position: absolute')
+  expect(renderedHeader).toMatchSnapshot()
 })
 
 it('renders header with datasetdetails style ', () => {
-  const { container, getByRole } = render(
-    <MemoryRouter initialEntries={[`/datensaetze/Arbeitslosigkeit-Kiel-1`]}>
-      <Header />
-    </MemoryRouter>
-  )
-  const link = getByRole('link')
-  expect(link).toHaveStyle('color: var(--grey)')
+  const renderedHeader = renderer
+    .create(
+      <MemoryRouter initialEntries={[`/datensaetze/Arbeitslosigkeit-Kiel-1`]}>
+        <Header />
+      </MemoryRouter>
+    )
+    .toJSON()
 
-  const svg = container.querySelector('svg')
-  expect(svg).toHaveStyle('stroke: var(--grey)')
-
-  const header = container.querySelector('header')
-  expect(header).toHaveStyle('position: static')
+  expect(renderedHeader).toMatchSnapshot()
 })
