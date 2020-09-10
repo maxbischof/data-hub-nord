@@ -14,13 +14,13 @@ export default function DatasetDetails({
   url,
   keys,
   seperator,
-  columns,
+  removeColumns,
 }) {
   const tableData = useCSV({
     url: url,
     keys: keys,
     seperator: seperator,
-    columns: columns,
+    removeColumns: removeColumns,
   })
 
   return (
