@@ -12,6 +12,7 @@ export const datasets = [
     publisher: 'Landeshauptstadt Kiel',
     displayedAs: '',
     seperator: ';',
+    columns: ['Land', 'Stadt', 'Kategorie', 'Merkmal'],
   },
   {
     id: 2,

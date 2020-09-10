@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { fetchCSV, csvToObjectsArray } from '../lib/csv.js'
+import { filterProperties } from '../lib/dataWrangling.js'
 
-export function useCSV(url, keys, seperator) {
+export function useCSV({ url, keys, seperator, columns }) {
   const [tableData, setTableData] = useState([])
 
   useEffect(() => {
@@ -11,9 +12,17 @@ export function useCSV(url, keys, seperator) {
         columnNames: keys,
         seperator,
       })
-      setTableData(array)
+
+      const filteredArray = columns
+        ? filterProperties({
+            deleteProperties: columns,
+            objectsArray: array,
+          })
+        : array
+
+      setTableData(filteredArray)
     })
-  }, [keys, seperator, url])
+  }, [keys, seperator, url, columns])
 
   return tableData
 }
