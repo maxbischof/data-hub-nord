@@ -1,10 +1,7 @@
 import iconv from 'iconv-lite'
 
 export function fetchCSV({ path }) {
-  const proxyURL =
-    window.location.protocol + '//' + window.location.host + '/proxy/'
-
-  return fetch(proxyURL + path)
+  return fetch('/proxy/' + path)
     .then((res) => res.arrayBuffer())
     .then((arrayBuffer) =>
       iconv.decode(new Buffer(arrayBuffer), 'iso-8859-1').toString()

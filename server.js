@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 var corsAnywhere = require('cors-anywhere')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'client/build')))
