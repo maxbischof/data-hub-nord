@@ -13,6 +13,7 @@ export const datasets = [
     displayedAs: '',
     seperator: ';',
     removeColumns: ['Land', 'Stadt', 'Kategorie', 'Merkmal'],
+    columnsOrder: ['Jahr', 'Unterbschäftigtenquote', 'Unterbschäftigte'],
   },
   {
     id: 2,
