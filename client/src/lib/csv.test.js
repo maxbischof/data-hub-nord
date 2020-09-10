@@ -1,4 +1,4 @@
-const { fetchCSV, csvToObjectsArray } = require('./csv')
+const { csvToObjectsArray } = require('./csv')
 const { datasets } = require('../components/testDatasets')
 
 const response = `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote
@@ -14,16 +14,6 @@ de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2017;17496;12,3
 de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2018;16608;11,5
 de-sh;Kiel;wirtschaft_arbeit;Unterbeschäftigung;2019;15453;10,8
 `
-
-test('fetch CSV from ODSH as string', () => {
-  return fetchCSV({ path: datasets[0].url }).then((data) => {
-    expect(data).toEqual(
-      expect.stringContaining(
-        `Land;Stadt;Kategorie;Merkmal;Jahr;Unterbschäftigte;Unterbschäftigtenquote`
-      )
-    )
-  })
-})
 
 test('returns array of objects from csv text', () => {
   return expect(

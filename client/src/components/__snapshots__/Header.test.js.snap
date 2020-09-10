@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders header with datasetdetails style  1`] = `
+<header
+  className="sc-gtssRu bEwGgx"
+  color="var(--grey)"
+>
+  <a
+    href="/"
+  >
+    <svg
+      className="sc-bdnylx dmNGwP"
+      color="var(--grey)"
+    >
+      datahubnord_logo.svg
+    </svg>
+    <span>
+      DataHubNord
+    </span>
+  </a>
+</header>
+`;
+
+exports[`renders header with rootpage style  1`] = `
+<header
+  className="sc-gtssRu rMeiG"
+  color="white"
+>
+  <a
+    href="/"
+  >
+    <svg
+      className="sc-bdnylx cWfrAZ"
+      color="white"
+    >
+      datahubnord_logo.svg
+    </svg>
+    <span>
+      DataHubNord
+    </span>
+  </a>
+</header>
+`;
