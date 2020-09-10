@@ -5,6 +5,12 @@ var corsAnywhere = require('cors-anywhere')
 
 const port = process.env.PORT || 3001
 
+app.use(express.static(path.join(__dirname, 'client/build')))
+
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`)
+})
+
 let proxy = corsAnywhere.createServer({
   originWhitelist: [], // Allow all origins
   requireHeaders: [], // Do not require any headers.
@@ -14,10 +20,4 @@ let proxy = corsAnywhere.createServer({
 app.get('/proxy/:proxyUrl*', (req, res) => {
   req.url = req.url.replace('/proxy/', '/')
   proxy.emit('request', req, res)
-})
-
-app.get('/*', express.static(path.join(__dirname, 'client/build')))
-
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
 })
