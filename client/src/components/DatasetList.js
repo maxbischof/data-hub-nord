@@ -36,7 +36,7 @@ DataList.propTypes = {
 
 const StyledDatasetList = styled.section`
   flex: 1 0 auto;
-  padding: 0 37px 30px 37px;
+  padding: 0 10px 30px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
