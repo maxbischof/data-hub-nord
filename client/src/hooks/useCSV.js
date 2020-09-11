@@ -3,7 +3,7 @@ import { fetchCSV, csvToObjectsArray } from '../lib/csv.js'
 import { filterProperties, sortProperties } from '../lib/dataWrangling.js'
 
 export function useCSV({ url, keys, seperator, removeColumns, columnsOrder }) {
-  const [tableData, setTableData] = useState([])
+  const [tableData, setTableData] = useState()
 
   useEffect(() => {
     fetchCSV({ path: url }).then((response) => {

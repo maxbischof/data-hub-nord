@@ -4,6 +4,7 @@ import Table from './Table'
 import PropTypes from 'prop-types'
 import DatasetImage from './DatasetImage'
 import { useCSV } from '../hooks/useCSV'
+import LoadingDots from './ui/LoadingDots'
 
 export default function DatasetDetails({
   imageUrl,
@@ -40,7 +41,7 @@ export default function DatasetDetails({
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>
-      <Table data={tableData}></Table>
+      {tableData ? <Table data={tableData}></Table> : <LoadingDots />}
     </main>
   )
 }

@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/client/cypress/videos/
 
 # production
 /client/build

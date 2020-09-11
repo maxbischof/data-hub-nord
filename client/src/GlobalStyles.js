@@ -6,6 +6,7 @@ export default createGlobalStyle`
     height: 100%;
     --grey: #333;
     --red: #e63946;
+    --cyan: #0F839C;
     scroll-behavior: smooth;
   }
 

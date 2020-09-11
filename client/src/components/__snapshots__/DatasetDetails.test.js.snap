@@ -3,68 +3,62 @@
 exports[`renders datasetdetails component 1`] = `
 <main>
   <div
-    className="sc-gKAblj hmftEW"
+    className="sc-fujyUd fVnioi"
   >
     <img
       className="sc-jSFkmK jYZvVE"
       src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
     />
     <h1
-      className="sc-iCoHVE fgRlSj"
+      className="sc-pNWxx fuBrjA"
     >
       Arbeitslosigkeit Kiel
     </h1>
     <p
-      className="sc-jrsJCI bRlGCH"
+      className="sc-iqAbSa HcJut"
     >
       Arbeitslosigkeit in Kiel absolut und relativ seit 2009.
     </p>
     <br />
     <h3
-      className="sc-pNWxx kjCQZr"
+      className="sc-kEqYlL bmweQA"
     >
       Lizenz
     </h3>
     <p
-      className="sc-jrsJCI bRlGCH"
+      className="sc-iqAbSa HcJut"
     >
       Datenlizenz Deutschland – Zero – Version 2.0
     </p>
     <br />
     <h3
-      className="sc-pNWxx kjCQZr"
+      className="sc-kEqYlL bmweQA"
     >
       Herausgeber
     </h3>
     <p
-      className="sc-jrsJCI bRlGCH"
+      className="sc-iqAbSa HcJut"
     >
       Landeshauptstadt Kiel
     </p>
   </div>
   <h2
-    className="sc-fujyUd aOuoG"
+    className="sc-jrsJCI iqRzQQ"
   >
     Tabelle
   </h2>
   <div
-    className="sc-bdnylx gjZBxZ"
+    className="sc-gKAblj faHvZr"
   >
-    <div
-      className="sc-hKFyIo gakfMz"
+    <span
+      className="sc-iCoHVE jvpFBG"
     />
-    <table
-      className="sc-gtssRu fqCqnt"
-    >
-      <thead
-        className="sc-dlnjPT koJOjy"
-      >
-        <tr />
-      </thead>
-      <tbody
-        className="sc-eCApGN cShEZD"
-      />
-    </table>
+    <span
+      className="sc-iCoHVE jvpFBG"
+    />
+    <span
+      className="sc-iCoHVE jvpFBG"
+    />
   </div>
 </main>
 `;
