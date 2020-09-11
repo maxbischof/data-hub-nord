@@ -58,6 +58,7 @@ DatasetDetails.propTypes = {
 
 const DetailsDescription = styled.div`
   margin: 0 37px 30px 37px;
+  max-width: 600px;
 `
 
 const Headline = styled.h1`
