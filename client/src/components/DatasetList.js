@@ -9,21 +9,23 @@ export default function DataList({ datasets, setRef }) {
   setRef(headlineRef)
 
   return (
-    <StyledDatasetList>
-      <h2 ref={headlineRef}>Datensätze</h2>
-      {datasets.map((dataset) => (
-        <Link
-          to={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
-          key={dataset.id}
-        >
-          <DatasetTeaser
-            imagePath={dataset.imageUrl}
-            title={dataset.name}
-            description={dataset.description}
-          />
-        </Link>
-      ))}
-    </StyledDatasetList>
+    <>
+      <DatasetListHeadline ref={headlineRef}>Datensätze</DatasetListHeadline>
+      <StyledDatasetList>
+        {datasets.map((dataset) => (
+          <Link
+            to={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
+            key={dataset.id}
+          >
+            <DatasetTeaser
+              imagePath={dataset.imageUrl}
+              title={dataset.name}
+              description={dataset.description}
+            />
+          </Link>
+        ))}
+      </StyledDatasetList>
+    </>
   )
 }
 
@@ -34,13 +36,16 @@ DataList.propTypes = {
 
 const StyledDatasetList = styled.section`
   flex: 1 0 auto;
-  padding: 50px 37px 30px 37px;
+  padding: 0 10px 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
 
-  h2 {
-    font-size: 25px;
-    padding: 0 0 5px 0;
-    border-bottom: 1px solid var(--grey);
-    display: inline-block;
-    margin: 0 0 30px 0;
-  }
+const DatasetListHeadline = styled.h2`
+  font-size: 25px;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid var(--grey);
+  margin: 50px 0 25px 35px;
+  align-self: flex-start;
 `

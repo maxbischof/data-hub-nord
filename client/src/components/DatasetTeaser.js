@@ -24,7 +24,8 @@ DatasetTeaser.propTypes = {
 }
 
 const StyledDatasetTeaser = styled.article`
-  margin: 0 0 50px 0;
+  margin: 25px;
+  max-width: 300px;
 `
 
 const Title = styled.h3`
