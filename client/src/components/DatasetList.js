@@ -46,6 +46,6 @@ const DatasetListHeadline = styled.h2`
   font-size: 25px;
   padding: 0 0 5px 0;
   border-bottom: 1px solid var(--grey);
-  margin: 50px 0 25px 50px;
+  margin: 50px 0 25px 35px;
   align-self: flex-start;
 `
