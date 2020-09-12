@@ -19,10 +19,10 @@ export function csvToObjectsArray({ csv, columnNames, seperator }) {
   const objectsArray = rows.map((row) => {
     const objectValues = row.split(seperator)
 
-    const object = {}
-    objectKeys.forEach((key, index) => (object[key] = objectValues[index]))
-
-    return object
+    return objectKeys.reduce((object, key, index) => {
+      object[key] = objectValues[index]
+      return object
+    }, {})
   })
 
   return objectsArray
