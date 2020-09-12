@@ -7,7 +7,7 @@ export default function Table({ data }) {
   let headerRow = null
   let bodyRows = null
 
-  if (data.length) {
+  if (data) {
     const columnNames = Object.keys(data[0])
 
     headerRow = columnNames.map((name) => <td key={name}>{name}</td>)
