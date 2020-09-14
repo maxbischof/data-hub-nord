@@ -43,7 +43,7 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
       ][0].split('=')[1]
       fetchDatasets(pagesTotal).then((response) => {
         datasets = filterByFileType(
-          'csv',
+          'CSV',
           restructureDatasetObjects({ ...response })
         )
       })
@@ -55,14 +55,17 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
 function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
   return catalogDatasets.map((dataset) => {
     innerDataset = dataset['dcat:Dataset'][0]
-    const dataseturl = distributionDatasets.find((obj) => {
+    const distributionDataset = distributionDatasets.find((obj) => {
       return (
         obj['$']['rdf:about'] ===
         innerDataset['dcat:distribution'][0]['$']['rdf:resource']
       )
     })
 
-    dataset.url = dataseturl['dcat:accessURL'][0]['$']['rdf:resource']
+    dataset.url = distributionDataset['dcat:accessURL'][0]['$']['rdf:resource']
+    dataset.type = distributionDataset['dct:format'][0]['$']
+      ? distributionDataset['dct:format'][0]['$']['rdf:resource']
+      : ''
     dataset.title = innerDataset['dct:title'][0]
     dataset.publisher = innerDataset['dcatde:licenseAttributionByText']
       ? innerDataset['dcatde:licenseAttributionByText'][0]
@@ -102,5 +105,5 @@ async function fetchDatasets(pagesTotal) {
 }
 
 function filterByFileType(fileType, data) {
-  return data.filter((dataset) => dataset.url.endsWith(fileType))
+  return data.filter((dataset) => dataset.type.endsWith(fileType))
 }
