@@ -41,13 +41,12 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
       const pagesTotal = result['rdf:RDF']['hydra:PagedCollection'][0][
         'hydra:lastPage'
       ][0].split('=')[1]
-      fetchDatasets(pagesTotal).then(
-        (response) =>
-          (datasets = filterByFileType(
-            'csv',
-            restructureDatasetObjects({ ...response })
-          ))
-      )
+      fetchDatasets(pagesTotal).then((response) => {
+        datasets = filterByFileType(
+          'csv',
+          restructureDatasetObjects({ ...response })
+        )
+      })
     }).catch(function (error) {
       console.log(error)
     })
@@ -87,15 +86,13 @@ async function fetchDatasets(pagesTotal) {
       .then((response) => response.text())
       .then((text) => {
         parseString(text, (err, XMLObjects) => {
-          const catalogDatasetsChunk =
-            XMLObjects['rdf:RDF']['dcat:Catalog'][0]['dcat:dataset']
-          const distributionDatasetsChunk =
-            XMLObjects['rdf:RDF']['dcat:Distribution']
-
-          catalogDatasets = [...catalogDatasets, ...catalogDatasetsChunk]
+          catalogDatasets = [
+            ...catalogDatasets,
+            ...XMLObjects['rdf:RDF']['dcat:Catalog'][0]['dcat:dataset'],
+          ]
           distributionDatasets = [
             ...distributionDatasets,
-            ...distributionDatasetsChunk,
+            ...XMLObjects['rdf:RDF']['dcat:Distribution'],
           ]
         })
       })
