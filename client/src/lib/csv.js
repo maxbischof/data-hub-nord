@@ -2,10 +2,7 @@ import iconv from 'iconv-lite'
 
 export function fetchCSV({ path }) {
   return fetch('/proxy/' + path)
-    .then((res) => res.arrayBuffer())
-    .then((arrayBuffer) =>
-      iconv.decode(new Buffer(arrayBuffer), 'iso-8859-1').toString()
-    )
+    .then((res) => res.text())
     .catch((error) => console.log('error', error))
 }
 
