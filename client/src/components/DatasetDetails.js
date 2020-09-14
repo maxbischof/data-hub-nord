@@ -8,7 +8,7 @@ import LoadingDots from './ui/LoadingDots'
 
 export default function DatasetDetails({
   imageUrl,
-  name,
+  title,
   description,
   license,
   publisher,
@@ -29,15 +29,23 @@ export default function DatasetDetails({
   return (
     <main>
       <DetailsDescription>
-        <DatasetImage path={imageUrl} />
-        <Headline>{name}</Headline>
+        {/* <DatasetImage path={imageUrl} /> */}
+        <Headline>{title}</Headline>
         <Paragraph>{description}</Paragraph>
         <br />
         <Headline3>Lizenz</Headline3>
-        <Paragraph>{license}</Paragraph>
+        <Paragraph>
+          <a href={license}>Zur Lizenz</a>
+        </Paragraph>
         <br />
-        <Headline3>Herausgeber</Headline3>
-        <Paragraph>{publisher}</Paragraph>
+        {publisher ? (
+          <>
+            <Headline3>Herausgeber</Headline3>
+            <Paragraph>{publisher}</Paragraph>
+          </>
+        ) : (
+          ''
+        )}
       </DetailsDescription>
 
       <Headline2>Tabelle</Headline2>

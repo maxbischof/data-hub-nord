@@ -14,12 +14,12 @@ export default function DataList({ datasets, setRef }) {
       <StyledDatasetList>
         {datasets.map((dataset) => (
           <Link
-            to={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
-            key={dataset.id}
+            to={`/datensaetze/${dataset.title.replace(' ', '-')}-${dataset.id}`}
+            key={dataset.url}
           >
             <DatasetTeaser
               imagePath={dataset.imageUrl}
-              title={dataset.name}
+              title={dataset.title}
               description={dataset.description}
             />
           </Link>

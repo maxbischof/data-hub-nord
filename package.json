@@ -23,6 +23,7 @@
   "homepage": "https://github.com/maxbischof/data-hub-nord#readme",
   "dependencies": {
     "cors-anywhere": "^0.4.3",
+    "csv-string": "^4.0.1",
     "express": "^4.17.1",
     "fetch-paginate": "^6.1.0",
     "node-fetch": "^2.6.1",

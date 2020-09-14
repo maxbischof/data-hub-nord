@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { fetchCSV, csvToObjectsArray } from '../lib/csv.js'
 import { filterProperties, sortProperties } from '../lib/dataWrangling.js'
+import * as CSV from 'csv-string'
 
-export function useCSV({ url, keys, seperator, removeColumns, columnsOrder }) {
+export function useCSV({ url, keys, removeColumns, columnsOrder }) {
   const [tableData, setTableData] = useState()
 
   useEffect(() => {
     fetchCSV({ path: url }).then((response) => {
+      console.log(url)
       const array = csvToObjectsArray({
         csv: response,
         columnNames: keys,
-        seperator,
+        seperator: CSV.detect(response),
       })
 
       const filteredArray = removeColumns
@@ -29,7 +31,7 @@ export function useCSV({ url, keys, seperator, removeColumns, columnsOrder }) {
 
       setTableData(sortedArray)
     })
-  }, [keys, seperator, url, removeColumns, columnsOrder])
+  }, [keys, url, removeColumns, columnsOrder])
 
   return tableData
 }

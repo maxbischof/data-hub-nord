@@ -12,9 +12,9 @@ export function fetchCSV({ path }) {
 export function csvToObjectsArray({ csv, columnNames, seperator }) {
   let rows = csv.split('\n')
 
-  const hasColumnNames = columnNames.length === 0
-  const objectKeys = hasColumnNames ? rows[0].split(seperator) : columnNames
-  rows = hasColumnNames ? rows.slice(1, rows.length - 1) : rows
+  const objectKeys = rows[0].split(seperator)
+  console.log(objectKeys)
+  rows = rows.slice(1, rows.length - 1)
 
   const objectsArray = rows.map((row) => {
     const objectValues = row.split(seperator)

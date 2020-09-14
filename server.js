@@ -42,17 +42,28 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
         'hydra:lastPage'
       ][0].split('=')[1]
       fetchDatasets(pagesTotal).then(
-        (response) => (datasets = restructureDatasetObjects(response))
+        (response) =>
+          (datasets = filterByFileType(
+            'csv',
+            restructureDatasetObjects({ ...response })
+          ))
       )
     }).catch(function (error) {
       console.log(error)
     })
   })
 
-function restructureDatasetObjects(datasets) {
-  return datasets.map((dataset) => {
+function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
+  return catalogDatasets.map((dataset) => {
     innerDataset = dataset['dcat:Dataset'][0]
-    dataset.url = innerDataset['dcat:distribution'][0]['$']['rdf:resource']
+    const dataseturl = distributionDatasets.find((obj) => {
+      return (
+        obj['$']['rdf:about'] ===
+        innerDataset['dcat:distribution'][0]['$']['rdf:resource']
+      )
+    })
+
+    dataset.url = dataseturl['dcat:accessURL'][0]['$']['rdf:resource']
     dataset.title = innerDataset['dct:title'][0]
     dataset.publisher = innerDataset['dcatde:licenseAttributionByText']
       ? innerDataset['dcatde:licenseAttributionByText'][0]
@@ -66,7 +77,8 @@ function restructureDatasetObjects(datasets) {
 }
 
 async function fetchDatasets(pagesTotal) {
-  let response = []
+  let catalogDatasets = []
+  let distributionDatasets = []
 
   for (let i = 1; i <= pagesTotal; i++) {
     console.log('Loading XML page: ' + i)
@@ -75,22 +87,23 @@ async function fetchDatasets(pagesTotal) {
       .then((response) => response.text())
       .then((text) => {
         parseString(text, (err, XMLObjects) => {
-          const datasets =
+          const catalogDatasetsChunk =
             XMLObjects['rdf:RDF']['dcat:Catalog'][0]['dcat:dataset']
-          const filteredDatasets = filterByFileType('csv', datasets)
+          const distributionDatasetsChunk =
+            XMLObjects['rdf:RDF']['dcat:Distribution']
 
-          response = [...response, ...filteredDatasets]
+          catalogDatasets = [...catalogDatasets, ...catalogDatasetsChunk]
+          distributionDatasets = [
+            ...distributionDatasets,
+            ...distributionDatasetsChunk,
+          ]
         })
       })
   }
 
-  return response
+  return { catalogDatasets, distributionDatasets }
 }
 
 function filterByFileType(fileType, data) {
-  return data.filter((dataset) =>
-    dataset['dcat:Dataset'][0]['dcat:distribution'][0]['$'][
-      'rdf:resource'
-    ].endsWith(fileType)
-  )
+  return data.filter((dataset) => dataset.url.endsWith(fileType))
 }
