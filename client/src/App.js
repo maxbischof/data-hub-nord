@@ -20,17 +20,16 @@ function App() {
       <Header />
       {datasets ? (
         <>
-          <Route
-            exact
-            path="/"
-            render={() => <RootPage datasets={datasets} />}
-          />
+          <Route exact path="/">
+            <RootPage datasets={datasets} />
+          </Route>
           {datasets.map((dataset, index) => (
             <Route
               key={dataset.url}
               path={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
-              render={() => <DatasetDetailsPage dataset={dataset} />}
-            />
+            >
+              <DatasetDetailsPage dataset={dataset} />
+            </Route>
           ))}
         </>
       ) : (
