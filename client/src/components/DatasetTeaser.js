@@ -6,6 +6,7 @@ export default function DatasetTeaser({ imagePath, title, description }) {
   return (
     <StyledDatasetTeaser>
       <Title>{title}</Title>
+      <hr />
       <Description>
         {description.length > 70
           ? description.substring(0, 67) + '...'
