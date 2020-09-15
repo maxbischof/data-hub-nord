@@ -26,12 +26,10 @@ function App() {
             path="/"
             render={() => <RootPage datasets={datasets} />}
           />
-          {datasets.map((dataset) => (
+          {datasets.map((dataset, index) => (
             <Route
               key={dataset.url}
-              path={`/datensaetze/${dataset.title.replace(' ', '-')}-${
-                dataset.id
-              }`}
+              path={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
               render={() => <DatasetDetailsPage dataset={dataset} />}
             />
           ))}

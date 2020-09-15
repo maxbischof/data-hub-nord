@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Table from './Table'
 import PropTypes from 'prop-types'
-import DatasetImage from './DatasetImage'
+//import DatasetImage from './DatasetImage'
 import { useCSV } from '../hooks/useCSV'
 import LoadingDots from './ui/LoadingDots'
 
