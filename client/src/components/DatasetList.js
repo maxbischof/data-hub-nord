@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
 import PropTypes from 'prop-types'
 
-export default function DataList({ datasets, headlineRef }) {
+export default function DataList({ datasets, headlineRef, headline }) {
   return (
     <>
-      <DatasetListHeadline ref={headlineRef}>Datensätze</DatasetListHeadline>
+      <DatasetListHeadline ref={headlineRef}>{headline}</DatasetListHeadline>
       <StyledDatasetList>
         {datasets.map((dataset, index) => (
           <Link
