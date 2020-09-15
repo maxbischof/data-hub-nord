@@ -1,13 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
 import PropTypes from 'prop-types'
 
-export default function DataList({ datasets, setRef }) {
-  const headlineRef = useRef(null)
-  setRef(headlineRef)
-
+export default function DataList({ datasets, headlineRef }) {
   return (
     <>
       <DatasetListHeadline ref={headlineRef}>Datensätze</DatasetListHeadline>

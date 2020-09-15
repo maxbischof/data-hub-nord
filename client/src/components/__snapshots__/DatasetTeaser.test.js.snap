@@ -9,6 +9,7 @@ exports[`renders correctly 1`] = `
   >
     Seehundbänke an der Nordsee
   </h3>
+  <hr />
   <p
     className="sc-dlnjPT hCTrCU"
   >
