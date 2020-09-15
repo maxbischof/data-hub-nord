@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer.js'
-//import { datasets } from './settings'
 import { Route } from 'react-router-dom'
 import RootPage from './components/pages/RootPage'
 import DatasetDetailsPage from './components/pages/DatasetDetailsPage'

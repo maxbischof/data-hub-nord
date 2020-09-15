@@ -1,12 +1,10 @@
 import React from 'react'
-import DatasetImage from './DatasetImage'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 export default function DatasetTeaser({ imagePath, title, description }) {
   return (
     <StyledDatasetTeaser>
-      <DatasetImage path={imagePath} />
       <Title>{title}</Title>
       <Description>
         {description.length > 70
@@ -18,7 +16,6 @@ export default function DatasetTeaser({ imagePath, title, description }) {
 }
 
 DatasetTeaser.propTypes = {
-  imagePath: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
 }

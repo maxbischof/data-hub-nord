@@ -2,12 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Table from './Table'
 import PropTypes from 'prop-types'
-//import DatasetImage from './DatasetImage'
 import { useCSV } from '../hooks/useCSV'
 import LoadingDots from './ui/LoadingDots'
 
 export default function DatasetDetails({
-  imageUrl,
   title,
   description,
   license,
@@ -29,7 +27,6 @@ export default function DatasetDetails({
   return (
     <main>
       <DetailsDescription>
-        {/* <DatasetImage path={imageUrl} /> */}
         <Headline>{title}</Headline>
         <Paragraph>{description}</Paragraph>
         <br />
@@ -55,7 +52,6 @@ export default function DatasetDetails({
 }
 
 DatasetDetails.propTypes = {
-  imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   license: PropTypes.string.isRequired,
