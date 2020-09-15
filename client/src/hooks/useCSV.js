@@ -8,7 +8,6 @@ export function useCSV({ url, keys, removeColumns, columnsOrder }) {
 
   useEffect(() => {
     fetchCSV({ path: url }).then((response) => {
-      console.log(url)
       const array = csvToObjectsArray({
         csv: response,
         columnNames: keys,

@@ -56,7 +56,7 @@ export default function DatasetDetails({
 
 DatasetDetails.propTypes = {
   imageUrl: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
   license: PropTypes.string.isRequired,
   publisher: PropTypes.string.isRequired,

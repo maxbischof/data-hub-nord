@@ -26,6 +26,8 @@
     "csv-string": "^4.0.1",
     "express": "^4.17.1",
     "fetch-paginate": "^6.1.0",
+    "iconv-lite": "^0.6.2",
+    "is-utf8": "^0.2.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
     "xml2js": "^0.4.23"
