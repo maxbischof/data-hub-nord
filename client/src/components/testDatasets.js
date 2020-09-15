@@ -1,7 +1,7 @@
 export const datasets = [
   {
     id: 1,
-    name: 'Arbeitslosigkeit Kiel',
+    title: 'Arbeitslosigkeit Kiel',
     description: 'Arbeitslosigkeit in Kiel absolut und relativ seit 2009.',
     url:
       'https://www.kiel.de/opendata/kiel_wirtschaft_arbeit_unterbeschaeftigung.csv',
@@ -15,7 +15,7 @@ export const datasets = [
   },
   {
     id: 2,
-    name: 'Badegewässer Messungen',
+    title: 'Badegewässer Messungen',
     description: 'Messungen der Badegewässerqualität in Schleswig Holstein.',
     url: 'http://efi2.schleswig-holstein.de/bg/opendata/v_proben_odata.csv',
     imageUrl:
