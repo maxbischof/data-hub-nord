@@ -26,7 +26,9 @@ function App() {
           {datasets.map((dataset, index) => (
             <Route
               key={dataset.url}
-              path={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
+              path={`/datensaetze/${dataset.title.replace(' ', '-')}-${
+                dataset.id
+              }`}
             >
               <DatasetDetailsPage dataset={dataset} />
             </Route>

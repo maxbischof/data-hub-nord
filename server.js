@@ -53,7 +53,7 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
   })
 
 function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
-  return catalogDatasets.map((dataset) => {
+  return catalogDatasets.map((dataset, index) => {
     innerDataset = dataset['dcat:Dataset'][0]
     const distributionDataset = distributionDatasets.find((obj) => {
       return (
@@ -73,6 +73,7 @@ function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
     dataset.publisherURL = innerDataset['dct:publisher'][0]['$']['rdf:resource']
     dataset.description = innerDataset['dct:description'][0]
     dataset.license = innerDataset['dct:license'][0]['$']['rdf:resource']
+    dataset.id = index
     delete dataset['dcat:Dataset']
     return dataset
   })

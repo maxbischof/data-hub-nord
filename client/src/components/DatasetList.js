@@ -11,7 +11,7 @@ export default function DataList({ datasets, headlineRef }) {
       <StyledDatasetList>
         {datasets.map((dataset, index) => (
           <Link
-            to={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
+            to={`/datensaetze/${dataset.title.replace(' ', '-')}-${dataset.id}`}
             key={dataset.url}
           >
             <DatasetTeaser

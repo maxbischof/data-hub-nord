@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export default function DatasetTeaser({ imagePath, title, description }) {
+export default function DatasetTeaser({ title, description }) {
   return (
     <StyledDatasetTeaser>
       <Title>{title}</Title>
