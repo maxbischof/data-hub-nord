@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
 import PropTypes from 'prop-types'
 
 export default function RootPage({ datasets }) {
-  const [datasetListRef, setDatasetListRef] = useState()
+  const headlineRef = useRef(null)
 
   const scrollToRef = (ref) => {
     window.scrollTo(0, ref.current.offsetTop)
@@ -12,8 +12,8 @@ export default function RootPage({ datasets }) {
 
   return (
     <>
-      <WelcomeSection onClickButton={scrollToRef} scrollTo={datasetListRef} />
-      <DatasetList datasets={datasets} setRef={setDatasetListRef} />
+      <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
+      <DatasetList datasets={datasets} headlineRef={headlineRef} />
     </>
   )
 }

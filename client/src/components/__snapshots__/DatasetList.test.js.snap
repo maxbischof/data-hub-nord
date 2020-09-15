@@ -3,54 +3,48 @@
 exports[`renders correctly 1`] = `
 Array [
   <h2
-    className="sc-jSFkmK ekdTdB"
+    className="sc-eCApGN efPunh"
   >
     Datensätze
   </h2>,
   <section
-    className="sc-eCApGN kfErFP"
+    className="sc-hKFyIo iHWuaH"
   >
     <a
-      href="/datensaetze/Arbeitslosigkeit-Kiel-1"
+      href="/datensaetze/Arbeitslosigkeit-Kiel-0"
       onClick={[Function]}
     >
       <article
-        className="sc-gtssRu bWMiMC"
+        className="sc-bdnylx ccOnhP"
       >
-        <img
-          className="sc-bdnylx bcvmRr"
-          src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-        />
         <h3
-          className="sc-dlnjPT kWuYff"
+          className="sc-gtssRu cyIxrX"
         >
           Arbeitslosigkeit Kiel
         </h3>
+        <hr />
         <p
-          className="sc-hKFyIo dpTMVq"
+          className="sc-dlnjPT hCTrCU"
         >
           Arbeitslosigkeit in Kiel absolut und relativ seit 2009.
         </p>
       </article>
     </a>
     <a
-      href="/datensaetze/Badegewässer-Messungen-2"
+      href="/datensaetze/Badegewässer-Messungen-1"
       onClick={[Function]}
     >
       <article
-        className="sc-gtssRu bWMiMC"
+        className="sc-bdnylx ccOnhP"
       >
-        <img
-          className="sc-bdnylx bcvmRr"
-          src="https://images.unsplash.com/photo-1527694545342-6176693ca513?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-        />
         <h3
-          className="sc-dlnjPT kWuYff"
+          className="sc-gtssRu cyIxrX"
         >
           Badegewässer Messungen
         </h3>
+        <hr />
         <p
-          className="sc-hKFyIo dpTMVq"
+          className="sc-dlnjPT hCTrCU"
         >
           Messungen der Badegewässerqualität in Schleswig Holstein.
         </p>

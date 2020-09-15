@@ -1,25 +1,22 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
 import PropTypes from 'prop-types'
 
-export default function DataList({ datasets, setRef }) {
-  const headlineRef = useRef(null)
-  setRef(headlineRef)
-
+export default function DataList({ datasets, headlineRef }) {
   return (
     <>
       <DatasetListHeadline ref={headlineRef}>Datensätze</DatasetListHeadline>
       <StyledDatasetList>
-        {datasets.map((dataset) => (
+        {datasets.map((dataset, index) => (
           <Link
-            to={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
-            key={dataset.id}
+            to={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
+            key={dataset.url}
           >
             <DatasetTeaser
               imagePath={dataset.imageUrl}
-              title={dataset.name}
+              title={dataset.title}
               description={dataset.description}
             />
           </Link>

@@ -1,24 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer.js'
-import { datasets } from './settings'
 import { Route } from 'react-router-dom'
 import RootPage from './components/pages/RootPage'
 import DatasetDetailsPage from './components/pages/DatasetDetailsPage'
+import LoadingDots from './components/ui/LoadingDots'
 
 function App() {
+  const [datasets, setDatasets] = useState()
+
+  useEffect(() => {
+    fetch('/datasets')
+      .then((response) => response.json())
+      .then((data) => setDatasets(data))
+  }, [])
+
   return (
     <>
       <Header />
-      <Route exact path="/" render={() => <RootPage datasets={datasets} />} />
-
-      {datasets.map((dataset) => (
-        <Route
-          key={dataset.id}
-          path={`/datensaetze/${dataset.name.replace(' ', '-')}-${dataset.id}`}
-          render={() => <DatasetDetailsPage dataset={dataset} />}
-        />
-      ))}
+      {datasets ? (
+        <>
+          <Route exact path="/">
+            <RootPage datasets={datasets} />
+          </Route>
+          {datasets.map((dataset, index) => (
+            <Route
+              key={dataset.url}
+              path={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
+            >
+              <DatasetDetailsPage dataset={dataset} />
+            </Route>
+          ))}
+        </>
+      ) : (
+        <LoadingDots />
+      )}
 
       <Footer />
     </>
