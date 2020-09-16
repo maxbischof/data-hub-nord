@@ -2,9 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export default function Button({ color, children, onClick, reference }) {
+export default function Button({
+  color,
+  children,
+  onClick,
+  onClickParameter,
+  className,
+}) {
   return (
-    <StyledButton onClick={() => onClick(reference)} color={color}>
+    <StyledButton
+      onClick={() => onClick(onClickParameter)}
+      color={color}
+      className={className}
+    >
       {children}
     </StyledButton>
   )
