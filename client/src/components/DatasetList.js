@@ -26,13 +26,16 @@ export default function DataList({ datasets, headlineRef, headline }) {
           </Link>
         ))}
       </StyledDatasetList>
-      <MoreButton
-        onClick={setChunksCount}
-        onClickParameter={chunksCount + 1}
-        color={'transparent'}
-      >
-        Mehr laden
-      </MoreButton>
+
+      {datasets.length > 10 * chunksCount && (
+        <MoreButton
+          onClick={setChunksCount}
+          onClickParameter={chunksCount + 1}
+          color={'transparent'}
+        >
+          Mehr laden
+        </MoreButton>
+      )}
     </>
   )
 }
