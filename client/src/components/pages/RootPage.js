@@ -8,7 +8,6 @@ export default function RootPage() {
   const headlineRef = useRef(null)
   const [searchTerm, setSearchTerm] = useState()
   const [searchResults, setSearchResults] = useState()
-  const [isSearching, setIsSearching] = useState()
   const [pageToFetch, setPageToFetch] = useState(1)
   const [hasMoreDatasets, setHasMoreDatasets] = useState()
 
@@ -36,16 +35,15 @@ export default function RootPage() {
       <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
       <SearchInput
         setSearchTerm={setSearchTerm}
-        hasInput={setIsSearching}
         resetSearchResults={setSearchResults}
       />
-      {(isSearching && !searchResults) || !searchResults ? (
+      {!searchResults ? (
         <LoadingDots />
       ) : (
         <DatasetList
           datasets={searchResults}
           headlineRef={headlineRef}
-          headline={isSearching ? 'Suche' : 'Datensätze'}
+          headline={searchTerm ? 'Suche' : 'Datensätze'}
           loadMore={increasePageToFetch}
           showMoreButton={hasMoreDatasets}
         />

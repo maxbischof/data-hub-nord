@@ -2,18 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as SearchIcon } from '../icons/search.svg'
 
-export default function SearchForm({
-  setSearchTerm,
-  hasInput,
-  resetSearchResults,
-}) {
+export default function SearchForm({ setSearchTerm, resetSearchResults }) {
   let timeout = null
 
   function handleChange(event) {
     const searchTerm = event.target.value
-    searchTerm.length < 2 && hasInput(true)
-    searchTerm.length === 0 && hasInput(false)
-
     resetSearchResults('')
     clearTimeout(timeout)
 
