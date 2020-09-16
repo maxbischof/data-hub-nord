@@ -17,11 +17,9 @@ export default function RootPage({ datasets }) {
 
   useEffect(() => {
     if (searchTerm) {
-      setSearchResults(
-        datasets.filter((dataset) =>
-          dataset.title.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      )
+      fetch('/datasets?searchterm=' + searchTerm)
+        .then((response) => response.json())
+        .then((data) => setSearchResults(data))
     }
   }, [searchTerm, datasets])
 

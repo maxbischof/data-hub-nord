@@ -25,7 +25,13 @@ app.get('/proxy/:proxyUrl*', (req, res) => {
 })
 
 app.get('/datasets', (req, res) => {
-  res.send(datasets)
+  const searchTerm = req.query.searchterm
+  const response = searchTerm
+    ? datasets.filter((dataset) =>
+        dataset.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : datasets
+  res.send(response)
 })
 
 app.get('*', (req, res) => {
