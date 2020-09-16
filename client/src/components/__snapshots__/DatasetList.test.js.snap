@@ -3,15 +3,13 @@
 exports[`renders correctly 1`] = `
 Array [
   <h2
-    className="sc-eCApGN efPunh"
-  >
-    Datensätze
-  </h2>,
+    className="sc-gKAblj kDFySm"
+  />,
   <section
-    className="sc-hKFyIo iHWuaH"
+    className="sc-jSFkmK khoHlD"
   >
     <a
-      href="/datensaetze/Arbeitslosigkeit-Kiel-0"
+      href="/datensaetze/Arbeitslosigkeit-Kiel-1"
       onClick={[Function]}
     >
       <article
@@ -31,7 +29,7 @@ Array [
       </article>
     </a>
     <a
-      href="/datensaetze/Badegewässer-Messungen-1"
+      href="/datensaetze/Badegewässer-Messungen-2"
       onClick={[Function]}
     >
       <article
