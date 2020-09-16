@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
 import PropTypes from 'prop-types'
 import Button from './ui/Button'
 
-export default function DataList({ datasets, headlineRef, headline }) {
-  const [chunksCount, setChunksCount] = useState(1)
-  const datasetChunks = datasets.slice(0, 10 * chunksCount)
-
+export default function DataList({
+  datasets,
+  headlineRef,
+  headline,
+  loadMore,
+  showMoreButton,
+}) {
   return (
     <>
       <DatasetListHeadline ref={headlineRef}>{headline}</DatasetListHeadline>
       <StyledDatasetList>
-        {datasetChunks.map((dataset, index) => (
+        {datasets.map((dataset) => (
           <Link
             to={`/datensaetze/${dataset.title.replace(' ', '-')}-${dataset.id}`}
             key={dataset.url}
@@ -27,12 +30,8 @@ export default function DataList({ datasets, headlineRef, headline }) {
         ))}
       </StyledDatasetList>
 
-      {datasets.length > 10 * chunksCount && (
-        <MoreButton
-          onClick={setChunksCount}
-          onClickParameter={chunksCount + 1}
-          color={'transparent'}
-        >
+      {showMoreButton && (
+        <MoreButton onClick={loadMore} color={'transparent'}>
           Mehr laden
         </MoreButton>
       )}

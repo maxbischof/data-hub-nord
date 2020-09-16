@@ -7,12 +7,12 @@ import DatasetDetailsPage from './components/pages/DatasetDetailsPage'
 import LoadingDots from './components/ui/LoadingDots'
 
 function App() {
-  const [datasets, setDatasets] = useState()
+  const [datasets, setDatasets] = useState([])
 
   useEffect(() => {
-    fetch('/datasets')
+    fetch('/datasets?page=1')
       .then((response) => response.json())
-      .then((data) => setDatasets(data))
+      .then((data) => setDatasets(data.datasets))
   }, [])
 
   return (

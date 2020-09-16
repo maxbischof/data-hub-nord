@@ -25,13 +25,19 @@ app.get('/proxy/:proxyUrl*', (req, res) => {
 })
 
 app.get('/datasets', (req, res) => {
+  const numberOfDatasets = 10 * req.query.page
   const searchTerm = req.query.searchterm
   const response = searchTerm
     ? datasets.filter((dataset) =>
         dataset.title.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : datasets
-  res.send(response)
+  const hasNextpage = response.length > numberOfDatasets
+
+  res.send({
+    datasets: response.slice(0, numberOfDatasets),
+    hasNextPage: hasNextpage,
+  })
 })
 
 app.get('*', (req, res) => {

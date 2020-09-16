@@ -1,27 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react'
 import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
-import PropTypes from 'prop-types'
 import SearchInput from '../SearchForm'
 import LoadingDots from '../ui/LoadingDots'
 
-export default function RootPage({ datasets }) {
+export default function RootPage() {
   const headlineRef = useRef(null)
   const [searchTerm, setSearchTerm] = useState()
   const [searchResults, setSearchResults] = useState()
   const [isSearching, setIsSearching] = useState()
+  const [pageToFetch, setPageToFetch] = useState(1)
+  const [hasMoreDatasets, setHasMoreDatasets] = useState()
 
   const scrollToRef = (ref) => {
     window.scrollTo(0, ref.current.offsetTop)
   }
 
+  function increasePageToFetch() {
+    setPageToFetch(pageToFetch + 1)
+  }
+
   useEffect(() => {
-    if (searchTerm) {
-      fetch('/datasets?searchterm=' + searchTerm)
-        .then((response) => response.json())
-        .then((data) => setSearchResults(data))
-    }
-  }, [searchTerm, datasets])
+    const pageQuery = 'page=' + pageToFetch
+    const searchTermQuery = searchTerm ? 'searchterm=' + searchTerm : ''
+    fetch('/datasets?' + pageQuery + '&' + searchTermQuery)
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchResults(data.datasets)
+        setHasMoreDatasets(data.hasNextPage)
+      })
+  }, [searchTerm, pageToFetch])
 
   return (
     <>
@@ -31,19 +39,17 @@ export default function RootPage({ datasets }) {
         hasInput={setIsSearching}
         resetSearchResults={setSearchResults}
       />
-      {isSearching && !searchResults ? (
+      {(isSearching && !searchResults) || !searchResults ? (
         <LoadingDots />
       ) : (
         <DatasetList
-          datasets={isSearching && searchResults ? searchResults : datasets}
+          datasets={searchResults}
           headlineRef={headlineRef}
           headline={isSearching ? 'Suche' : 'Datensätze'}
+          loadMore={increasePageToFetch}
+          showMoreButton={hasMoreDatasets}
         />
       )}
     </>
   )
-}
-
-RootPage.propTypes = {
-  datasets: PropTypes.array.isRequired,
 }
