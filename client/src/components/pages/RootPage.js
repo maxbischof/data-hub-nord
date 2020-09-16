@@ -3,6 +3,7 @@ import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
 import PropTypes from 'prop-types'
 import SearchInput from '../SearchForm'
+import LoadingDots from '../ui/LoadingDots'
 
 export default function RootPage({ datasets }) {
   const headlineRef = useRef(null)
@@ -15,23 +16,32 @@ export default function RootPage({ datasets }) {
   }
 
   useEffect(() => {
-    searchTerm &&
+    if (searchTerm) {
       setSearchResults(
         datasets.filter((dataset) =>
           dataset.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
       )
+    }
   }, [searchTerm, datasets])
 
   return (
     <>
       <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
-      <SearchInput setSearchTerm={setSearchTerm} hasInput={setIsSearching} />
-      <DatasetList
-        datasets={isSearching && searchResults ? searchResults : datasets}
-        headlineRef={headlineRef}
-        headline={isSearching ? 'Suche' : 'Datensätze'}
+      <SearchInput
+        setSearchTerm={setSearchTerm}
+        hasInput={setIsSearching}
+        resetSearchResults={setSearchResults}
       />
+      {isSearching && !searchResults ? (
+        <LoadingDots />
+      ) : (
+        <DatasetList
+          datasets={isSearching && searchResults ? searchResults : datasets}
+          headlineRef={headlineRef}
+          headline={isSearching ? 'Suche' : 'Datensätze'}
+        />
+      )}
     </>
   )
 }
