@@ -46,10 +46,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   margin-left: 5px;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
+  border: hidden;
   &:focus {
     outline: none;
   }
