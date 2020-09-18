@@ -19,7 +19,11 @@ export default function SearchForm({ setSearchTerm, resetSearchResults }) {
     <Form>
       <Label>
         <SearchIcon />
-        <Input type="text" onChange={handleChange} />{' '}
+        <Input
+          type="text"
+          onChange={handleChange}
+          placeholder="Suche nach Titel"
+        />{' '}
       </Label>
     </Form>
   )
