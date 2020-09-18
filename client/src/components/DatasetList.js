@@ -27,7 +27,7 @@ export default function DataList({
       </StyledDatasetList>
 
       {showMoreButton && (
-        <MoreButton onClick={loadMore} color={'transparent'}>
+        <MoreButton onClick={loadMore} styleType={'more'}>
           Mehr laden
         </MoreButton>
       )}

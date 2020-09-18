@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { useCSV } from '../hooks/useCSV'
 import LoadingDots from './ui/LoadingDots'
 import Map from './Map'
+import Button from './ui/Button'
 
 export default function DatasetDetails({
   title,
@@ -87,7 +88,9 @@ export default function DatasetDetails({
               </select>
             </Label>
 
-            <StyledButton type="submit">Karte erstellen</StyledButton>
+            <StyledButton type="submit" styleType="more">
+              Karte erstellen
+            </StyledButton>
           </Form>
           {latLongColumnNames && (
             <Map
@@ -116,22 +119,8 @@ DatasetDetails.propTypes = {
   seperator: PropTypes.string,
 }
 
-const StyledButton = styled.button`
+const StyledButton = styled(Button)`
   place-self: center;
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
-  margin: 15px 0 0 0;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  background-color: white;
-  text-align: center;
-  border-radius: 2px;
-  height: 36px;
-  width: 146px;
-  padding: 0 16px;
-  text-align: center;
-  cursor: pointer;
 `
 
 const Form = styled.form`
@@ -150,7 +139,6 @@ const DetailsDescription = styled.div`
 `
 const VisualisationSection = styled.div`
   margin: 0 37px 30px 37px;
-  max-width: 600px;
 `
 
 const Headline = styled.h1`

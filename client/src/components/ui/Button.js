@@ -3,16 +3,31 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 export default function Button({
-  color,
+  styleType,
   children,
   onClick,
   onClickParameter,
   className,
 }) {
+  const buttonStyles = {
+    more: {
+      color: 'var(--cyan)',
+      background: 'white',
+      border: '1px solid var(--cyan)',
+    },
+    action: {
+      color: 'white',
+      background: 'var(--red)',
+      border: 'none',
+    },
+  }
+
+  const renderStyle = buttonStyles[styleType]
+
   return (
     <StyledButton
       onClick={() => onClick(onClickParameter)}
-      color={color}
+      buttonStyle={renderStyle}
       className={className}
     >
       {children}
@@ -24,10 +39,10 @@ const StyledButton = styled.button`
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  color: #fff;
-  background-color: ${(props) => props.color};
+  color: ${(props) => props.buttonStyle.color};
+  background-color: ${(props) => props.buttonStyle.background};
   text-align: center;
-  border: none;
+  border: ${(props) => props.buttonStyle.border};
   border-radius: 2px;
   height: 36px;
   width: 146px;
