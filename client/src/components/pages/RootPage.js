@@ -1,43 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
 import SearchInput from '../SearchForm'
 import LoadingDots from '../ui/LoadingDots'
 
-export default function RootPage({ createRoutes }) {
+export default function RootPage({
+  setSearchTerm,
+  datasetsCatalog,
+  increasePageToFetch,
+  hasMoreDatasets,
+  resetDatasetsCatalog,
+  searchTerm,
+}) {
   const headlineRef = useRef(null)
-  const [searchTerm, setSearchTerm] = useState()
-  const [datasetsCatalog, setDatasetsCatalog] = useState()
-  const [pageToFetch, setPageToFetch] = useState(1)
-  const [hasMoreDatasets, setHasMoreDatasets] = useState()
 
   const scrollToRef = (ref) => {
     window.scrollTo(0, ref.current.offsetTop)
   }
-
-  function increasePageToFetch() {
-    setPageToFetch(pageToFetch + 1)
-  }
-
-  useEffect(() => {
-    const pageQuery = 'page=' + pageToFetch
-    const searchTermQuery = searchTerm ? 'searchterm=' + searchTerm : ''
-    fetch('/datasets?' + pageQuery + '&' + searchTermQuery)
-      .then((response) => response.json())
-      .then((data) => {
-        setDatasetsCatalog(data.datasets)
-        setHasMoreDatasets(data.hasNextPage)
-        createRoutes(data.datasets)
-      })
-      .catch((error) => console.log('error', error))
-  }, [searchTerm, pageToFetch, createRoutes])
 
   return (
     <>
       <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
       <SearchInput
         setSearchTerm={setSearchTerm}
-        resetSearchResults={setDatasetsCatalog}
+        resetSearchResults={resetDatasetsCatalog}
       />
       {!datasetsCatalog ? (
         <LoadingDots />
