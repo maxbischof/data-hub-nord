@@ -7,7 +7,7 @@ import LoadingDots from '../ui/LoadingDots'
 export default function RootPage({
   setSearchTerm,
   datasetsCatalog,
-  increasePageToFetch,
+  loadNextPage,
   hasMoreDatasets,
   resetDatasetsCatalog,
   searchTerm,
@@ -32,7 +32,7 @@ export default function RootPage({
           datasets={datasetsCatalog}
           headlineRef={headlineRef}
           headline={searchTerm ? 'Suche' : 'Datensätze'}
-          loadMore={increasePageToFetch}
+          loadMore={loadNextPage}
           showMoreButton={hasMoreDatasets}
         />
       )}
