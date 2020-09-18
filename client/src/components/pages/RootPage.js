@@ -7,7 +7,7 @@ import LoadingDots from '../ui/LoadingDots'
 export default function RootPage({ createRoutes }) {
   const headlineRef = useRef(null)
   const [searchTerm, setSearchTerm] = useState()
-  const [datasets, setDatasets] = useState()
+  const [datasetsCatalog, setDatasetsCatalog] = useState()
   const [pageToFetch, setPageToFetch] = useState(1)
   const [hasMoreDatasets, setHasMoreDatasets] = useState()
 
@@ -25,7 +25,7 @@ export default function RootPage({ createRoutes }) {
     fetch('/datasets?' + pageQuery + '&' + searchTermQuery)
       .then((response) => response.json())
       .then((data) => {
-        setDatasets(data.datasets)
+        setDatasetsCatalog(data.datasets)
         setHasMoreDatasets(data.hasNextPage)
         createRoutes(data.datasets)
       })
@@ -37,13 +37,13 @@ export default function RootPage({ createRoutes }) {
       <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
       <SearchInput
         setSearchTerm={setSearchTerm}
-        resetSearchResults={setDatasets}
+        resetSearchResults={setDatasetsCatalog}
       />
-      {!datasets ? (
+      {!datasetsCatalog ? (
         <LoadingDots />
       ) : (
         <DatasetList
-          datasets={datasets}
+          datasets={datasetsCatalog}
           headlineRef={headlineRef}
           headline={searchTerm ? 'Suche' : 'Datensätze'}
           loadMore={increasePageToFetch}
