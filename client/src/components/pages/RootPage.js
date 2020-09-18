@@ -29,6 +29,7 @@ export default function RootPage({ createRoutes }) {
         setHasMoreDatasets(data.hasNextPage)
         createRoutes(data.datasets)
       })
+      .catch((error) => console.log('error', error))
   }, [searchTerm, pageToFetch, createRoutes])
 
   return (
