@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SearchForm component 1`] = `
+<form
+  className="sc-bdnylx jQOzXW"
+>
+  <label
+    className="sc-gtssRu hAvyXn"
+  >
+    <svg>
+      search.svg
+    </svg>
+    <input
+      className="sc-dlnjPT geefGI"
+      onChange={[Function]}
+      type="text"
+    />
+     
+  </label>
+</form>
+`;

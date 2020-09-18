@@ -1,9 +1,17 @@
 import React, { useRef } from 'react'
 import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
-import PropTypes from 'prop-types'
+import SearchInput from '../SearchForm'
+import LoadingDots from '../ui/LoadingDots'
 
-export default function RootPage({ datasets }) {
+export default function RootPage({
+  setSearchTerm,
+  datasetsCatalog,
+  loadNextPage,
+  hasMoreDatasets,
+  resetDatasetsCatalog,
+  searchTerm,
+}) {
   const headlineRef = useRef(null)
 
   const scrollToRef = (ref) => {
@@ -13,11 +21,21 @@ export default function RootPage({ datasets }) {
   return (
     <>
       <WelcomeSection onClickButton={scrollToRef} scrollTo={headlineRef} />
-      <DatasetList datasets={datasets} headlineRef={headlineRef} />
+      <SearchInput
+        setSearchTerm={setSearchTerm}
+        resetSearchResults={resetDatasetsCatalog}
+      />
+      {!datasetsCatalog ? (
+        <LoadingDots />
+      ) : (
+        <DatasetList
+          datasets={datasetsCatalog}
+          headlineRef={headlineRef}
+          headline={searchTerm ? 'Suche' : 'Datensätze'}
+          loadMore={loadNextPage}
+          showMoreButton={hasMoreDatasets}
+        />
+      )}
     </>
   )
-}
-
-RootPage.propTypes = {
-  datasets: PropTypes.array.isRequired,
 }

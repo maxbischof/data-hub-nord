@@ -25,7 +25,19 @@ app.get('/proxy/:proxyUrl*', (req, res) => {
 })
 
 app.get('/datasets', (req, res) => {
-  res.send(datasets)
+  const numberOfDatasets = 10 * req.query.page
+  const searchTerm = req.query.searchterm
+  const response = searchTerm
+    ? datasets.filter((dataset) =>
+        dataset.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : datasets
+  const hasNextpage = response.length > numberOfDatasets
+
+  res.send({
+    datasets: response.slice(0, numberOfDatasets),
+    hasNextPage: hasNextpage,
+  })
 })
 
 app.get('*', (req, res) => {
@@ -53,7 +65,7 @@ fetch('https://opendata.schleswig-holstein.de/catalog.xml')
   })
 
 function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
-  return catalogDatasets.map((dataset) => {
+  return catalogDatasets.map((dataset, index) => {
     innerDataset = dataset['dcat:Dataset'][0]
     const distributionDataset = distributionDatasets.find((obj) => {
       return (
@@ -73,6 +85,7 @@ function restructureDatasetObjects({ catalogDatasets, distributionDatasets }) {
     dataset.publisherURL = innerDataset['dct:publisher'][0]['$']['rdf:resource']
     dataset.description = innerDataset['dct:description'][0]
     dataset.license = innerDataset['dct:license'][0]['$']['rdf:resource']
+    dataset.id = index
     delete dataset['dcat:Dataset']
     return dataset
   })

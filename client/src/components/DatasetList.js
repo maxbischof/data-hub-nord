@@ -3,25 +3,34 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import DatasetTeaser from './DatasetTeaser'
 import PropTypes from 'prop-types'
+import Button from './ui/Button'
 
-export default function DataList({ datasets, headlineRef }) {
+export default function DataList({
+  datasets,
+  headlineRef,
+  headline,
+  loadMore,
+  showMoreButton,
+}) {
   return (
     <>
-      <DatasetListHeadline ref={headlineRef}>Datensätze</DatasetListHeadline>
+      <DatasetListHeadline ref={headlineRef}>{headline}</DatasetListHeadline>
       <StyledDatasetList>
-        {datasets.map((dataset, index) => (
-          <Link
-            to={`/datensaetze/${dataset.title.replace(' ', '-')}-${index}`}
-            key={dataset.url}
-          >
+        {datasets.map((dataset) => (
+          <Link to={`/datensaetze/${dataset.id}`} key={dataset.id}>
             <DatasetTeaser
-              imagePath={dataset.imageUrl}
               title={dataset.title}
               description={dataset.description}
             />
           </Link>
         ))}
       </StyledDatasetList>
+
+      {showMoreButton && (
+        <MoreButton onClick={loadMore} color={'transparent'}>
+          Mehr laden
+        </MoreButton>
+      )}
     </>
   )
 }
@@ -30,6 +39,13 @@ DataList.propTypes = {
   datasets: PropTypes.array.isRequired,
   setRef: PropTypes.func,
 }
+
+const MoreButton = styled(Button)`
+  align-self: center;
+  padding: 5px;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+`
 
 const StyledDatasetList = styled.section`
   flex: 1 0 auto;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import welcomeImage from '../images/sea.jpg'
-import WelcomeButton from './ui/WelcomeButton'
+import Button from './ui/Button'
 import PropTypes from 'prop-types'
 
 export default function WelcomeSection({ onClickButton, scrollTo }) {
@@ -11,13 +11,13 @@ export default function WelcomeSection({ onClickButton, scrollTo }) {
       <SubHeadline>
         Visualisierung und Zugang zu den wichtigsten Daten
       </SubHeadline>
-      <WelcomeButton
+      <Button
         color="var(--red)"
         onClick={onClickButton}
-        reference={scrollTo}
+        onClickParameter={scrollTo}
       >
         Daten anzeigen
-      </WelcomeButton>
+      </Button>
     </StyledWelcomeSection>
   )
 }
