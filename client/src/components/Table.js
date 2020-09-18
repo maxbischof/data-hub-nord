@@ -41,7 +41,7 @@ Table.propTypes = {
 
 const OverflowContainer = styled.div`
   overflow-x: scroll;
-  margin: 10px 0 0 37px;
+  margin: 10px 0 0 0;
 `
 
 const StyledTable = styled.table`
