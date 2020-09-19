@@ -34,7 +34,7 @@ export default function Button({
 
   return (
     <StyledButton
-      onClick={() => onClick(onClickParameter)}
+      onClick={() => onClick && onClick(onClickParameter)}
       buttonStyle={renderStyle}
       className={className}
     >

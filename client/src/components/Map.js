@@ -2,10 +2,10 @@ import React from 'react'
 import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
 import styled from 'styled-components'
 
-export default function Map({ rows, latLongColumnNames, columnNames }) {
+export default function Map({ rows, columnNames }) {
   const markers = rows.map((row, index) => {
-    const lat = parseFloat(row[latLongColumnNames.lat])
-    const long = parseFloat(row[latLongColumnNames.long])
+    const lat = parseFloat(row.latitude)
+    const long = parseFloat(row.longitude)
     let marker = null
 
     if (isNaN(lat) === false || isNaN(long) === false) {

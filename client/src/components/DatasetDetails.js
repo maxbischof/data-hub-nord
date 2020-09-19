@@ -23,15 +23,28 @@ export default function DatasetDetails({
   })
   const columnNames = tableData && Object.keys(tableData[0])
 
-  const [latLongColumnNames, setLatLongColumnNames] = useState()
   const [adressColumnNames, setAdressColumnNames] = useState([])
+  const [mapData, setMapData] = useState()
 
-  function submitLatLong(event) {
-    setLatLongColumnNames({
-      lat: event.target.latitude.value,
-      long: event.target.longitude.value,
-    })
+  function renameLatLongColumns(event) {
     event.preventDefault()
+
+    const latName = event.target.latitude.value
+    const longName = event.target.longitude.value
+
+    tableData.forEach((dataset) => {
+      if (latName !== 'latitude') {
+        dataset['latitude'] = dataset[latName]
+        delete dataset[latName]
+      }
+
+      if (longName !== 'longitude') {
+        dataset['longitude'] = dataset[longName]
+        delete dataset[longName]
+      }
+    })
+
+    setMapData(tableData)
   }
 
   function onChangeAdressTags(event) {
@@ -80,7 +93,7 @@ export default function DatasetDetails({
             Koordinaten(wie z.B. 54.323334, 10.139444) verfügen, kannst du eine
             Karte aus den Daten erstellen.
           </Paragraph>
-          <Form onSubmit={submitLatLong}>
+          <Form onSubmit={renameLatLongColumns}>
             <p>
               Wähle dazu die Spalten aus die Latitude und Longitude
               repräsentieren:
@@ -113,7 +126,7 @@ export default function DatasetDetails({
           <CenterParagraph>
             <b>oder</b>
           </CenterParagraph>
-          <Form onSubmit={submitLatLong}>
+          <Form onSubmit={renameLatLongColumns}>
             <p>Wähle alle Spaltenamen die ein Teil der Adresse beinhalten:</p>
             <div>
               {columnNames.map((name) => (
@@ -131,13 +144,7 @@ export default function DatasetDetails({
               ))}
             </div>
           </Form>
-          {latLongColumnNames && (
-            <Map
-              rows={tableData}
-              latLongColumnNames={latLongColumnNames}
-              columnNames={columnNames}
-            />
-          )}
+          {mapData && <Map rows={mapData} columnNames={columnNames} />}
           <Headline2>Tabelle</Headline2>
           <Table data={tableData}></Table>{' '}
         </VisualisationSection>
