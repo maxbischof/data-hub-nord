@@ -4,7 +4,7 @@ import DatasetDetails from '../DatasetDetails'
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 
-export default function DatasetDetailsPage({ datasets }) {
+export default function DatasetDetailsPage() {
   const { datasetid } = useParams()
   const [dataset, setDataset] = useState()
 
@@ -13,8 +13,6 @@ export default function DatasetDetailsPage({ datasets }) {
       .then((response) => response.json())
       .then((result) => setDataset(result))
   }, [])
-
-  console.log(dataset)
 
   return (
     <>
