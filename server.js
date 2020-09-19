@@ -40,6 +40,10 @@ app.get('/datasets', (req, res) => {
   })
 })
 
+app.get('/datasets/:id', (req, res) => {
+  res.send(datasets.find((dataset) => dataset.id == req.params.id))
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })

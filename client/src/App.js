@@ -29,11 +29,9 @@ function App() {
           searchTerm={searchTerm}
         />
       </Route>
-      {datasetsCatalog && (
-        <Route path={`/datensaetze/:datasetid`}>
-          <DatasetDetailsPage datasets={datasetsCatalog} />
-        </Route>
-      )}
+      <Route path={`/datensaetze/:datasetid`}>
+        <DatasetDetailsPage />
+      </Route>
       <Footer />
     </>
   )

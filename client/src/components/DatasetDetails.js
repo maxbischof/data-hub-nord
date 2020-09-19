@@ -26,8 +26,6 @@ export default function DatasetDetails({
   const [latLongColumnNames, setLatLongColumnNames] = useState()
   const [adressColumnNames, setAdressColumnNames] = useState([])
 
-  console.log(adressColumnNames)
-
   function submitLatLong(event) {
     setLatLongColumnNames({
       lat: event.target.latitude.value,
@@ -44,7 +42,6 @@ export default function DatasetDetails({
       setAdressColumnNames(newArray)
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
-  console.log(adressColumnNames)
 
   function submitAdress(event) {
     setAdressColumnNames({
