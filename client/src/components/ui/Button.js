@@ -18,7 +18,15 @@ export default function Button({
     action: {
       color: 'white',
       background: 'var(--red)',
-      border: 'none',
+    },
+    tag: {
+      color: 'var(--grey)',
+      background: 'var(--lightgrey)',
+      borderradius: '15px',
+      fontsize: '12px',
+      paddinghorizontal: '15px',
+      paddingvertical: '10px',
+      margin: '2px',
     },
   }
 
@@ -36,19 +44,21 @@ export default function Button({
 }
 
 const StyledButton = styled.button`
-  font-size: 15px;
-  font-weight: 700;
+  font-size: ${(props) => props.buttonStyle.fontsize || '15px'};
+  font-weight: ${(props) => props.buttonStyle.fontweight || '700'};
   text-decoration: none;
   color: ${(props) => props.buttonStyle.color};
   background-color: ${(props) => props.buttonStyle.background};
   text-align: center;
-  border: ${(props) => props.buttonStyle.border};
-  border-radius: 2px;
-  height: 36px;
-  width: 146px;
-  padding: 0 16px;
+  border: ${(props) => props.buttonStyle.border || 'none'};
+  border-radius: ${(props) => props.buttonStyle.borderradius || '2px'};
+  padding: ${(props) => props.buttonStyle.paddingvertical || '8px'}
+    ${(props) => props.buttonStyle.paddinghorizontal || '8px'};
   text-align: center;
   cursor: pointer;
+  display: ${(props) => props.buttonStyle.display || 'inline-block'};
+  align-self: ${(props) => props.buttonStyle.alignself || ''};
+  margin: ${(props) => props.buttonStyle.margin || '0'};
 `
 
 Button.propTypes = {

@@ -24,9 +24,30 @@ export default function DatasetDetails({
   const columnNames = tableData && Object.keys(tableData[0])
 
   const [latLongColumnNames, setLatLongColumnNames] = useState()
+  const [adressColumnNames, setAdressColumnNames] = useState([])
 
-  function submitMapSettings(event) {
+  console.log(adressColumnNames)
+
+  function submitLatLong(event) {
     setLatLongColumnNames({
+      lat: event.target.latitude.value,
+      long: event.target.longitude.value,
+    })
+    event.preventDefault()
+  }
+
+  function onChangeAdressTags(event) {
+    const tagName = event.target.name
+    let newArray = []
+    if (adressColumnNames.find((name) => name === tagName)) {
+      newArray = adressColumnNames.filter((name) => name !== tagName)
+      setAdressColumnNames(newArray)
+    } else setAdressColumnNames([...adressColumnNames, tagName])
+  }
+  console.log(adressColumnNames)
+
+  function submitAdress(event) {
+    setAdressColumnNames({
       lat: event.target.latitude.value,
       long: event.target.longitude.value,
     })
@@ -62,11 +83,11 @@ export default function DatasetDetails({
             Koordinaten(wie z.B. 54.323334, 10.139444) verfügen, kannst du eine
             Karte aus den Daten erstellen.
           </Paragraph>
-          <p>
-            Wähle dazu die Spalten aus die Latitude und Longitude
-            repräsentieren:
-          </p>
-          <Form onSubmit={submitMapSettings}>
+          <Form onSubmit={submitLatLong}>
+            <p>
+              Wähle dazu die Spalten aus die Latitude und Longitude
+              repräsentieren:
+            </p>
             <Label>
               <span>Latitude:</span>
               <select name="latitude">
@@ -91,6 +112,27 @@ export default function DatasetDetails({
             <StyledButton type="submit" styleType="more">
               Karte erstellen
             </StyledButton>
+          </Form>
+          <CenterParagraph>
+            <b>oder</b>
+          </CenterParagraph>
+          <Form onSubmit={submitLatLong}>
+            <p>Wähle alle Spaltenamen die ein Teil der Adresse beinhalten:</p>
+            <div>
+              {columnNames.map((name) => (
+                <TagButton
+                  key={name}
+                  name={name}
+                  onClick={onChangeAdressTags}
+                  type="button"
+                  active={adressColumnNames.find((columnName) =>
+                    columnName === name ? true : false
+                  )}
+                >
+                  {name}
+                </TagButton>
+              ))}
+            </div>
           </Form>
           {latLongColumnNames && (
             <Map
@@ -119,13 +161,39 @@ DatasetDetails.propTypes = {
   seperator: PropTypes.string,
 }
 
-const StyledButton = styled(Button)`
+const TagButton = styled.button`
+  color: ${(props) => (props.active ? 'white' : 'var(--grey)')};
+  background: ${(props) => (props.active ? 'var(--cyan)' : 'var(--lightgrey)')};
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 15px 10px;
+  margin: 2px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+
+  :hover {
+    border: 1px solid var(--cyan);
+    padding: 14px 9px;
+  }
+`
+
+const CenterParagraph = styled.p`
   place-self: center;
+`
+
+const StyledButton = styled(Button)`
+  align-self: center;
 `
 
 const Form = styled.form`
   margin: 30px 0 0 0;
-  display: grid;
+  border: 1px solid var(--grey);
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 `
 
 const Label = styled.label`
@@ -139,6 +207,7 @@ const DetailsDescription = styled.div`
 `
 const VisualisationSection = styled.div`
   margin: 0 37px 30px 37px;
+  display: grid;
 `
 
 const Headline = styled.h1`
