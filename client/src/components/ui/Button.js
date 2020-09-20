@@ -19,15 +19,6 @@ export default function Button({
       color: 'white',
       background: 'var(--red)',
     },
-    tag: {
-      color: 'var(--grey)',
-      background: 'var(--lightgrey)',
-      borderradius: '15px',
-      fontsize: '12px',
-      paddinghorizontal: '15px',
-      paddingvertical: '10px',
-      margin: '2px',
-    },
   }
 
   const renderStyle = buttonStyles[styleType]
@@ -52,8 +43,6 @@ const StyledButton = styled.button`
   text-align: center;
   border: ${(props) => props.buttonStyle.border || 'none'};
   border-radius: ${(props) => props.buttonStyle.borderradius || '2px'};
-  padding: ${(props) => props.buttonStyle.paddingvertical || '8px'}
-    ${(props) => props.buttonStyle.paddinghorizontal || '8px'};
   text-align: center;
   cursor: pointer;
   display: ${(props) => props.buttonStyle.display || 'inline-block'};
