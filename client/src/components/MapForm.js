@@ -63,7 +63,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
           Wähle dazu die Spalten aus, die Latitude und Longitude repräsentieren:
         </p>
         <Label>
-          <span>Latitude:</span>
+          <span>Breitengrad (Latitude):</span>
           <select name="latitude">
             {columnNames.map((name) => (
               <option key={name} value={name}>
@@ -73,7 +73,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
           </select>
         </Label>
         <Label>
-          <span>Longitude:</span>
+          <span>Längengrad (Longitude):</span>
           <select name="longitude">
             {columnNames.map((name) => (
               <option key={name} value={name}>
