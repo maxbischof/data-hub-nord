@@ -6,6 +6,7 @@ import { useCSV } from '../hooks/useCSV'
 import LoadingDots from './ui/LoadingDots'
 import Map from './Map'
 import MapForm from './MapForm'
+import Button from './ui/Button'
 
 export default function DatasetDetails({
   title,
@@ -24,6 +25,7 @@ export default function DatasetDetails({
   const columnNames = tableData && Object.keys(tableData[0])
 
   const [mapData, setMapData] = useState()
+  const [showMapForm, setShowMapForm] = useState(false)
 
   return (
     <main>
@@ -50,15 +52,21 @@ export default function DatasetDetails({
         <VisualisationSection>
           <Headline2>Karte</Headline2>
           <Paragraph>
-            Wenn die Daten in der Tabelle über eine Adresse oder geographische
-            Koordinaten(wie z.B. 54.323334, 10.139444) verfügen, kannst du eine
-            Karte aus den Daten erstellen.
+            Ist eine Adresse oder sind geographische Koordinaten in der Tabelle
+            vorhanden? Dann erstelle eine Karte.
           </Paragraph>
-          <MapForm
-            tableData={tableData}
-            columnNames={columnNames}
-            setMapData={setMapData}
-          />
+          {!showMapForm && (
+            <StyledButton styleType="more" onClick={() => setShowMapForm(true)}>
+              Karte erstellen
+            </StyledButton>
+          )}
+          {!mapData && showMapForm && (
+            <MapForm
+              tableData={tableData}
+              columnNames={columnNames}
+              setMapData={setMapData}
+            />
+          )}
           {mapData && <Map rows={mapData} columnNames={columnNames} />}
           <Headline2>Tabelle</Headline2>
           <Table data={tableData} setMapData={setMapData}></Table>{' '}
@@ -80,13 +88,19 @@ DatasetDetails.propTypes = {
   seperator: PropTypes.string,
 }
 
+const StyledButton = styled(Button)`
+  align-self: center;
+  margin: 15px;
+`
+
 const DetailsDescription = styled.div`
   margin: 0 37px 30px 37px;
   max-width: 600px;
 `
 const VisualisationSection = styled.div`
   margin: 0 37px 30px 37px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
 `
 
 const Headline = styled.h1`

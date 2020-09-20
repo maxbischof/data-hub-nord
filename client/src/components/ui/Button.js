@@ -48,6 +48,7 @@ const StyledButton = styled.button`
   display: ${(props) => props.buttonStyle.display || 'inline-block'};
   align-self: ${(props) => props.buttonStyle.alignself || ''};
   margin: ${(props) => props.buttonStyle.margin || '0'};
+  padding: 10px 16px;
 `
 
 Button.propTypes = {
