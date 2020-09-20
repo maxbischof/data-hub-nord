@@ -60,7 +60,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     <>
       <Form onSubmit={renameLatLongColumns}>
         <p>
-          Wähle dazu die Spalten aus die Latitude und Longitude repräsentieren:
+          Wähle dazu die Spalten aus, die Latitude und Longitude repräsentieren:
         </p>
         <Label>
           <span>Latitude:</span>
@@ -91,7 +91,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
         <b>oder</b>
       </CenterParagraph>
       <Form onSubmit={geocodeAdress}>
-        <p>Wähle alle Spaltenamen die ein Teil der Adresse beinhalten:</p>
+        <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
         <div>
           {columnNames.map((name) => (
             <TagButton
@@ -149,6 +149,7 @@ const Label = styled.label`
 
 const StyledButton = styled(Button)`
   align-self: center;
+  margin: 15px;
 `
 
 const CenterParagraph = styled.p`
