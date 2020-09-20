@@ -11,7 +11,7 @@ export default function DatasetDetailsPage() {
     fetch('/datasets/' + datasetid)
       .then((response) => response.json())
       .then((result) => setDataset(result))
-  }, [])
+  }, [datasetid])
 
   return (
     <>

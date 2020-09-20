@@ -4,7 +4,6 @@ import Footer from './components/Footer.js'
 import { Route } from 'react-router-dom'
 import RootPage from './components/pages/RootPage'
 import DatasetDetailsPage from './components/pages/DatasetDetailsPage'
-import { useDatasetsCatalog } from './hooks/useDatasetsCatalog'
 
 function App() {
   return (

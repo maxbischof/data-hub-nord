@@ -6,6 +6,7 @@ import { useCSV } from '../hooks/useCSV'
 import LoadingDots from './ui/LoadingDots'
 import Map from './Map'
 import Button from './ui/Button'
+import Geocode from 'react-geocode'
 
 export default function DatasetDetails({
   title,
@@ -25,6 +26,7 @@ export default function DatasetDetails({
 
   const [adressColumnNames, setAdressColumnNames] = useState([])
   const [mapData, setMapData] = useState()
+  Geocode.setApiKey(process.env.GOOGLE_GEOCODE_KEY)
 
   function renameLatLongColumns(event) {
     event.preventDefault()
@@ -56,12 +58,23 @@ export default function DatasetDetails({
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
 
-  function submitAdress(event) {
-    setAdressColumnNames({
-      lat: event.target.latitude.value,
-      long: event.target.longitude.value,
-    })
+  function geocodeAdress(event) {
     event.preventDefault()
+    tableData.forEach((dataset) => {
+      const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
+
+      Geocode.fromAddress(adress).then(
+        (response) => {
+          const { lat, long } = response.results[0].geometry.location
+          dataset.latitude = lat
+          dataset.longitude = long
+        },
+        (error) => {
+          console.error(error)
+        }
+      )
+    })
+    setMapData(tableData)
   }
 
   return (
@@ -126,7 +139,7 @@ export default function DatasetDetails({
           <CenterParagraph>
             <b>oder</b>
           </CenterParagraph>
-          <Form onSubmit={renameLatLongColumns}>
+          <Form onSubmit={geocodeAdress}>
             <p>Wähle alle Spaltenamen die ein Teil der Adresse beinhalten:</p>
             <div>
               {columnNames.map((name) => (
@@ -143,6 +156,9 @@ export default function DatasetDetails({
                 </TagButton>
               ))}
             </div>
+            <StyledButton type="submit" styleType="more">
+              Karte erstellen
+            </StyledButton>
           </Form>
           {mapData && <Map rows={mapData} columnNames={columnNames} />}
           <Headline2>Tabelle</Headline2>
