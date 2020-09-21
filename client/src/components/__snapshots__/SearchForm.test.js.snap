@@ -3,6 +3,7 @@
 exports[`renders SearchForm component 1`] = `
 <form
   className="sc-bdnylx jQOzXW"
+  onSubmit={[Function]}
 >
   <label
     className="sc-gtssRu hAvyXn"
@@ -11,8 +12,9 @@ exports[`renders SearchForm component 1`] = `
       search.svg
     </svg>
     <input
-      className="sc-dlnjPT geefGI"
+      className="sc-dlnjPT fKUATC"
       onChange={[Function]}
+      placeholder="Suche nach Titel"
       type="text"
     />
      

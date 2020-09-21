@@ -15,8 +15,7 @@ exports[`renders correctly 1`] = `
     Visualisierung und Zugang zu den wichtigsten Daten
   </h2>
   <button
-    className="sc-bdnylx iohqmQ"
-    color="var(--red)"
+    className="sc-bdnylx lnmPgt"
     onClick={[Function]}
   >
     Daten anzeigen

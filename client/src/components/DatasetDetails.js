@@ -22,6 +22,8 @@ export default function DatasetDetails({
     removeColumns: removeColumns,
     columnsOrder: columnsOrder,
   })
+
+  console.log(tableData)
   const columnNames = tableData && Object.keys(tableData[0])
 
   const [mapData, setMapData] = useState()
