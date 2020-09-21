@@ -42,9 +42,6 @@ DataList.propTypes = {
 
 const MoreButton = styled(Button)`
   align-self: center;
-  padding: 5px;
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
 `
 
 const StyledDatasetList = styled.section`
