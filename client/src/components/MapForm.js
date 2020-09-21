@@ -94,7 +94,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
         <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
         <div>
           {columnNames.map((name) => (
-            <TagButton
+            <Tag
               key={name}
               name={name}
               onClick={onChangeAdressTags}
@@ -104,7 +104,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
               )}
             >
               {name}
-            </TagButton>
+            </Tag>
           ))}
         </div>
         <StyledButton type="submit" styleType="more">
@@ -115,7 +115,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
   )
 }
 
-const TagButton = styled.button`
+const Tag = styled.button`
   color: ${(props) => (props.active ? 'white' : 'var(--grey)')};
   background: ${(props) => (props.active ? 'var(--cyan)' : 'var(--lightgrey)')};
   border-radius: 15px;
