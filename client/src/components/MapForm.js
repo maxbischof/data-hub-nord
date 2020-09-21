@@ -88,7 +88,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
         </StyledButton>
       </Form>
       <CenterParagraph>
-        <b>oder</b>
+        <b>ODER</b>
       </CenterParagraph>
       <Form onSubmit={geocodeAdress}>
         <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
@@ -134,7 +134,7 @@ const Tag = styled.button`
 `
 
 const Form = styled.form`
-  margin: 30px 0 0 0;
+  margin: 30px 0 30px 0;
   border: 1px solid var(--grey);
   padding: 20px;
   border-radius: 5px;
