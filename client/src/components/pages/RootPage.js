@@ -3,15 +3,18 @@ import WelcomeSection from '../WelcomeSection'
 import DatasetList from '../DatasetList'
 import SearchInput from '../SearchForm'
 import LoadingDots from '../ui/LoadingDots'
+import { useDatasetsCatalog } from '../../hooks/useDatasetsCatalog'
 
-export default function RootPage({
-  setSearchTerm,
-  datasetsCatalog,
-  loadNextPage,
-  hasMoreDatasets,
-  resetDatasetsCatalog,
-  searchTerm,
-}) {
+export default function RootPage() {
+  const {
+    datasetsCatalog,
+    hasMoreDatasets,
+    resetDatasetsCatalog,
+    loadNextPage,
+    setSearchTerm,
+    searchTerm,
+  } = useDatasetsCatalog()
+
   const headlineRef = useRef(null)
 
   const scrollToRef = (ref) => {

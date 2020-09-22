@@ -9,7 +9,7 @@ Array [
     className="sc-jSFkmK khoHlD"
   >
     <a
-      href="/datensaetze/Arbeitslosigkeit-Kiel-1"
+      href="/datensaetze/1"
       onClick={[Function]}
     >
       <article
@@ -29,7 +29,7 @@ Array [
       </article>
     </a>
     <a
-      href="/datensaetze/Badegewässer-Messungen-2"
+      href="/datensaetze/2"
       onClick={[Function]}
     >
       <article

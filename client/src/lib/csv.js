@@ -13,7 +13,7 @@ export function fetchCSV({ path }) {
     .catch((error) => console.log('error', error))
 }
 
-export function csvToObjectsArray({ csv, columnNames, seperator }) {
+export function csvToObjectsArray({ csv, seperator }) {
   let rows = csv.split('\n')
 
   const objectKeys = rows[0].split(seperator)

@@ -5,6 +5,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     height: 100%;
     --grey: #333;
+    --lightgrey: #edf2f4;
     --red: #e63946;
     --cyan: #0F839C;
     scroll-behavior: smooth;

@@ -3,26 +3,26 @@
 exports[`renders datasetdetails component 1`] = `
 <main>
   <div
-    className="sc-iCoHVE lllQVd"
+    className="sc-bqGHjH blAwAh"
   >
     <h1
-      className="sc-fujyUd dcqovc"
+      className="sc-hBMVcZ NChdZ"
     >
       Arbeitslosigkeit Kiel
     </h1>
     <p
-      className="sc-kEqYlL ncyny"
+      className="sc-bkbjAj dKOYsi"
     >
       Arbeitslosigkeit in Kiel absolut und relativ seit 2009.
     </p>
     <br />
     <h3
-      className="sc-jrsJCI hNapBd"
+      className="sc-fFSRdu IXbPW"
     >
       Lizenz
     </h3>
     <p
-      className="sc-kEqYlL ncyny"
+      className="sc-bkbjAj dKOYsi"
     >
       <a
         href="Datenlizenz Deutschland – Zero – Version 2.0"
@@ -32,21 +32,16 @@ exports[`renders datasetdetails component 1`] = `
     </p>
     <br />
     <h3
-      className="sc-jrsJCI hNapBd"
+      className="sc-fFSRdu IXbPW"
     >
       Herausgeber
     </h3>
     <p
-      className="sc-kEqYlL ncyny"
+      className="sc-bkbjAj dKOYsi"
     >
       Landeshauptstadt Kiel
     </p>
   </div>
-  <h2
-    className="sc-pNWxx knGpdu"
-  >
-    Tabelle
-  </h2>
   <div
     className="sc-jSFkmK hqYLaw"
   >

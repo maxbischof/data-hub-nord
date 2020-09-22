@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders map form component 1`] = `
+Array [
+  <form
+    className="sc-dlnjPT TnyWg"
+    onSubmit={[Function]}
+  >
+    <p>
+      Wähle dazu die Spalten aus, die Latitude und Longitude repräsentieren:
+    </p>
+    <label
+      className="sc-hKFyIo eWhztp"
+    >
+      <span>
+        Breitengrad (Latitude):
+      </span>
+      <select
+        name="latitude"
+      >
+        <option
+          value="id"
+        >
+          id
+        </option>
+        <option
+          value="name"
+        >
+          name
+        </option>
+        <option
+          value="city"
+        >
+          city
+        </option>
+        <option
+          value="zipcode"
+        >
+          zipcode
+        </option>
+        <option
+          value="street"
+        >
+          street
+        </option>
+        <option
+          value="houseNumber"
+        >
+          houseNumber
+        </option>
+        <option
+          value="telephone"
+        >
+          telephone
+        </option>
+        <option
+          value="fax"
+        >
+          fax
+        </option>
+        <option
+          value="email"
+        >
+          email
+        </option>
+        <option
+          value="website"
+        >
+          website
+        </option>
+        <option
+          value="longitude"
+        >
+          longitude
+        </option>
+        <option
+          value="latitude"
+        >
+          latitude
+        </option>
+        <option
+          value="."
+        >
+          .
+        </option>
+      </select>
+    </label>
+    <label
+      className="sc-hKFyIo eWhztp"
+    >
+      <span>
+        Längengrad (Longitude):
+      </span>
+      <select
+        name="longitude"
+      >
+        <option
+          value="id"
+        >
+          id
+        </option>
+        <option
+          value="name"
+        >
+          name
+        </option>
+        <option
+          value="city"
+        >
+          city
+        </option>
+        <option
+          value="zipcode"
+        >
+          zipcode
+        </option>
+        <option
+          value="street"
+        >
+          street
+        </option>
+        <option
+          value="houseNumber"
+        >
+          houseNumber
+        </option>
+        <option
+          value="telephone"
+        >
+          telephone
+        </option>
+        <option
+          value="fax"
+        >
+          fax
+        </option>
+        <option
+          value="email"
+        >
+          email
+        </option>
+        <option
+          value="website"
+        >
+          website
+        </option>
+        <option
+          value="longitude"
+        >
+          longitude
+        </option>
+        <option
+          value="latitude"
+        >
+          latitude
+        </option>
+        <option
+          value="."
+        >
+          .
+        </option>
+      </select>
+    </label>
+    <button
+      className="sc-bdnylx gzvFCc sc-eCApGN dvpocg"
+      onClick={[Function]}
+    >
+      Karte erstellen
+    </button>
+  </form>,
+  <p
+    className="sc-jSFkmK dTIjFX"
+  >
+    <b>
+      oder
+    </b>
+  </p>,
+  <form
+    className="sc-dlnjPT TnyWg"
+    onSubmit={[Function]}
+  >
+    <p>
+      Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:
+    </p>
+    <div>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="id"
+        onClick={[Function]}
+        type="button"
+      >
+        id
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="name"
+        onClick={[Function]}
+        type="button"
+      >
+        name
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="city"
+        onClick={[Function]}
+        type="button"
+      >
+        city
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="zipcode"
+        onClick={[Function]}
+        type="button"
+      >
+        zipcode
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="street"
+        onClick={[Function]}
+        type="button"
+      >
+        street
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="houseNumber"
+        onClick={[Function]}
+        type="button"
+      >
+        houseNumber
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="telephone"
+        onClick={[Function]}
+        type="button"
+      >
+        telephone
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="fax"
+        onClick={[Function]}
+        type="button"
+      >
+        fax
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="email"
+        onClick={[Function]}
+        type="button"
+      >
+        email
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="website"
+        onClick={[Function]}
+        type="button"
+      >
+        website
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="longitude"
+        onClick={[Function]}
+        type="button"
+      >
+        longitude
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="latitude"
+        onClick={[Function]}
+        type="button"
+      >
+        latitude
+      </button>
+      <button
+        className="sc-gtssRu bbTUDT"
+        name="."
+        onClick={[Function]}
+        type="button"
+      >
+        .
+      </button>
+    </div>
+    <button
+      className="sc-bdnylx gzvFCc sc-eCApGN dvpocg"
+      onClick={[Function]}
+    >
+      Karte erstellen
+    </button>
+  </form>,
+]
+`;
