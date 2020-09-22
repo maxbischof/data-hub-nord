@@ -4,18 +4,21 @@ import Footer from './components/Footer.js'
 import { Route } from 'react-router-dom'
 import RootPage from './components/pages/RootPage'
 import DatasetDetailsPage from './components/pages/DatasetDetailsPage'
+import ErrorBoundary from './components/hoc/ErrorBoundary'
 
 function App() {
   return (
     <>
-      <Header />
-      <Route exact path="/">
-        <RootPage />
-      </Route>
-      <Route path={`/datensaetze/:datasetid`}>
-        <DatasetDetailsPage />
-      </Route>
-      <Footer />
+      <ErrorBoundary>
+        <Header />
+        <Route exact path="/">
+          <RootPage />
+        </Route>
+        <Route path={`/datensaetze/:datasetid`}>
+          <DatasetDetailsPage />
+        </Route>
+        <Footer />
+      </ErrorBoundary>
     </>
   )
 }
