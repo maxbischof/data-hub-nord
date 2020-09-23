@@ -2,6 +2,8 @@
 
 This app aims to make datasets from [Open Data Schleswig Holstein](https://opendata.schleswig-holstein.de/) accessible through displaying data as tables, maps and diagrams.
 
+[Scrum Board](https://github.com/maxbischof/data-hub-nord/projects/2) for Project
+
 [Live Demo](https://datahubnord.herokuapp.com/)
 ## Set up
 Define Env-Variables: 
