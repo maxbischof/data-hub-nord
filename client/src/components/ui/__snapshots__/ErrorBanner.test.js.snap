@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ErrorBanner component 1`] = `
+<div
+  className="sc-bdnylx gpkwlA"
+>
+  <div
+    className="sc-gtssRu fdXflC"
+  >
+    <svg
+      className="sc-hKFyIo eJoWya"
+    >
+      problem.svg
+    </svg>
+    <span>
+      Houston we have a problem!
+    </span>
+    <svg
+      className="sc-dlnjPT gLdAVN"
+      onClick={[Function]}
+    >
+      close.svg
+    </svg>
+  </div>
+</div>
+`;
