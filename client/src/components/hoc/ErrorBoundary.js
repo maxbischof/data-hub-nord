@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ErrorBanner from '../ui/ErrorBanner'
 
 export default class ErrorBoundary extends Component {
   state = {
@@ -9,14 +10,9 @@ export default class ErrorBoundary extends Component {
     return { error: error }
   }
 
-  // componentDidCatch(error, info) {
-  //   // Log the error to an error reporting service
-  //   logErrorToMyService(error, info)
-  // }
-
   render() {
     if (this.state.error) {
-      return <p>Something broke</p>
+      return <ErrorBanner />
     }
     return this.props.children
   }
