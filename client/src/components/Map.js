@@ -38,7 +38,7 @@ export default function Map({ rows, columnNames }) {
       {showError && (
         <ErrorBanner
           text={
-            'Es werden keine Daten auf der Karte angezeigt. Bitte überprüfe die ausgewählten Koordinatenspalten.'
+            'Es werden keine Daten auf der Karte angezeigt. Bitte überprüfe die ausgewählten Koordinaten- oder Adressfelder.'
           }
         />
       )}
