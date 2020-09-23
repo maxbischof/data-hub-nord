@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { ReactComponent as CloseIcon } from '../../icons/close.svg'
 import { ReactComponent as ProblemIcon } from '../../icons/problem.svg'
-import RootPage from '../pages/RootPage'
 
-export default function ErrorBanner() {
+export default function ErrorBanner({
+  text = 'Es ist ein Fehler passiert. Bitte versuche es erneut.',
+}) {
   const [showBanner, setShowBanner] = useState(true)
 
   return (
@@ -12,17 +13,19 @@ export default function ErrorBanner() {
       <BannerContainer isVisible={showBanner}>
         <Banner>
           <StyledProblemIcon />
-          <span>Es ist ein Fehler passiert. Bitte versuche es erneut.</span>
+          <span>{text}</span>
           <StyledCloseIcon onClick={() => setShowBanner(false)} />
         </Banner>
       </BannerContainer>
-      <RootPage />
     </>
   )
 }
 
 const BannerContainer = styled.div`
-  position: absolute;
+  z-index: 1100;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   ${(props) => !props.isVisible && CssAnimation}
 `

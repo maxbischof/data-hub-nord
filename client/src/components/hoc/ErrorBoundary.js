@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import RootPage from '../pages/RootPage'
 import ErrorBanner from '../ui/ErrorBanner'
 
 export default class ErrorBoundary extends Component {
@@ -12,7 +13,12 @@ export default class ErrorBoundary extends Component {
 
   render() {
     if (this.state.error) {
-      return <ErrorBanner />
+      return (
+        <>
+          <ErrorBanner />
+          <RootPage />
+        </>
+      )
     }
     return this.props.children
   }
