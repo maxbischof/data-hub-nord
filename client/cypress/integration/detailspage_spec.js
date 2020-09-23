@@ -10,9 +10,7 @@ describe('details page', () => {
     cy.get('.leaflet-marker-icon')
     cy.contains('Wähle dazu die Spalten aus, die ').should('not.exist')
   })
-})
 
-describe('details page', () => {
   it('creates map with markers using adress columns', () => {
     cy.visit('http://localhost:3000/datensaetze/25')
     cy.contains('Polizeidienststellen')
@@ -39,5 +37,16 @@ describe('details page', () => {
       .click({ force: true })
     cy.get('.leaflet-marker-icon')
     cy.contains('Wähle dazu die Spalten aus, die ').should('not.exist')
+  })
+
+  it('shows error message when choosing the wrong coordinate columns', () => {
+    cy.visit('http://localhost:3000/datensaetze/25')
+    cy.contains('Polizeidienststellen')
+    cy.contains('Karte erstellen').click()
+    cy.contains('Wähle dazu die Spalten aus, die ')
+    cy.contains('Breitengrad').find('select').select('id')
+    cy.contains('Längengrad').find('select').select('id')
+    cy.contains('Karte erstellen').click()
+    cy.contains('Es werden keine Daten auf der Karte angezeigt.')
   })
 })

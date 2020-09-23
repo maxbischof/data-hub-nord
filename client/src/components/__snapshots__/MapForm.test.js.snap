@@ -3,7 +3,7 @@
 exports[`renders map form component 1`] = `
 Array [
   <form
-    className="sc-dlnjPT TnyWg"
+    className="sc-dlnjPT faXGof"
     onSubmit={[Function]}
   >
     <p>
@@ -172,11 +172,11 @@ Array [
     className="sc-jSFkmK dTIjFX"
   >
     <b>
-      oder
+      ODER
     </b>
   </p>,
   <form
-    className="sc-dlnjPT TnyWg"
+    className="sc-dlnjPT faXGof"
     onSubmit={[Function]}
   >
     <p>
