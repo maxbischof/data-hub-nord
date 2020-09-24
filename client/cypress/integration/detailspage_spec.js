@@ -1,7 +1,8 @@
 describe('details page', () => {
   it('creates map with markers using lat long columns', () => {
-    cy.visit('http://localhost:3000/datensaetze/25')
-    cy.contains('Polizeidienststellen')
+    cy.visit('http://localhost:3000/')
+    cy.get('input').type('polizei')
+    cy.contains('Polizeidienststellen').click({ force: true })
     cy.contains('Karte erstellen').click()
     cy.contains('Wähle dazu die Spalten aus, die ')
     cy.contains('Breitengrad').find('select').select('latitude')
@@ -12,8 +13,9 @@ describe('details page', () => {
   })
 
   it('creates map with markers using adress columns', () => {
-    cy.visit('http://localhost:3000/datensaetze/25')
-    cy.contains('Polizeidienststellen')
+    cy.visit('http://localhost:3000/')
+    cy.get('input').type('polizei')
+    cy.contains('Polizeidienststellen').click({ force: true })
     cy.contains('Karte erstellen').click()
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
@@ -40,8 +42,9 @@ describe('details page', () => {
   })
 
   it('shows error message when choosing the wrong coordinate columns', () => {
-    cy.visit('http://localhost:3000/datensaetze/25')
-    cy.contains('Polizeidienststellen')
+    cy.visit('http://localhost:3000/')
+    cy.get('input').type('polizei')
+    cy.contains('Polizeidienststellen').click({ force: true })
     cy.contains('Karte erstellen').click()
     cy.contains('Wähle dazu die Spalten aus, die ')
     cy.contains('Breitengrad').find('select').select('id')
