@@ -9,6 +9,7 @@
 # testing
 /coverage
 /client/cypress/videos/
+/client/src/.env
 
 # production
 /client/build
