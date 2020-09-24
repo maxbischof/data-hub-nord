@@ -8,11 +8,14 @@ const catalogImport = require('./lib/catalogImport')
 
 const port = process.env.PORT || 3001
 
-app.use(express.static(path.join(__dirname, 'client/build')))
+let catalog = null
+catalogImport.fetchCatalog().then((response) => (catalog = response))
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
+
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.get('/datasets', (req, res) => {
   const numberOfDatasets = 10 * req.query.page
@@ -31,12 +34,9 @@ app.get('/datasets', (req, res) => {
 })
 
 app.get('/datasets/:id', (req, res) => {
-  res.send(datasets.find((dataset) => dataset.id == req.params.id))
+  res.send(catalog.find((dataset) => dataset.id == req.params.id))
 })
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
-
-let catalog = null
-catalogImport.fetchCatalog().then((response) => (catalog = response))
