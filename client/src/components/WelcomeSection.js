@@ -12,7 +12,7 @@ export default function WelcomeSection({ onClickButton, scrollTo }) {
         Visualisierung und Zugang zu den wichtigsten Daten
       </SubHeadline>
       <Button
-        color="var(--red)"
+        styleType="action"
         onClick={onClickButton}
         onClickParameter={scrollTo}
       >

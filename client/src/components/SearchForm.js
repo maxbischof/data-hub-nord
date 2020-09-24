@@ -16,7 +16,7 @@ export default function SearchForm({ setSearchTerm, resetSearchResults }) {
   }
 
   return (
-    <Form>
+    <Form onSubmit={(event) => event.preventDefault()}>
       <Label>
         <SearchIcon />
         <Input

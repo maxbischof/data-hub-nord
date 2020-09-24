@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BackButton from '../ui/BackButton'
 import DatasetDetails from '../DatasetDetails'
-import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 
-export default function DatasetDetailsPage({ datasets }) {
+export default function DatasetDetailsPage() {
   const { datasetid } = useParams()
-  const dataset = datasets.find((dataset) => dataset.id === parseInt(datasetid))
+  const [dataset, setDataset] = useState()
+
+  useEffect(() => {
+    fetch('/datasets/' + datasetid)
+      .then((response) => response.json())
+      .then((result) => setDataset(result))
+  }, [datasetid])
+
   return (
     <>
       <BackButton />
-      <DatasetDetails {...dataset} />
+      {dataset && <DatasetDetails {...dataset} />}
     </>
   )
-}
-
-DatasetDetailsPage.propTypes = {
-  datasets: PropTypes.array.isRequired,
 }
