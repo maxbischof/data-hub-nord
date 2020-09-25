@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Button from './ui/Button'
 
 export default function MapForm({ tableData, setMapData, columnNames }) {
-  Geocode.setApiKey(process.env.GOOGLE_GEOCODE_KEY)
+  Geocode.setApiKey(process.env.REACT_APP_GOOGLE_GEOCODE_KEY)
   const [adressColumnNames, setAdressColumnNames] = useState([])
 
   function renameLatLongColumns(event) {
@@ -15,12 +15,12 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
 
     tableData.forEach((dataset) => {
       if (latName !== 'latitude') {
-        dataset['latitude'] = dataset[latName]
+        dataset.latitude = dataset[latName]
         delete dataset[latName]
       }
 
       if (longName !== 'longitude') {
-        dataset['longitude'] = dataset[longName]
+        dataset.longitude = dataset[longName]
         delete dataset[longName]
       }
     })
@@ -37,23 +37,25 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
 
-  function geocodeAdress(event) {
+  async function geocodeAdress(event) {
     event.preventDefault()
-    tableData.forEach((dataset) => {
-      const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
-
-      Geocode.fromAddress(adress).then(
-        (response) => {
-          const { lat, long } = response.results[0].geometry.location
-          dataset.latitude = lat
-          dataset.longitude = long
-        },
-        (error) => {
-          console.error(error)
-        }
-      )
-    })
-    setMapData(tableData)
+    const mapData = await Promise.all(
+      tableData.map(async (dataset) => {
+        const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
+        await Geocode.fromAddress(adress).then(
+          (response) => {
+            const { lat, lng } = response.results[0].geometry.location
+            dataset.latitude = lat
+            dataset.longitude = lng
+          },
+          (error) => {
+            console.error(error)
+          }
+        )
+        return dataset
+      })
+    )
+    setMapData(mapData)
   }
 
   return (

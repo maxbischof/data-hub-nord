@@ -5,7 +5,6 @@ import ErrorBanner from './ui/ErrorBanner'
 
 export default function Map({ rows, columnNames }) {
   let showError = false
-
   const markers = rows.map((row, index) => {
     const lat = parseFloat(row.latitude)
     const long = parseFloat(row.longitude)
@@ -13,7 +12,6 @@ export default function Map({ rows, columnNames }) {
 
     if (isNaN(lat) === false && isNaN(long) === false) {
       const latLong = [lat, long]
-
       marker = (
         <Marker key={index} position={latLong}>
           <Popup>
