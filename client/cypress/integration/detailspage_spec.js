@@ -14,24 +14,24 @@ describe('details page', () => {
 
   it('creates map with markers using adress columns', () => {
     cy.visit('http://localhost:3000/')
-    cy.get('input').type('polizei')
-    cy.contains('Polizeidienststellen').click({ force: true })
+    cy.get('input').type(
+      'Landesnetzausbau auf Glasfaserbasis LN 2020 - Statusliste Schulen'
+    )
+    cy.contains(
+      'Landesnetzausbau auf Glasfaserbasis LN 2020 - Statusliste Schulen'
+    ).click({ force: true })
     cy.contains('Karte erstellen').click()
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
-      .contains('city')
+      .contains('Straße')
       .click({ force: true })
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
-      .contains('zipcode')
+      .contains('PLZ')
       .click({ force: true })
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
-      .contains('street')
-      .click({ force: true })
-    cy.contains('die ein Teil der Adresse beinhalten:')
-      .next()
-      .contains('houseNumber')
+      .contains('Ort')
       .click({ force: true })
     cy.contains('die ein Teil der Adresse beinhalten:')
       .parent()
