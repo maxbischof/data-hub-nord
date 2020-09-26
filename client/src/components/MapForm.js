@@ -37,25 +37,36 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
 
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
   async function geocodeAdress(event) {
     event.preventDefault()
-    const mapData = await Promise.all(
-      tableData.map(async (dataset) => {
-        const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
-        await Geocode.fromAddress(adress).then(
-          (response) => {
-            const { lat, lng } = response.results[0].geometry.location
-            dataset.latitude = lat
-            dataset.longitude = lng
-          },
-          (error) => {
-            console.error(error)
-          }
-        )
-        return dataset
+    let mapData = []
+
+    await tableData.reduce((promise, item) => {
+      return promise.then((result) => {
+        return Promise.all([delay(100), fetchAdress(item)]).then((values) => {
+          return (mapData = [...mapData, values[1]])
+        })
       })
-    )
+    }, Promise.resolve())
+
     setMapData(mapData)
+  }
+
+  async function fetchAdress(dataset) {
+    const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
+    await Geocode.fromAddress(adress).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location
+        dataset.latitude = lat
+        dataset.longitude = lng
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+    return dataset
   }
 
   return (
