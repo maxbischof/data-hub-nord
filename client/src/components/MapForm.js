@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import Geocode from 'react-geocode'
 import styled from 'styled-components'
 import Button from './ui/Button'
+import { fetchAdress } from './../lib/geo'
 
 export default function MapForm({ tableData, setMapData, columnNames }) {
-  Geocode.setApiKey(process.env.REACT_APP_GOOGLE_GEOCODE_KEY)
   const [adressColumnNames, setAdressColumnNames] = useState([])
 
   function renameLatLongColumns(event) {
@@ -37,36 +36,19 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
   async function geocodeAdress(event) {
     event.preventDefault()
     let mapData = []
 
     await tableData.reduce((promise, item) => {
       return promise.then((result) => {
-        return Promise.all([delay(100), fetchAdress(item)]).then((values) => {
-          return (mapData = [...mapData, values[1]])
+        return fetchAdress(item, adressColumnNames).then((dataset) => {
+          mapData = [...mapData, dataset]
         })
       })
     }, Promise.resolve())
 
     setMapData(mapData)
-  }
-
-  async function fetchAdress(dataset) {
-    const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
-    await Geocode.fromAddress(adress).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location
-        dataset.latitude = lat
-        dataset.longitude = lng
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-    return dataset
   }
 
   return (
