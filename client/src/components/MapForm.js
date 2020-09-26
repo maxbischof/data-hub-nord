@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './ui/Button'
 import { fetchAdress } from './../lib/geo'
+import Bottleneck from 'bottleneck/es5'
 
 export default function MapForm({ tableData, setMapData, columnNames }) {
   const [adressColumnNames, setAdressColumnNames] = useState([])
@@ -38,17 +39,16 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
 
   async function geocodeAdress(event) {
     event.preventDefault()
-    let mapData = []
 
-    await tableData.reduce((promise, item) => {
-      return promise.then((result) => {
-        return fetchAdress(item, adressColumnNames).then((dataset) => {
-          mapData = [...mapData, dataset]
-        })
+    const limiter = new Bottleneck({
+      minTime: 100,
+    })
+
+    Promise.all(
+      tableData.map((dataset) => {
+        return limiter.schedule(() => fetchAdress(dataset, adressColumnNames))
       })
-    }, Promise.resolve())
-
-    setMapData(mapData)
+    ).then((dataWithCoordinates) => setMapData(dataWithCoordinates))
   }
 
   return (
