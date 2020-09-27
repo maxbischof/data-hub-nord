@@ -70,7 +70,7 @@ export default function DatasetDetails({
           )}
           {mapData && <Map rows={mapData} columnNames={columnNames} />}
           <Headline2>Tabelle</Headline2>
-          <Table data={tableData} setMapData={setMapData}></Table>{' '}
+          <Table data={tableData}></Table>
         </VisualisationSection>
       ) : (
         <LoadingDots />

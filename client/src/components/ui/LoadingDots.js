@@ -1,15 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function LoadingDots() {
+export default function LoadingDots({ progress }) {
   return (
-    <DotsContainer>
-      <Dot></Dot>
-      <Dot></Dot>
-      <Dot></Dot>
-    </DotsContainer>
+    <>
+      <DotsContainer>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+      </DotsContainer>
+      {progress && <CenterParagraph>{progress}%</CenterParagraph>}
+    </>
   )
 }
+
+const CenterParagraph = styled.p`
+  place-self: center;
+`
 
 const DotsContainer = styled.div`
   margin: auto;

@@ -1,32 +1,13 @@
 import React, { useState } from 'react'
-import Geocode from 'react-geocode'
 import styled from 'styled-components'
 import Button from './ui/Button'
+import { renameLatLongColumns, geocodeAdress } from './../lib/geo'
+import { useProgressStatus } from '../hooks/useProgressStatus'
+import LoadingDots from './ui/LoadingDots'
 
 export default function MapForm({ tableData, setMapData, columnNames }) {
-  Geocode.setApiKey(process.env.GOOGLE_GEOCODE_KEY)
   const [adressColumnNames, setAdressColumnNames] = useState([])
-
-  function renameLatLongColumns(event) {
-    event.preventDefault()
-
-    const latName = event.target.latitude.value
-    const longName = event.target.longitude.value
-
-    tableData.forEach((dataset) => {
-      if (latName !== 'latitude') {
-        dataset['latitude'] = dataset[latName]
-        delete dataset[latName]
-      }
-
-      if (longName !== 'longitude') {
-        dataset['longitude'] = dataset[longName]
-        delete dataset[longName]
-      }
-    })
-
-    setMapData(tableData)
-  }
+  const { percent, setProgress } = useProgressStatus(tableData.length)
 
   function onChangeAdressTags(event) {
     const tagName = event.target.name
@@ -37,80 +18,84 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     } else setAdressColumnNames([...adressColumnNames, tagName])
   }
 
-  function geocodeAdress(event) {
-    event.preventDefault()
-    tableData.forEach((dataset) => {
-      const adress = adressColumnNames.map((name) => dataset[name]).join(' ')
-
-      Geocode.fromAddress(adress).then(
-        (response) => {
-          const { lat, long } = response.results[0].geometry.location
-          dataset.latitude = lat
-          dataset.longitude = long
-        },
-        (error) => {
-          console.error(error)
-        }
-      )
-    })
-    setMapData(tableData)
-  }
-
   return (
     <>
-      <Form onSubmit={renameLatLongColumns}>
-        <p>
-          Wähle dazu die Spalten aus, die Latitude und Longitude repräsentieren:
-        </p>
-        <Label>
-          <span>Breitengrad (Latitude):</span>
-          <select name="latitude">
-            {columnNames.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </Label>
-        <Label>
-          <span>Längengrad (Longitude):</span>
-          <select name="longitude">
-            {columnNames.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </Label>
+      {percent > 0 ? (
+        <>
+          <LoadingDots progress={percent} />
+        </>
+      ) : (
+        <>
+          <Form
+            onSubmit={(event) =>
+              renameLatLongColumns(event, tableData, setMapData)
+            }
+          >
+            <p>
+              Wähle dazu die Spalten aus, die Latitude und Longitude
+              repräsentieren:
+            </p>
+            <Label>
+              <span>Breitengrad (Latitude):</span>
+              <select name="latitude">
+                {columnNames.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </Label>
+            <Label>
+              <span>Längengrad (Longitude):</span>
+              <select name="longitude">
+                {columnNames.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </Label>
 
-        <StyledButton type="submit" styleType="more">
-          Karte erstellen
-        </StyledButton>
-      </Form>
-      <CenterParagraph>
-        <b>ODER</b>
-      </CenterParagraph>
-      <Form onSubmit={geocodeAdress}>
-        <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
-        <div>
-          {columnNames.map((name) => (
-            <Tag
-              key={name}
-              name={name}
-              onClick={onChangeAdressTags}
-              type="button"
-              active={adressColumnNames.find((columnName) =>
-                columnName === name ? true : false
-              )}
-            >
-              {name}
-            </Tag>
-          ))}
-        </div>
-        <StyledButton type="submit" styleType="more">
-          Karte erstellen
-        </StyledButton>
-      </Form>
+            <StyledButton type="submit" styleType="more">
+              Karte erstellen
+            </StyledButton>
+          </Form>
+          <CenterParagraph>
+            <b>ODER</b>
+          </CenterParagraph>
+          <Form
+            onSubmit={(event) =>
+              geocodeAdress(
+                event,
+                tableData,
+                setMapData,
+                setProgress,
+                adressColumnNames
+              )
+            }
+          >
+            <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
+            <div>
+              {columnNames.map((name) => (
+                <Tag
+                  key={name}
+                  name={name}
+                  onClick={onChangeAdressTags}
+                  type="button"
+                  active={adressColumnNames.find((columnName) =>
+                    columnName === name ? true : false
+                  )}
+                >
+                  {name}
+                </Tag>
+              ))}
+            </div>
+            <StyledButton type="submit" styleType="more">
+              Karte erstellen
+            </StyledButton>
+          </Form>
+        </>
+      )}
     </>
   )
 }
