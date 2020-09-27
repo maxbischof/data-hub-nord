@@ -1,5 +1,30 @@
 import Geocode from 'react-geocode'
+import Bottleneck from 'bottleneck/es5'
+
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_GEOCODE_KEY)
+
+export async function geocodeAdress(
+  event,
+  tableData,
+  setMapData,
+  setProgress,
+  adressColumnNames
+) {
+  event.preventDefault()
+
+  const limiter = new Bottleneck({
+    minTime: 100,
+  })
+
+  Promise.all(
+    tableData.map((dataset, index) => {
+      return limiter.schedule(() => {
+        setProgress(index)
+        return fetchAdress(dataset, adressColumnNames)
+      })
+    })
+  ).then((dataWithCoordinates) => setMapData(dataWithCoordinates))
+}
 
 export async function fetchAdress(dataset, adressColumnNames) {
   const adress = adressColumnNames.map((name) => dataset[name]).join(' ')

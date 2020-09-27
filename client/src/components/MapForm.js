@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './ui/Button'
-import { fetchAdress, renameLatLongColumns } from './../lib/geo'
-import Bottleneck from 'bottleneck/es5'
+import { renameLatLongColumns, geocodeAdress } from './../lib/geo'
 import { useProgressStatus } from '../hooks/useProgressStatus'
 import LoadingDots from './ui/LoadingDots'
 
@@ -17,23 +16,6 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
       newArray = adressColumnNames.filter((name) => name !== tagName)
       setAdressColumnNames(newArray)
     } else setAdressColumnNames([...adressColumnNames, tagName])
-  }
-
-  async function geocodeAdress(event) {
-    event.preventDefault()
-
-    const limiter = new Bottleneck({
-      minTime: 100,
-    })
-
-    Promise.all(
-      tableData.map((dataset, index) => {
-        return limiter.schedule(() => {
-          setProgress(index)
-          return fetchAdress(dataset, adressColumnNames)
-        })
-      })
-    ).then((dataWithCoordinates) => setMapData(dataWithCoordinates))
   }
 
   return (
@@ -81,7 +63,17 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
           <CenterParagraph>
             <b>ODER</b>
           </CenterParagraph>
-          <Form onSubmit={geocodeAdress}>
+          <Form
+            onSubmit={(event) =>
+              geocodeAdress(
+                event,
+                tableData,
+                setMapData,
+                setProgress,
+                adressColumnNames
+              )
+            }
+          >
             <p>Wähle alle Spaltenamen, die ein Teil der Adresse beinhalten:</p>
             <div>
               {columnNames.map((name) => (
