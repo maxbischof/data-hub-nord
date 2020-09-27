@@ -15,3 +15,24 @@ export async function fetchAdress(dataset, adressColumnNames) {
   )
   return dataset
 }
+
+export function renameLatLongColumns(event, tableData, setMapData) {
+  event.preventDefault()
+
+  const latName = event.target.latitude.value
+  const longName = event.target.longitude.value
+
+  tableData.forEach((dataset) => {
+    if (latName !== 'latitude') {
+      dataset.latitude = dataset[latName]
+      delete dataset[latName]
+    }
+
+    if (longName !== 'longitude') {
+      dataset.longitude = dataset[longName]
+      delete dataset[longName]
+    }
+  })
+
+  setMapData(tableData)
+}

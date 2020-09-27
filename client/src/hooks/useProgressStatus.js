@@ -7,7 +7,7 @@ export function useProgressStatus(progressLength) {
   useEffect(() => {
     progress % 20 === 0 &&
       setPercent(Math.round(progress / (progressLength / 100)))
-  }, [progress])
+  }, [progress, progressLength])
 
   return { percent, setProgress }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './ui/Button'
-import { fetchAdress } from './../lib/geo'
+import { fetchAdress, renameLatLongColumns } from './../lib/geo'
 import Bottleneck from 'bottleneck/es5'
 import { useProgressStatus } from '../hooks/useProgressStatus'
 import LoadingDots from './ui/LoadingDots'
@@ -9,27 +9,6 @@ import LoadingDots from './ui/LoadingDots'
 export default function MapForm({ tableData, setMapData, columnNames }) {
   const [adressColumnNames, setAdressColumnNames] = useState([])
   const { percent, setProgress } = useProgressStatus(tableData.length)
-
-  function renameLatLongColumns(event) {
-    event.preventDefault()
-
-    const latName = event.target.latitude.value
-    const longName = event.target.longitude.value
-
-    tableData.forEach((dataset) => {
-      if (latName !== 'latitude') {
-        dataset.latitude = dataset[latName]
-        delete dataset[latName]
-      }
-
-      if (longName !== 'longitude') {
-        dataset.longitude = dataset[longName]
-        delete dataset[longName]
-      }
-    })
-
-    setMapData(tableData)
-  }
 
   function onChangeAdressTags(event) {
     const tagName = event.target.name
@@ -65,7 +44,11 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
         </>
       ) : (
         <>
-          <Form onSubmit={renameLatLongColumns}>
+          <Form
+            onSubmit={(event) =>
+              renameLatLongColumns(event, tableData, setMapData)
+            }
+          >
             <p>
               Wähle dazu die Spalten aus, die Latitude und Longitude
               repräsentieren:
