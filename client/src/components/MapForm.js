@@ -61,8 +61,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
     <>
       {percent > 0 ? (
         <>
-          <LoadingDots />
-          <CenterParagraph>{percent}%</CenterParagraph>
+          <LoadingDots progress={percent} />
         </>
       ) : (
         <>
