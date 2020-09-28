@@ -3,14 +3,14 @@
 exports[`renders map form component 1`] = `
 Array [
   <form
-    className="sc-jSFkmK iQUOXt"
+    className="sc-iCoHVE fFBUZp"
     onSubmit={[Function]}
   >
     <p>
       Wähle dazu die Spalten aus, die Latitude und Longitude repräsentieren:
     </p>
     <label
-      className="sc-gKAblj kboesa"
+      className="sc-fujyUd iySICG"
     >
       <span>
         Breitengrad (Latitude):
@@ -86,7 +86,7 @@ Array [
       </select>
     </label>
     <label
-      className="sc-gKAblj kboesa"
+      className="sc-fujyUd iySICG"
     >
       <span>
         Längengrad (Longitude):
@@ -162,21 +162,21 @@ Array [
       </select>
     </label>
     <button
-      className="sc-bdnylx gzvFCc sc-iCoHVE fxzqIg"
+      className="sc-dlnjPT jcwkNG sc-pNWxx gSNKhn"
       onClick={[Function]}
     >
       Karte erstellen
     </button>
   </form>,
   <p
-    className="sc-fujyUd bfEpqE"
+    className="sc-jrsJCI iCLLwS"
   >
     <b>
       ODER
     </b>
   </p>,
   <form
-    className="sc-jSFkmK iQUOXt"
+    className="sc-iCoHVE fFBUZp"
     onSubmit={[Function]}
   >
     <p>
@@ -184,7 +184,7 @@ Array [
     </p>
     <div>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="id"
         onClick={[Function]}
         type="button"
@@ -192,7 +192,7 @@ Array [
         id
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="name"
         onClick={[Function]}
         type="button"
@@ -200,7 +200,7 @@ Array [
         name
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="city"
         onClick={[Function]}
         type="button"
@@ -208,7 +208,7 @@ Array [
         city
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="zipcode"
         onClick={[Function]}
         type="button"
@@ -216,7 +216,7 @@ Array [
         zipcode
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="street"
         onClick={[Function]}
         type="button"
@@ -224,7 +224,7 @@ Array [
         street
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="houseNumber"
         onClick={[Function]}
         type="button"
@@ -232,7 +232,7 @@ Array [
         houseNumber
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="telephone"
         onClick={[Function]}
         type="button"
@@ -240,7 +240,7 @@ Array [
         telephone
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="fax"
         onClick={[Function]}
         type="button"
@@ -248,7 +248,7 @@ Array [
         fax
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="email"
         onClick={[Function]}
         type="button"
@@ -256,7 +256,7 @@ Array [
         email
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="website"
         onClick={[Function]}
         type="button"
@@ -264,7 +264,7 @@ Array [
         website
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="longitude"
         onClick={[Function]}
         type="button"
@@ -272,7 +272,7 @@ Array [
         longitude
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="latitude"
         onClick={[Function]}
         type="button"
@@ -280,7 +280,7 @@ Array [
         latitude
       </button>
       <button
-        className="sc-eCApGN hlsNMt"
+        className="sc-gKAblj kJAmnO"
         name="."
         onClick={[Function]}
         type="button"
@@ -289,7 +289,7 @@ Array [
       </button>
     </div>
     <button
-      className="sc-bdnylx gzvFCc sc-iCoHVE fxzqIg"
+      className="sc-dlnjPT jcwkNG sc-pNWxx gSNKhn"
       onClick={[Function]}
     >
       Karte erstellen
