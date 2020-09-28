@@ -29,14 +29,14 @@ export default function RootPage() {
         setSearchTerm={setSearchTerm}
         resetSearchResults={resetDatasetsCatalog}
       />
-      <BookmarksList />
+      {!searchTerm && <BookmarksList />}
       {!datasetsCatalog ? (
         <LoadingDots />
       ) : (
         <DatasetList
           datasets={datasetsCatalog}
           headlineRef={headlineRef}
-          headline={searchTerm ? 'Suche' : 'Datensätze'}
+          headline={searchTerm ? 'Suche' : 'Alle Datensätze'}
           loadMore={loadNextPage}
           showMoreButton={hasMoreDatasets}
         />
