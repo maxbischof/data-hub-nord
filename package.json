@@ -28,6 +28,7 @@
     "fetch-paginate": "^6.1.0",
     "iconv-lite": "^0.6.2",
     "is-utf8": "^0.2.1",
+    "md5": "^2.3.0",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
     "xml2js": "^0.4.23"
