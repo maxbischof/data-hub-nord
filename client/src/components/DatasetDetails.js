@@ -16,6 +16,7 @@ export default function DatasetDetails({
   url,
   removeColumns,
   columnsOrder,
+  id,
 }) {
   const tableData = useCSV({
     url: url,
@@ -27,6 +28,14 @@ export default function DatasetDetails({
 
   const [mapData, setMapData] = useState()
   const [showMapForm, setShowMapForm] = useState(false)
+
+  function addBookmark(id) {
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
+
+    bookmarks
+      ? localStorage.setItem('bookmarks', JSON.stringify([...bookmarks, id]))
+      : localStorage.setItem('bookmarks', JSON.stringify([id]))
+  }
 
   return (
     <main>
@@ -47,6 +56,9 @@ export default function DatasetDetails({
         ) : (
           ''
         )}
+        <Button styleType="more" onClick={() => addBookmark(id)}>
+          Zu meinen Datensätzen hinzufügen
+        </Button>
       </DetailsDescription>
 
       {tableData ? (

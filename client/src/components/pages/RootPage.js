@@ -4,6 +4,7 @@ import DatasetList from '../DatasetList'
 import SearchInput from '../SearchForm'
 import LoadingDots from '../ui/LoadingDots'
 import { useDatasetsCatalog } from '../../hooks/useDatasetsCatalog'
+import BookmarksList from '../BookmarksList'
 
 export default function RootPage() {
   const {
@@ -28,6 +29,7 @@ export default function RootPage() {
         setSearchTerm={setSearchTerm}
         resetSearchResults={resetDatasetsCatalog}
       />
+      <BookmarksList />
       {!datasetsCatalog ? (
         <LoadingDots />
       ) : (
