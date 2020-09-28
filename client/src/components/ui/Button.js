@@ -24,10 +24,14 @@ export default function Button({
     plus: {
       color: 'var(--cyan)',
       background: 'white',
+      padding: '10px 0',
     },
     minus: {
       color: 'var(--red)',
       background: 'white',
+      padding: '10px 0',
+      display: 'flex',
+      alignitems: 'center',
     },
   }
 
@@ -60,7 +64,7 @@ const StyledButton = styled.button`
   text-decoration: none;
   color: ${(props) => props.buttonStyle.color};
   background-color: ${(props) => props.buttonStyle.background};
-  text-align: center;
+  text-align: ${(props) => props.buttonStyle.textalign || 'center'};
   border: ${(props) => props.buttonStyle.border || 'none'};
   border-radius: ${(props) => props.buttonStyle.borderradius || '2px'};
   text-align: center;
@@ -68,7 +72,8 @@ const StyledButton = styled.button`
   display: ${(props) => props.buttonStyle.display || 'inline-block'};
   align-self: ${(props) => props.buttonStyle.alignself || ''};
   margin: ${(props) => props.buttonStyle.margin || '0'};
-  padding: 10px 16px;
+  padding: ${(props) => props.buttonStyle.padding || '10px 16px'};
+  align-items: ${(props) => props.buttonStyle.alignitems || ''};
 `
 
 Button.propTypes = {
