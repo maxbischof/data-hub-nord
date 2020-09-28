@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { ReactComponent as PlusIcon } from '../../icons/plus.svg'
 
 export default function Button({
   styleType,
@@ -19,6 +20,10 @@ export default function Button({
       color: 'white',
       background: 'var(--red)',
     },
+    plus: {
+      color: 'var(--cyan)',
+      background: 'white',
+    },
   }
 
   const renderStyle = buttonStyles[styleType]
@@ -29,10 +34,15 @@ export default function Button({
       buttonStyle={renderStyle}
       className={className}
     >
+      {styleType === 'plus' && <StyledPlusIcon />}
       {children}
     </StyledButton>
   )
 }
+
+const StyledPlusIcon = styled(PlusIcon)`
+  margin-right: 5px;
+`
 
 const StyledButton = styled.button`
   font-size: ${(props) => props.buttonStyle.fontsize || '15px'};

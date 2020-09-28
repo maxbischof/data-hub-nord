@@ -56,7 +56,7 @@ export default function DatasetDetails({
         ) : (
           ''
         )}
-        <Button styleType="more" onClick={() => addBookmark(id)}>
+        <Button styleType="plus" onClick={() => addBookmark(id)}>
           Zu meinen Datensätzen hinzufügen
         </Button>
       </DetailsDescription>
