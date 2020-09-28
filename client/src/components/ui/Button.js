@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg'
+import { ReactComponent as MinusIcon } from '../../icons/minus.svg'
 
 export default function Button({
   styleType,
@@ -24,6 +25,10 @@ export default function Button({
       color: 'var(--cyan)',
       background: 'white',
     },
+    minus: {
+      color: 'var(--red)',
+      background: 'white',
+    },
   }
 
   const renderStyle = buttonStyles[styleType]
@@ -35,12 +40,17 @@ export default function Button({
       className={className}
     >
       {styleType === 'plus' && <StyledPlusIcon />}
+      {styleType === 'minus' && <StyledMinusIcon />}
       {children}
     </StyledButton>
   )
 }
 
 const StyledPlusIcon = styled(PlusIcon)`
+  margin-right: 5px;
+`
+
+const StyledMinusIcon = styled(MinusIcon)`
   margin-right: 5px;
 `
 

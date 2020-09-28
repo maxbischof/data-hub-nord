@@ -7,6 +7,11 @@ import LoadingDots from './ui/LoadingDots'
 import Map from './Map'
 import MapForm from './MapForm'
 import Button from './ui/Button'
+import {
+  setBookmark,
+  useBookmarkStatus,
+  removeBookmark,
+} from '../lib/bookmarks'
 
 export default function DatasetDetails({
   title,
@@ -29,13 +34,7 @@ export default function DatasetDetails({
   const [mapData, setMapData] = useState()
   const [showMapForm, setShowMapForm] = useState(false)
 
-  function addBookmark(id) {
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
-
-    bookmarks
-      ? localStorage.setItem('bookmarks', JSON.stringify([...bookmarks, id]))
-      : localStorage.setItem('bookmarks', JSON.stringify([id]))
-  }
+  const { isBookmarked, setIsBookmarked } = useBookmarkStatus(id)
 
   return (
     <main>
@@ -56,9 +55,21 @@ export default function DatasetDetails({
         ) : (
           ''
         )}
-        <Button styleType="plus" onClick={() => addBookmark(id)}>
-          Zu meinen Datensätzen hinzufügen
-        </Button>
+        {isBookmarked ? (
+          <Button
+            styleType="minus"
+            onClick={() => removeBookmark(id, setIsBookmarked)}
+          >
+            Von "Meine Datensätzen" entfernen
+          </Button>
+        ) : (
+          <Button
+            styleType="plus"
+            onClick={() => setBookmark(id, setIsBookmarked)}
+          >
+            Zu "Meine Datensätze" hinzufügen
+          </Button>
+        )}
       </DetailsDescription>
 
       {tableData ? (
