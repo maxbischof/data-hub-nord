@@ -60,7 +60,7 @@ export default function DatasetDetails({
             styleType="minus"
             onClick={() => removeBookmark(id, setIsBookmarked)}
           >
-            Von "Meine Datensätzen" entfernen
+            Von "Meine Datensätze" entfernen
           </Button>
         ) : (
           <Button
