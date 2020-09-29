@@ -15,7 +15,7 @@ export default function BookmarksList() {
 
   return (
     <>
-      {bookmarks && (
+      {bookmarks?.length > 0 && (
         <DatasetList
           datasets={bookmarks}
           headline={'Meine Datensätze'}
