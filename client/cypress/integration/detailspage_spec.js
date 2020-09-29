@@ -30,17 +30,17 @@ describe('details page', () => {
   })
 
   it('creates map with markers using adress columns', () => {
-    cy.visit('http://localhost:3000/')
-    cy.get('input').type('Schulen im Kreis Pinneberg')
-    cy.contains('Schulen im Kreis Pinneberg').click({ force: true })
+    cy.visit(
+      'http://localhost:3000/datensaetze/5cac7e8ad6821af36c27077674c9fe4d'
+    )
     cy.contains('Karte erstellen').click()
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
-      .contains('{http://www.deegree.org/app}Adresse')
+      .contains('LAGE')
       .click({ force: true })
     cy.contains('die ein Teil der Adresse beinhalten:')
       .next()
-      .contains('{http://www.deegree.org/app}Ort')
+      .contains('ORT')
       .click({ force: true })
     cy.contains('die ein Teil der Adresse beinhalten:')
       .parent()
