@@ -2,20 +2,20 @@
 
 exports[`renders correctly 1`] = `
 <section
-  className="sc-gtssRu cCJTPu"
+  className="sc-hKFyIo TUofY"
 >
   <h1
-    className="sc-dlnjPT giUAYN"
+    className="sc-eCApGN hgkWgH"
   >
     Entdecke Open Data in Norddeutschland
   </h1>
   <h2
-    className="sc-hKFyIo dAckuJ"
+    className="sc-jSFkmK gQlegJ"
   >
     Visualisierung und Zugang zu den wichtigsten Daten
   </h2>
   <button
-    className="sc-bdnylx lnmPgt"
+    className="sc-dlnjPT cSgLtP"
     onClick={[Function]}
   >
     Daten anzeigen

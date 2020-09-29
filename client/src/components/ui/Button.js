@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { ReactComponent as PlusIcon } from '../../icons/plus.svg'
+import { ReactComponent as MinusIcon } from '../../icons/minus.svg'
 
 export default function Button({
   styleType,
@@ -19,6 +21,18 @@ export default function Button({
       color: 'white',
       background: 'var(--red)',
     },
+    plus: {
+      color: 'var(--cyan)',
+      background: 'white',
+      padding: '10px 0',
+    },
+    minus: {
+      color: 'var(--red)',
+      background: 'white',
+      padding: '10px 0',
+      display: 'flex',
+      alignitems: 'center',
+    },
   }
 
   const renderStyle = buttonStyles[styleType]
@@ -29,10 +43,20 @@ export default function Button({
       buttonStyle={renderStyle}
       className={className}
     >
+      {styleType === 'plus' && <StyledPlusIcon />}
+      {styleType === 'minus' && <StyledMinusIcon />}
       {children}
     </StyledButton>
   )
 }
+
+const StyledPlusIcon = styled(PlusIcon)`
+  margin-right: 5px;
+`
+
+const StyledMinusIcon = styled(MinusIcon)`
+  margin-right: 5px;
+`
 
 const StyledButton = styled.button`
   font-size: ${(props) => props.buttonStyle.fontsize || '15px'};
@@ -40,7 +64,7 @@ const StyledButton = styled.button`
   text-decoration: none;
   color: ${(props) => props.buttonStyle.color};
   background-color: ${(props) => props.buttonStyle.background};
-  text-align: center;
+  text-align: ${(props) => props.buttonStyle.textalign || 'center'};
   border: ${(props) => props.buttonStyle.border || 'none'};
   border-radius: ${(props) => props.buttonStyle.borderradius || '2px'};
   text-align: center;
@@ -48,7 +72,8 @@ const StyledButton = styled.button`
   display: ${(props) => props.buttonStyle.display || 'inline-block'};
   align-self: ${(props) => props.buttonStyle.alignself || ''};
   margin: ${(props) => props.buttonStyle.margin || '0'};
-  padding: 10px 16px;
+  padding: ${(props) => props.buttonStyle.padding || '10px 16px'};
+  align-items: ${(props) => props.buttonStyle.alignitems || ''};
 `
 
 Button.propTypes = {
