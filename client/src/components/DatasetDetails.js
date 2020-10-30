@@ -19,15 +19,9 @@ export default function DatasetDetails({
   license,
   publisher,
   url,
-  removeColumns,
-  columnsOrder,
   id,
 }) {
-  const tableData = useCSV({
-    url: url,
-    removeColumns: removeColumns,
-    columnsOrder: columnsOrder,
-  })
+  const tableData = useCSV(url)
 
   const columnNames = tableData && Object.keys(tableData[0])
 

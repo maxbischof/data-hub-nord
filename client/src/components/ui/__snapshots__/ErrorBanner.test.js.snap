@@ -16,7 +16,7 @@ exports[`renders ErrorBanner component 1`] = `
       Houston we have a problem!
     </span>
     <svg
-      className="sc-dlnjPT gLdAVN"
+      className="sc-dlnjPT gTPgFD"
       onClick={[Function]}
     >
       close.svg

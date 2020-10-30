@@ -1,7 +1,7 @@
 import iconv from 'iconv-lite'
 import isUTF8Encoded from 'is-utf8'
 
-export function fetchCSV({ path }) {
+export function fetchCSV(path) {
   return fetch('/proxy/' + path)
     .then((res) => res.arrayBuffer())
     .then((arrayBuffer) => {
