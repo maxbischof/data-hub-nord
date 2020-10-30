@@ -65,6 +65,7 @@ const StyledCloseIcon = styled(CloseIcon)`
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 `
 
 const StyledProblemIcon = styled(ProblemIcon)`
