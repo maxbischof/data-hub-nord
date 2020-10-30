@@ -35,12 +35,12 @@ export default function DatasetDetails({
       <DetailsDescription>
         <Headline>{title}</Headline>
         <Paragraph>{description}</Paragraph>
-        <br />
+
         <Headline3>Lizenz</Headline3>
         <Paragraph>
           <a href={license}>Zur Lizenz</a>
         </Paragraph>
-        <br />
+
         {publisher ? (
           <>
             <Headline3>Herausgeber</Headline3>
@@ -140,6 +140,6 @@ const Headline3 = styled.h3`
 `
 
 const Paragraph = styled.p`
-  margin: 0;
+  margin: 0 0 15px 0;
   padding: 0;
 `
