@@ -41,14 +41,13 @@ export default function DatasetDetails({
           <a href={license}>Zur Lizenz</a>
         </Paragraph>
 
-        {publisher ? (
+        {publisher && (
           <>
             <Headline3>Herausgeber</Headline3>
             <Paragraph>{publisher}</Paragraph>
           </>
-        ) : (
-          ''
         )}
+
         {isBookmarked ? (
           <Button
             styleType="minus"
