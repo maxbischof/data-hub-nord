@@ -27,9 +27,9 @@ export default function DataList({
       </StyledDatasetList>
 
       {showMoreButton && (
-        <MoreButton onClick={loadMore} styleType={'more'}>
+        <Button onClick={loadMore} styleType={'more'}>
           Mehr laden
-        </MoreButton>
+        </Button>
       )}
     </>
   )
@@ -39,10 +39,6 @@ DataList.propTypes = {
   datasets: PropTypes.array.isRequired,
   setRef: PropTypes.func,
 }
-
-const MoreButton = styled(Button)`
-  align-self: center;
-`
 
 const StyledDatasetList = styled.section`
   flex: 1 0 auto;

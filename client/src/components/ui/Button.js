@@ -16,6 +16,7 @@ export default function Button({
       color: 'var(--cyan)',
       background: 'white',
       border: '1px solid var(--cyan)',
+      alignself: 'center',
     },
     action: {
       color: 'white',
