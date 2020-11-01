@@ -4,7 +4,9 @@ exports[`renders correctly 1`] = `
 Array [
   <h2
     className="sc-iCoHVE pBahF"
-  />,
+  >
+    Alle Datensätze
+  </h2>,
   <section
     className="sc-gKAblj dzbQLo"
   >
@@ -49,5 +51,11 @@ Array [
       </article>
     </a>
   </section>,
+  <button
+    className="sc-jSFkmK IgAHj"
+    onClick={[Function]}
+  >
+    Mehr laden
+  </button>,
 ]
 `;

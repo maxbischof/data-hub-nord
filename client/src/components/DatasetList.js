@@ -37,7 +37,10 @@ export default function DataList({
 
 DataList.propTypes = {
   datasets: PropTypes.array.isRequired,
-  setRef: PropTypes.func,
+  headlineRef: PropTypes.func,
+  headline: PropTypes.string.isRequired,
+  loadMore: PropTypes.func,
+  showMoreButton: PropTypes.bool.isRequired,
 }
 
 const StyledDatasetList = styled.section`
