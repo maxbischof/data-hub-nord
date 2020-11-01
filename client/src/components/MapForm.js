@@ -56,9 +56,9 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
               </select>
             </Label>
 
-            <StyledButton type="submit" styleType="more">
+            <Button type="submit" styleType="more">
               Karte erstellen
-            </StyledButton>
+            </Button>
           </Form>
           <CenterParagraph>
             <b>ODER</b>
@@ -90,9 +90,9 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
                 </Tag>
               ))}
             </div>
-            <StyledButton type="submit" styleType="more">
+            <Button type="submit" styleType="more">
               Karte erstellen
-            </StyledButton>
+            </Button>
           </Form>
         </>
       )}
@@ -130,11 +130,6 @@ const Form = styled.form`
 const Label = styled.label`
   display: block;
   margin: 0 0 10px 0;
-`
-
-const StyledButton = styled(Button)`
-  align-self: center;
-  margin: 15px;
 `
 
 const CenterParagraph = styled.p`

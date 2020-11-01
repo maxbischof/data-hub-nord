@@ -162,14 +162,14 @@ Array [
       </select>
     </label>
     <button
-      className="sc-dlnjPT ilOgXZ sc-pNWxx gSNKhn"
+      className="sc-dlnjPT ilOgXZ"
       onClick={[Function]}
     >
       Karte erstellen
     </button>
   </form>,
   <p
-    className="sc-jrsJCI iCLLwS"
+    className="sc-pNWxx kffycU"
   >
     <b>
       ODER
@@ -289,7 +289,7 @@ Array [
       </button>
     </div>
     <button
-      className="sc-dlnjPT ilOgXZ sc-pNWxx gSNKhn"
+      className="sc-dlnjPT ilOgXZ"
       onClick={[Function]}
     >
       Karte erstellen
