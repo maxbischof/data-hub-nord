@@ -12,7 +12,7 @@ export default function MapForm({ tableData, setMapData, columnNames }) {
   function onChangeAdressTags(event) {
     const tagName = event.target.name
     let newArray = []
-    if (adressColumnNames.find((name) => name === tagName)) {
+    if (adressColumnNames.includes(tagName)) {
       newArray = adressColumnNames.filter((name) => name !== tagName)
       setAdressColumnNames(newArray)
     } else setAdressColumnNames([...adressColumnNames, tagName])
