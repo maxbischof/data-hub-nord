@@ -1,17 +1,17 @@
 import React from 'react'
 import DatasetTeaserComponent from '../components/DatasetTeaser'
-import { datasets } from '../settings.js'
 
 export default {
   title: 'DatasetTeaser',
   component: DatasetTeaserComponent,
 }
 
-const Template = (args) => <DatasetTeaserComponent {...args} />
+const Template = () => (
+  <DatasetTeaserComponent
+    imagePath="/Users/student/neuefische/data-hub-nord/src/images/sea.jpg"
+    title="Seehundbänke an der Nordsee"
+    description="Lage der Seehundbänke in der westlichen Deutschen Bucht erfasst durch mehrere Forschungsschiffe"
+  />
+)
 
 export const DatasetTeaserTable = Template.bind({})
-DatasetTeaserTable.args = {
-  description: datasets[0].description,
-  imagePath: datasets[0].imageUrl,
-  title: datasets[0].name,
-}

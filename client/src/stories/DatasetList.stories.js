@@ -1,6 +1,6 @@
 import React from 'react'
 import DatasetListComponent from '../components/DatasetList'
-import { datasets } from '../settings'
+import { datasets } from '../components/testDatasets.js'
 
 export default {
   title: 'DatasetList',

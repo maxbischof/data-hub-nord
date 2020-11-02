@@ -1,6 +1,6 @@
 import React from 'react'
 import DatasetDetailsComponent from '../components/DatasetDetails'
-import { datasets } from '../settings.js'
+import { datasets } from '../components/testDatasets.js'
 import { ReactComponent as BackArrow } from '../icons/backarrow.svg'
 import styled from 'styled-components'
 
